@@ -12,6 +12,6 @@ RUN yarn install
 
 COPY --chown=node:node . /home/node/twdo-backend
 
-EXPOSE 6000
+EXPOSE 4001
 
 CMD ["yarn", "dev"]

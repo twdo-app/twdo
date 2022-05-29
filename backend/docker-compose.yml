@@ -16,7 +16,7 @@ services:
             - /home/node/twdo-backend/node_modules
             - ./files:/home/node/twdo-backend/files
         ports:
-            - "6000:6000"
+            - "4001:4001"
 
     twdo-db:
         image: postgres:11.12
