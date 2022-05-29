@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap");
+
+* {
+  @apply text-slate-100 p-0 m-0;
+}
+
+h1 {
+  font-family: "Arvo", serif;
+  font-weight: 700;
+}
+
+h2 {
+  @apply border-b border-sky-400 pb-3 mb-4;
+  font-family: "Arvo", serif;
+  font-weight: 700;
+}
+
+p {
+  @apply text-justify text-slate-200;
+}
+
+.slidev-layout {
+  @apply bg-slate-900 px-20 py-10;
+}
+
+body,
+html,
+#id,
+#page-root,
+#slide-container {
+  @apply bg-slate-900;
+}
+
+.cover {
+  @apply flex justify-center items-center;
+}
+
+.slidev-layout span {
+  @apply text-lg text-pink-400 font-bold m-r-2;
+  font-style: normal;
+}
+
+.slidev-layout h3 {
+  @apply text-base inline;
+}
+
+.slidev-layout td,
+.slidev-layout th,
+.slidev-layout tr {
+  @apply items-center justify-center text-sm border-slate-700;
+}
+
+.slidev-layout td,
+.slidev-layout th {
+  @apply px-3 py-[0.3rem];
+  line-height: 1.2rem;
+}
+
+.slidev-layout td:not(.slidev-layout tr:last-of-type td),
+.slidev-layout th {
+  @apply border-b-1;
+}
+
+.slidev-layout td:not(.slidev-layout td:last-of-type),
+.slidev-layout th:not(.slidev-layout th:last-of-type) {
+  @apply border-r-1 border-slate-700;
+}
+
+.slidev-layout th {
+  @apply font-bold;
+}
+
+.slidev-layout table {
+  @apply my-4 relative bg-slate-800/50 border border-slate-700 rounded-md;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.slidev-layout ul,
+.slidev-layout ol {
+  @apply w-full;
+}
+.slidev-layout ol {
+  counter-reset: orderedlist;
+}
+
+.slidev-layout li {
+  @apply list-none m-0 p-0 w-full;
+}
+
+.slidev-layout ul > li::before {
+  @apply text-pink-400 font-bold mr-4 ml-4;
+  content: "•";
+}
+
+.slidev-layout ol > li::before {
+  @apply text-pink-400 font-bold mr-2;
+  counter-increment: orderedlist;
+  content: counter(orderedlist) ".";
+}
+
+.slidev-layout p {
+  @apply m-0 p-0 inline;
+}
+
+.slidev-layout pre {
+  @apply font-sans;
+  font-style: normal !important;
+  line-height: 1.5rem;
+}
+
+.slidev-layout img {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  height: calc(100% - 10rem);
+}

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transition-props-slow: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-props-fast: 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-size: 16px;
+}
+
+* {
+  @apply dark:text-slate-200;
+  font-family: "Nunito", sans-serif;
+  list-style: none;
+  outline: none;
+  border: none;
+}
+
+body {
+  @apply bg-slate-100 dark:bg-slate-900;
+  height: 100vh;
+}
+
+#root {
+  @apply h-full;
+}
