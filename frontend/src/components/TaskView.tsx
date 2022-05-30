@@ -1,13 +1,10 @@
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { useSelector } from "react-redux";
-import { tasksState } from "../reducers/tasksReducer";
+import { useStore } from "../store/useStore";
 import { task } from "../types";
 import Task from "./Task";
 
 export default function TaskView() {
-  const tasks = useSelector<tasksState, tasksState["tasks"]>(
-    (state) => state.tasks
-  );
+  const tasks = useStore((state) => state.tasks);
 
   const reorder = (list: task[], startIndex: number, endIndex: number) => {
     const result = [...list];

@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
 
 import { FiCalendar, FiTrash2 } from "react-icons/fi";
 import { Draggable } from "react-beautiful-dnd";
@@ -7,6 +6,7 @@ import styled from "styled-components";
 
 import Clickable from "./common/Clickable";
 import Checkbox from "./common/Checkbox";
+import { useStore } from "../store/useStore";
 
 export default function Task(props: {
   description: string;
@@ -17,17 +17,7 @@ export default function Task(props: {
   const [description, setDescription] = useState(props.description);
   const [editMode, setEditMode] = useState(false);
 
-  const dispatch = useDispatch();
-
-  const removeTask = () => {
-    dispatch({
-      type: "REMOVE_TASK",
-      payload: {
-        id: props.id,
-        description: props.description,
-      },
-    });
-  };
+  const removeTask = useStore((state) => state.removeTask);
 
   const inputElement = useRef<HTMLInputElement>(null);
 
@@ -107,7 +97,10 @@ export default function Task(props: {
               <Button buttonType="default">
                 <FiCalendar />
               </Button>
-              <Button buttonType="destructive" onClick={removeTask}>
+              <Button
+                buttonType="destructive"
+                onClick={() => removeTask(props.id)}
+              >
                 <FiTrash2 />
               </Button>
             </ActionMenu>
