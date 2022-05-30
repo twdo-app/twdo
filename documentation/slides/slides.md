@@ -163,7 +163,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 |                   | A1.1 Ator seleciona "Sign up with Github"                                 |
 |                   | A1.2 Sistema redireciona para telas de confirmação                        |
 |                   | A1.3 Ator seleciona "I accept"                                            |
-|                   | A1.4 Sistema redireciona para tela de login.                              |
+|                   | A1.4 Sistema redireciona para tela de login                               |
 | Fluxo Alternativo | A2 - E-mail já registrado                                                 |
 |                   | A2.1 - O sistema apresenta uma mensagem de erro                           |
 |                   | A2.2 - Volta para o passo 1                                               |
@@ -224,13 +224,14 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                     |
 | Pré-condições     | O usuário não pode estar logado na aplicação e possuir uma conta registrada |
 | Trigger           | Ator seleciona "Sign in"                                                    |
-| Fluxo Principal   | 1. Ator digita email e senha nos campos do formulário                       |
+| Fluxo Principal   | 1. Ator digita email e senha nos campos do formulário.[A1]                  |
 |                   | 2. Ator seleciona "Sign in"                                                 |
 |                   | 3. Sistema redireciona para tela inicial de "Today"                         |
-| Fluxo Alternativo | 1. Ator seleciona "Sign in with Github"                                     |
-|                   | 2. Sistema redireciona para telas de confirmação                            |
-|                   | 3. Ator seleciona "I accept"                                                |
-|                   | 4. Sistema redireciona para inicial de "Today"                              |
+| Fluxo Alternativo | A1 - Iniciar sessão com Github                                              |
+|                   | A1.1 Ator seleciona "Sign in with Github"                                   |
+|                   | A1.2 Sistema redireciona para telas de confirmação                          |
+|                   | A1.3 Ator seleciona "I accept"                                              |
+|                   | A1.4 Sistema redireciona para tela inical de "Today                         |
 | Extensões         | N/A                                                                         |
 | Pós-condições     | O Ator é redirecionado para a tela "Today"                                  |
 | Regras de negócio | N/A                                                                         |
@@ -247,11 +248,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"                  |
 | Trigger           | Ator seleciona "Send Feedback"                                                    |
 | Fluxo Principal   | 1. Sistema mostra uma caixa de texto para o usuário                               |
-|                   | 2. Ator digita sua mensagem na caixa de texto                                     |
-|                   | 3. Ator seleciona "Send Feedback"                                                 |
+|                   | 2. Ator digita sua mensagem na caixa de texto e clica no botão "Send feedback"    |
+|                   | 3. Sistema mostra uma notificação de agradecimento e retira a caixa de texto da tela|
 | Fluxo Alternativo | N/A                                                                               |
 | Extensões         | N/A                                                                               |
-| Pós-condições     | Sistema mostra uma notificação de agradecimento e retira a caixa de texto da tela |
+| Pós-condições     | O Ator permanece na tela "Settings"                                               |
 | Regras de negócio | RN4                                                                               |
 
 ---
@@ -266,9 +267,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"                       |
 | Trigger           | O Ator clica na caixa "Send daily reminder of my Tasks"                                |
 | Fluxo Principal   | 1. Ator seleciona o botão "Save Changes"                                               |
+|                   | 2. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela|
 | Fluxo Alternativo | N/A                                                                                    |
 | Extensões         | N/A                                                                                    |
-| Pós-condições     | O Sistema mostra uma notificação de que as configurações foram salvas com sucesso      |
+| Pós-condições     | O Ator permanece na tela "Settings"                                                    |
 | Regras de negócio | RN4                                                                                    |
 
 ---
