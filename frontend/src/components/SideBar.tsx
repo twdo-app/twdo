@@ -38,7 +38,7 @@ export default function SideBar() {
         <SideBarItem
           label="user settings"
           icon={<FiUser />}
-          route="/upcoming"
+          route="/user-settings"
         ></SideBarItem>
       </SideBarGroup>
     </nav>
