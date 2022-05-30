@@ -53,15 +53,16 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF  | Descrição                                                                             |
 | --- | ------------------------------------------------------------------------------------- |
-| RF1 | O sistema deve permitir que o usuário crie uma Tarefa.                                |
+| RF1 | O sistema deve permitir que o usuário crie uma Tarefa preenchendo os campos descrição, data e data limite.|
 | RF2 | O sistema deve permitir que o usuário liste as Tarefas dele agendadas para aquele dia |
 | RF3 | O sitema deve permitir que o usuário liste as Tarefas agendadas para dias futuros     |
 | RF4 | O sitema deve permitir que o usuário marque uma Tarefa como feita                     |
 | RF5 | O sitema deve permitir que o usuário edite a descrição e as datas de uma Tarefa       |
-| RF6 | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                    |
-| RF7 | O sistema deve permitir que o usuário veja seus Projetos atuais                       |
-| RF8 | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos               |
-| RF9 | O sistema deve permitir que o usuário edite o nome de seus Projetos                   |
+| RF6 | O sistema deve permitir que o usuário crie um Projeto preenchendo o campo descrição   |
+| RF7 | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                    |
+| RF8 | O sistema deve permitir que o usuário veja seus Projetos atuais                       |
+| RF9 | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos               |
+| RF10 | O sistema deve permitir que o usuário edite o descrição de seus Projetos                   |
 
 ---
 
@@ -69,10 +70,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF   | Descrição                                                                                                     |
 | ---- | ------------------------------------------------------------------------------------------------------------- |
-| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email ou através de oAuth com conta do Github |
-| RF11 | O sistema deve permitir que o usuário se autentique                                                           |
+| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email.                                        |
+| RF11 | O sistema deve permitir que o usuário se autentique informando email e senha                                  |
 | RF12 | O sistema deve permitir que o usuário delete sua própria conta                                                |
-| RF13 | O sistema deve permitir que o usuário altere o email da sua própria conta                                     |
+| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta                       |
 
 ---
 
@@ -105,8 +106,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN2 | Um usuário não pode alterar o email da sua conta para um email já pertencente à outra conta cadastrada.                                   |
 | RN3 | Um usuário não pode associar uma Tarefa à mais de um Projeto.                                                                             |
 | RN4 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email) após se autenticar.     |
-| RN5 | Uma tarefa é criada preenchendo um formulário com ao menos a sua "descrição", podendo ser atribuída também uma "data" e uma "data limite" |
-| RN6 | Um projeto é criado preenchendo um formulário com o seu "nome" e atribuindo 0 ou mais tarefas para ele.                                   |
+| RN5 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                     |
+| RN6 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                   |
 
 ---
 
@@ -162,7 +163,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 |                   | A1.1 Ator seleciona "Sign up with Github"                                 |
 |                   | A1.2 Sistema redireciona para telas de confirmação                        |
 |                   | A1.3 Ator seleciona "I accept"                                            |
-|                   | A1.4 Sistema redireciona para tela de login.                              |
+|                   | A1.4 Sistema redireciona para tela de login                               |
 | Fluxo Alternativo | A2 - E-mail já registrado                                                 |
 |                   | A2.1 - O sistema apresenta uma mensagem de erro                           |
 |                   | A2.2 - Volta para o passo 1                                               |
@@ -223,13 +224,14 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                     |
 | Pré-condições     | O usuário não pode estar logado na aplicação e possuir uma conta registrada |
 | Trigger           | Ator seleciona "Sign in"                                                    |
-| Fluxo Principal   | 1. Ator digita email e senha nos campos do formulário                       |
+| Fluxo Principal   | 1. Ator digita email e senha nos campos do formulário.[A1]                  |
 |                   | 2. Ator seleciona "Sign in"                                                 |
 |                   | 3. Sistema redireciona para tela inicial de "Today"                         |
-| Fluxo Alternativo | 1. Ator seleciona "Sign in with Github"                                     |
-|                   | 2. Sistema redireciona para telas de confirmação                            |
-|                   | 3. Ator seleciona "I accept"                                                |
-|                   | 4. Sistema redireciona para inicial de "Today"                              |
+| Fluxo Alternativo | A1 - Iniciar sessão com Github                                              |
+|                   | A1.1 Ator seleciona "Sign in with Github"                                   |
+|                   | A1.2 Sistema redireciona para telas de confirmação                          |
+|                   | A1.3 Ator seleciona "I accept"                                              |
+|                   | A1.4 Sistema redireciona para tela inical de "Today                         |
 | Extensões         | N/A                                                                         |
 | Pós-condições     | O Ator é redirecionado para a tela "Today"                                  |
 | Regras de negócio | N/A                                                                         |
@@ -246,11 +248,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"                  |
 | Trigger           | Ator seleciona "Send Feedback"                                                    |
 | Fluxo Principal   | 1. Sistema mostra uma caixa de texto para o usuário                               |
-|                   | 2. Ator digita sua mensagem na caixa de texto                                     |
-|                   | 3. Ator seleciona "Send Feedback"                                                 |
+|                   | 2. Ator digita sua mensagem na caixa de texto e clica no botão "Send feedback"    |
+|                   | 3. Sistema mostra uma notificação de agradecimento e retira a caixa de texto da tela|
 | Fluxo Alternativo | N/A                                                                               |
 | Extensões         | N/A                                                                               |
-| Pós-condições     | Sistema mostra uma notificação de agradecimento e retira a caixa de texto da tela |
+| Pós-condições     | O Ator permanece na tela "Settings"                                               |
 | Regras de negócio | RN4                                                                               |
 
 ---
@@ -265,9 +267,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"                       |
 | Trigger           | O Ator clica na caixa "Send daily reminder of my Tasks"                                |
 | Fluxo Principal   | 1. Ator seleciona o botão "Save Changes"                                               |
+|                   | 2. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela|
 | Fluxo Alternativo | N/A                                                                                    |
 | Extensões         | N/A                                                                                    |
-| Pós-condições     | O Sistema mostra uma notificação de que as configurações foram salvas com sucesso      |
+| Pós-condições     | O Ator permanece na tela "Settings"                                                    |
 | Regras de negócio | RN4                                                                                    |
 
 ---
