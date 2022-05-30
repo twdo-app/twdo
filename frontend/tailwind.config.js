@@ -12,13 +12,9 @@ module.exports = {
         sidebar: "200px",
       },
       transitionProperty: {
-        clickable: "background padding border outline transform height",
+        clickable: "background-color padding border outline transform height",
       },
     },
   },
-  plugins: [
-    function ({ addVariant }) {
-      addVariant("child-icon", "& svg");
-    },
-  ],
+  plugins: [],
 };

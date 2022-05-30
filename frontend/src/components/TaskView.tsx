@@ -1,7 +1,7 @@
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
-import { tasksState } from "../../reducers/tasksReducer";
-import { task } from "../../types";
+import { tasksState } from "../reducers/tasksReducer";
+import { task } from "../types";
 import Task from "./Task";
 
 export default function TaskView() {

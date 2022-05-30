@@ -8,6 +8,12 @@
   font-size: 16px;
 }
 
+@layer base {
+  input {
+    @apply focus-visible:outline-none;
+  }
+}
+
 * {
   @apply dark:text-slate-200;
   font-family: "Nunito", sans-serif;

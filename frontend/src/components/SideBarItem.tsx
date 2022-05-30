@@ -1,11 +1,11 @@
 import { ReactElement } from "react";
-import { IconType } from "react-icons";
 import { Link } from "react-router-dom";
 
-import Clickable from "../common/Clickable";
-import Icon from "../common/Icon";
+import { IconType } from "react-icons";
+import Clickable from "./common/Clickable";
+import Icon from "./common/Icon";
 
-export default function SidebarButton({
+export default function SideBarItem({
   label,
   icon,
   route,

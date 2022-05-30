@@ -5,8 +5,8 @@ import { FiCalendar, FiTrash2 } from "react-icons/fi";
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 
-import Clickable from "../common/Clickable";
-import Checkbox from "../common/Checkbox";
+import Clickable from "./common/Clickable";
+import Checkbox from "./common/Checkbox";
 
 export default function Task(props: {
   description: string;
@@ -77,12 +77,13 @@ export default function Task(props: {
           {...provided.dragHandleProps}
         >
           <Clickable
-            className={`
-              ${
-                editMode &&
-                "relative flex-col h-16 z-20 border border-solid border-slate-300/50 items-stretch shadow-lg shadow-slate-200 px-3 py-2 dark:border-slate-400/10 dark:shadow-slate-800/10 dark:bg-slate-800/20"
-              }
-            `}
+            className={
+              editMode
+                ? `
+              ${"relative flex-col h-16 z-20 border border-solid border-slate-300/50 items-stretch shadow-lg shadow-slate-200 px-3 py-2 dark:border-slate-400/10 dark:shadow-slate-800/10 dark:bg-slate-800/20"}
+            `
+                : ""
+            }
             hoverDisabled={editMode}
             onClick={() => setEditMode(true)}
           >

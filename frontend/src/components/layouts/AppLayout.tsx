@@ -1,18 +1,16 @@
-import { task } from "../../types";
+import HeaderBar from "../HeaderBar";
+import SideBar from "../SideBar";
+import TaskView from "../TaskView";
 
-import HeaderBar from "../widgets/HeaderBar";
-import Sidebar from "../widgets/Sidebar";
-import TaskView from "../widgets/TaskView";
-
-export default function AppLayout(props: { title: string }) {
+export default function AppLayout({ title }: { title: string }) {
   return (
     <main className="grid grid-cols-app-layout grid-rows-app-layout h-full gap-4">
       <div className="col-start-2 row-start-1 w-full justify-self-center self-center">
-        <HeaderBar title="Today" />
+        <HeaderBar title={title} />
       </div>
 
       <div className="max-w-sidebar row-start-2 col-start-1 w-full justify-self-end">
-        <Sidebar />
+        <SideBar />
       </div>
 
       <div className="row-start-2 col-start-2 w-full justify-self-center">
