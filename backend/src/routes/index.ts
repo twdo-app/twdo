@@ -7,6 +7,7 @@ import tasksRoutes from "./tasks";
 
 const router = express.Router();
 
+router.get("/test", (req, res) => res.status(200).send({ message: "foi" }));
 router.use("/users", usersRoutes);
 router.use("/tasks", tasksRoutes);
 
