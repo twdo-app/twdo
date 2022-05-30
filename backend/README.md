@@ -68,3 +68,25 @@ docker ps
 ```[lang=bash]
 docker compose down (ou um ctrl+c no terminal que estiver rodando)
 ```
+
+<!-->
+
+            <button
+                onClick={() =>
+                    fetch("http://localhost:4001/users/register", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            name: "Vitor",
+                            email: "vitor@email.com",
+                            password: "123456",
+                        }),
+                    })
+                }
+            >
+                agr vai
+            </button>
+
+<-->
