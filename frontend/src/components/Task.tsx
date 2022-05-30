@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Clickable from "./common/Clickable";
 import Checkbox from "./common/Checkbox";
 import { useStore } from "../store/useStore";
+import DimScreen from "./common/DimScreen";
 
 export default function Task(props: {
   description: string;
@@ -93,74 +94,10 @@ export default function Task(props: {
               onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <ActionMenu editMode={editMode}>
-              <Button buttonType="default">
-                <FiCalendar />
-              </Button>
-              <Button
-                buttonType="destructive"
-                onClick={() => removeTask(props.id)}
-              >
-                <FiTrash2 />
-              </Button>
-            </ActionMenu>
           </Clickable>
-          {editMode ? (
-            <div
-              className="absolute z-10 top-0 left-0 h-screen w-screen"
-              onClick={() => setEditMode(false)}
-            />
-          ) : (
-            ""
-          )}
+          <DimScreen hidden={!editMode} onClick={() => setEditMode(false)} />
         </li>
       )}
     </Draggable>
   );
 }
-
-const ActionMenu = styled.div`
-  ${(props: { editMode: boolean }) =>
-    props.editMode ? "display: flex;" : "display: none;"}
-  justify-content: flex-end;
-`;
-
-const Button = styled.button`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  height: 1.4rem;
-  width: 1.4rem;
-  margin-left: 0.2rem;
-
-  border: none;
-  border-radius: 0.2rem;
-  background-color: transparent;
-
-  outline: transparent;
-
-  transition: background-color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1),
-    outline 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-  &:hover {
-    background-color: ${(props: { buttonType: string }) =>
-      props.buttonType === "destructive" ? "#ff000015" : "#0000ff15"};
-
-    outline: 1px solid
-      ${(props: { buttonType: string }) =>
-        props.buttonType === "destructive" ? "#ff000030" : "#0000ff30"};
-
-    svg {
-      color: ${(props: { buttonType: string }) =>
-        props.buttonType === "destructive" ? "red" : "blue"};
-    }
-  }
-
-  svg {
-    color: #888;
-    width: 1rem;
-    stroke-width: 1.5px;
-    transition: color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-`;

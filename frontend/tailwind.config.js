@@ -12,7 +12,8 @@ module.exports = {
         sidebar: "200px",
       },
       transitionProperty: {
-        clickable: "background-color padding border outline transform height",
+        clickable:
+          "background-color padding border outline transform height position",
       },
     },
   },
