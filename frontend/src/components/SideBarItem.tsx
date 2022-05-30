@@ -15,11 +15,13 @@ export default function SideBarItem({
   route: string;
 }) {
   return (
-    <Link to={`${route}`}>
-      <Clickable className="w-full mb-1">
-        <Icon icon={icon} className={"mr-2"} />
-        <p className="font-bold">{label.toLowerCase()}</p>
-      </Clickable>
-    </Link>
+    <li>
+      <Link to={`${route}`}>
+        <Clickable className="w-full mb-1">
+          <Icon icon={icon} className={"mr-2"} />
+          <p className="font-bold">{label.toLowerCase()}</p>
+        </Clickable>
+      </Link>
+    </li>
   );
 }
