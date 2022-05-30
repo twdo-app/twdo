@@ -53,7 +53,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF  | Descrição                                                                             |
 | --- | ------------------------------------------------------------------------------------- |
-| RF1 | O sistema deve permitir que o usuário crie uma Tarefa.                                |
+| RF1 | O sistema deve permitir que o usuário crie uma Tarefa preenchendo os campos descrição, data e data limite.|
 | RF2 | O sistema deve permitir que o usuário liste as Tarefas dele agendadas para aquele dia |
 | RF3 | O sitema deve permitir que o usuário liste as Tarefas agendadas para dias futuros     |
 | RF4 | O sitema deve permitir que o usuário marque uma Tarefa como feita                     |
@@ -69,10 +69,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF   | Descrição                                                                                                     |
 | ---- | ------------------------------------------------------------------------------------------------------------- |
-| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email ou através de oAuth com conta do Github |
-| RF11 | O sistema deve permitir que o usuário se autentique                                                           |
+| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email.                                        |
+| RF11 | O sistema deve permitir que o usuário se autentique informando email e senha                                  |
 | RF12 | O sistema deve permitir que o usuário delete sua própria conta                                                |
-| RF13 | O sistema deve permitir que o usuário altere o email da sua própria conta                                     |
+| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta                       |
 
 ---
 
