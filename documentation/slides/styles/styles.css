@@ -116,8 +116,12 @@ html,
   height: calc(100% - 10rem);
 }
 
-.slide-number {
+.slide-number-container {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+}
+
+.slide-total-number {
+  color: #fff;
 }

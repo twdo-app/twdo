@@ -1,3 +1,3 @@
 <template>
-  <div class="slide-number"><SlideCurrentNo /> / <SlidesTotal /></div>
+  <div class="slide-number-container"><SlideCurrentNo /> / <SlidesTotal /></div>
 </template>
