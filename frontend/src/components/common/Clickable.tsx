@@ -1,9 +1,9 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, ReactElement } from "react";
 
 export default function Clickable(props: {
   className?: string;
   onClick?: MouseEventHandler<any>;
-  children: any;
+  children: ReactElement | ReactElement[];
   type?: "button";
   hoverDisabled?: boolean;
 }) {
