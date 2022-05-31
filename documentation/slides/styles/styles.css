@@ -115,3 +115,9 @@ html,
   transform: translateX(50%);
   height: calc(100% - 10rem);
 }
+
+.slide-number {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
