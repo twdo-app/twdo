@@ -1,6 +1,5 @@
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useStore } from "../store/useStore";
-import { task } from "../types";
 import Task from "./Task";
 
 export default function TaskView() {
