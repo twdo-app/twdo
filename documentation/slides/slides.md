@@ -122,6 +122,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN5 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                               |
 | RN6 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                             |
 | RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                              |
+| RN8 | Só serão aceitas senhas com no minimo 5 caracteres                                                                                                  |
 
 <SlideNumber/>
 
@@ -262,7 +263,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 |                   | A1.2 - Volta para o passo 1                                                                                |
 | Extensões         | N/A                                                                                                        |
 | Pós-condições     | O Ator permanece na tela "Settings"                                                                        |
-| Regras de negócio | RN4, RN7                                                                                                   |
+| Regras de negócio | RN4, RN7, RN8                                                                                               |
 
 <SlideNumber/>
 
