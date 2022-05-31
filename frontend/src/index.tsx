@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navigate to="settings" replace />} />
+      <Route path="/" element={<Navigate to="sign-in" replace />} />
       <Route path="sign-in" element={<SignIn />} />
       <Route path="sign-up" element={<SignUp />} />
       <Route path="settings" element={<Settings />} />
