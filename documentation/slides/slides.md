@@ -356,6 +356,45 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
+## Casos de Uso<span> ></span> <h3>5 - Mudar Tema</h3>
+
+| Propriedade       | Descrição                                                                                                  |
+| ----------------- | ---------------------------------------------------------------------------------------------------------- |
+| Nome              | Mudar Tema                                                                                                 |
+| Objetivo          | Mudar o tema da aplicação para Dark ou Light                                                               |
+| Atores            | Usuário                                                                                                    |
+| Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"                                           |
+| Trigger           | O Ator clica na caixa de "Theme"                                                                           |
+| Fluxo Principal   | 1. Ator seleciona um dos temas                                                                             |
+|                   | 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças                                      |
+| Fluxo Alternativo | N/A                                                                                                        |
+| Extensões         | N/A                                                                                                        |
+| Pós-condições     | O Ator permanece na tela "Settings"                                                                        |
+| Regras de negócio | RN4                                                                                                        |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso<span> ></span> <h3>6 - Encerrar Sessão</h3>
+
+| Propriedade       | Descrição                                                                   |
+| ----------------- | --------------------------------------------------------------------------- |
+| Nome              | Encerrar sessão                                                             |
+| Objetivo          | Encerrar sessão na aplicação                                                |
+| Atores            | Usuário                                                                     |
+| Pré-condições     | O usuário precisa estar logado na aplicação e na na tela de User            |
+| Trigger           | Ator seleciona "Sign out"                                                   |
+| Fluxo Principal   | 1. Sistema efetua o logout do usuário                                       |
+| Fluxo Alternativo | N/A                                                                         | 
+| Extensões         | N/A                                                                         |
+| Pós-condições     | O Ator é redirecionado para a tela de "Sign In"                             |
+| Regras de negócio | RN4                                                                         |
+
+<SlideNumber/>
+
+---
+
 ## Links
 
 - https://balsamiq.cloud/sxy21mi/pcz15al
