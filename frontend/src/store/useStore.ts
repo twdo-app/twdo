@@ -7,6 +7,7 @@ interface TasksState {
   tasks: task[];
   addTask: (description: string) => void;
   removeTask: (id: string) => void;
+  reorderTasks: (startIndex: number, endIndex: number) => void;
 }
 
 export const useStore = create<TasksState>((set) => ({
@@ -39,5 +40,16 @@ export const useStore = create<TasksState>((set) => ({
     set((state) => ({
       tasks: state.tasks.filter((todo) => todo.id !== id),
     }));
+  },
+  reorderTasks: (startIndex, endIndex) => {
+    set((state) => {
+      const result = [...state.tasks];
+      const [removed] = result.splice(startIndex, 1);
+      result.splice(endIndex, 0, removed);
+
+      return {
+        tasks: result,
+      };
+    });
   },
 }));
