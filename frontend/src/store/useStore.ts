@@ -11,20 +11,7 @@ interface TasksState {
 }
 
 export const useStore = create<TasksState>((set) => ({
-  tasks: [
-    {
-      id: "1",
-      description: "task",
-    },
-    {
-      id: "2",
-      description: "task2",
-    },
-    {
-      id: "3",
-      description: "task2",
-    },
-  ],
+  tasks: [],
   addTask: (description: string) => {
     set((state) => ({
       tasks: [

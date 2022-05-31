@@ -8,6 +8,8 @@ import Upcoming from "./pages/upcoming";
 import Someday from "./pages/someday";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
+import Settings from "./pages/settings";
+import UserSettings from "./pages/user-settings";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,12 +17,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navigate to="today" replace />} />
+      <Route path="/" element={<Navigate to="settings" replace />} />
       <Route path="sign-in" element={<SignIn />} />
       <Route path="sign-up" element={<SignUp />} />
-      <Route path="today" element={<Today />} />
-      <Route path="upcoming" element={<Upcoming />} />
-      <Route path="someday" element={<Someday />} />
+      <Route path="settings" element={<Settings />} />
+      <Route path="user-settings" element={<UserSettings />} />
     </Routes>
   </BrowserRouter>
 );

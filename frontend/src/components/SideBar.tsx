@@ -14,23 +14,6 @@ export default function SideBar() {
     <nav className="flex flex-col items-end h-full w-full max-w-sidebar row-start-2 col-start-1 justify-self-end">
       <SideBarGroup>
         <SideBarItem
-          label="today"
-          icon={<FiSun />}
-          route="/today"
-        ></SideBarItem>
-        <SideBarItem
-          label="upcoming"
-          icon={<FiCalendar />}
-          route="/upcoming"
-        ></SideBarItem>
-        <SideBarItem
-          label="someday"
-          icon={<FiPackage />}
-          route="/someday"
-        ></SideBarItem>
-      </SideBarGroup>
-      <SideBarGroup>
-        <SideBarItem
           label="settings"
           icon={<FiSettings />}
           route="/settings"
