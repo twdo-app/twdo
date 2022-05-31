@@ -14,9 +14,6 @@ export default function SignIn() {
 
       <Button className="w-full mb-8">login</Button>
 
-      <p className="mb-2">
-        <Hyperlink to="/sign-in">forget your password?</Hyperlink>
-      </p>
       <p>
         no account? <Hyperlink to="/sign-up">create one</Hyperlink>
       </p>

@@ -5,5 +5,9 @@ export default function Title({
   children: string;
   className?: string;
 }) {
-  return <h1 className={`${className} text-3xl`}>{children}</h1>;
+  return (
+    <h1 className={`${className} text-3xl font-semibold`}>
+      {children.toUpperCase()}
+    </h1>
+  );
 }
