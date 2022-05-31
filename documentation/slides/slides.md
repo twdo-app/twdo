@@ -105,9 +105,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN1 | Um usuário não pode cadastrar uma conta com um email já pertencente à outra conta cadastrada.                                             |
 | RN2 | Um usuário não pode alterar o email da sua conta para um email já pertencente à outra conta cadastrada.                                   |
 | RN3 | Um usuário não pode associar uma Tarefa à mais de um Projeto.                                                                             |
-| RN4 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email) após se autenticar.     |
+| RN4 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email, senha e nome) após se autenticar.     |
 | RN5 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                     |
 | RN6 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                   |
+| RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                    |
 
 ---
 
@@ -126,6 +127,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>1.1</span> Registrar Conta
   <span>1.2</span> Deletar Conta
   <span>1.3</span> Alterar Email
+  <span>1.4</span> Alterar Senha
+  <span>1.5</span> Alterar Nome
 <span>2.</span> Manter Tarefa
 <span>3.</span> Manter Projeto
 <span>4.</span> Iniciar Sessão
@@ -215,6 +218,48 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
+## Casos de Uso<span> ></span> <h3>1.4 - Alterar Senha</h3>
+
+| Propriedade       | Descrição                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Nome              | Alterar senha                                                                                                      |
+| Objetivo          | Alterar a senha da conta                                                                                           |
+| Atores            | Usuário                                                                                                            |
+| Pré-condições     | Ator precisa estar logado e na página "Settings"                                                                   |
+| Trigger           | Ator clica em "Change my password"                                                                                 |
+| Fluxo Principal   | 1. O ator preenche os campos "senha atual", "nova senha" e clica em "Save Changes"                                 |
+|                   | 2. O sistema pede uma confirmação da ação                                                                          |
+|                   | 3. O ator confirma a ação                                                                                          |
+|                   | 4. O sistema valida a senha atual [A1]                                                                             |
+|                   | 5. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela         |
+| Fluxo Alternativo | A1 - Senha atual invalida                                                                                          |
+|                   | A1.1 - O sistema apresenta uma mensagem de erro                                                                    |
+|                   | A1.2 - Volta para o passo 1                                                                                        |
+| Extensões         | N/A                                                                                                                |
+| Pós-condições     | O Ator permanece na tela "Settings"                                                                                |
+| Regras de negócio | RN4, RN7                                                                                                           |
+
+---
+
+## Casos de Uso<span> ></span> <h3>1.5 - Alterar Nome</h3>
+
+| Propriedade       | Descrição                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Nome              | Alterar nome                                                                                                       |
+| Objetivo          | Alterar a nome da conta                                                                                            |
+| Atores            | Usuário                                                                                                            |
+| Pré-condições     | Ator precisa estar logado e na página "Settings"                                                                   |
+| Trigger           | Ator clica em "Change my username"                                                                                 |
+| Fluxo Principal   | 1. O ator preenche o campo "Novo nome" e clica em "Save Changes"                                                   |
+|                   | 2. O sistema pede uma confirmação da ação                                                                          |
+|                   | 3. O ator confirma a ação                                                                                          |
+|                   | 4. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela         |
+| Extensões         | N/A                                                                                                                |
+| Pós-condições     | O Ator permanece na tela "Settings"                                                                                |
+| Regras de negócio | RN4                                                                                                                |
+
+---
+
 ## Casos de Uso<span> ></span> <h3>2 - Iniciar Sessão</h3>
 
 | Propriedade       | Descrição                                                                   |
@@ -249,7 +294,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Trigger           | Ator seleciona "Send Feedback"                                                    |
 | Fluxo Principal   | 1. Sistema mostra uma caixa de texto para o usuário                               |
 |                   | 2. Ator digita sua mensagem na caixa de texto e clica no botão "Send feedback"    |
-|                   | 3. Sistema mostra uma notificação de agradecimento e retira a caixa de texto da tela|
+|                   | 3. O Sistema mostra uma notificação de agradecimento e retira a caixa de texto da tela|
 | Fluxo Alternativo | N/A                                                                               |
 | Extensões         | N/A                                                                               |
 | Pós-condições     | O Ator permanece na tela "Settings"                                               |
