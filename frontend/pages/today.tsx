@@ -1,10 +1,14 @@
 import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 import AppLayout from "../components/layouts/AppLayout";
-import { getAPIClient } from "../services/axios";
+import TaskView from "../components/TaskView";
 
 export default function Today() {
-  return <AppLayout title="today" />;
+  return (
+    <AppLayout title="today">
+      <TaskView />
+    </AppLayout>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

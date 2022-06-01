@@ -18,7 +18,7 @@ export function AuthProvider({
 
   useEffect(() => {
     const { "twdo.token": token } = parseCookies();
-    setUserIsAuthenticated(true);
+    setUserIsAuthenticated(token ? true : false);
   }, []);
 
   async function signIn({ email, password }: SignInData) {
@@ -26,15 +26,17 @@ export function AuthProvider({
       await signInRequest({ email, password })
     ).json();
 
-    setCookie(undefined, "twdo.token", token, {
-      maxAge: 3600,
-    });
+    if (token !== undefined) {
+      setCookie(undefined, "twdo.token", token, {
+        maxAge: 3600,
+      });
 
-    api.defaults.headers["Authorization"] = `Bearer ${token}`;
+      api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
-    setUserIsAuthenticated(true);
+      setUserIsAuthenticated(true);
 
-    Router.push("/today");
+      Router.push("/today");
+    }
   }
 
   return (

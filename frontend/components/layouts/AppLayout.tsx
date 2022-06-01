@@ -2,16 +2,15 @@ import HeaderBar from "../HeaderBar";
 import SideBar from "../SideBar";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 const TaskView = dynamic(import("../TaskView"));
 
-export default function AppLayout({ title }: { title: string }) {
-  const [winReady, setwinReady] = useState(false);
-
-  useEffect(() => {
-    setwinReady(true);
-  }, []);
-
+export default function AppLayout({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <main className="grid grid-cols-app-layout grid-rows-app-layout h-screen gap-4">
       <div className="col-start-2 row-start-1 w-full justify-self-center self-center">
@@ -23,7 +22,7 @@ export default function AppLayout({ title }: { title: string }) {
       </div>
 
       <div className="row-start-2 col-start-2 w-full justify-self-center">
-        {winReady ? <TaskView /> : null}
+        {children}
       </div>
     </main>
   );
