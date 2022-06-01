@@ -148,19 +148,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>1.3</span> Alterar Email
   <span>1.4</span> Alterar Senha
   <span>1.5</span> Alterar Nome
-<span>2.</span> Manter Tarefa
-<span>3.</span> Manter Projeto
-<span>4.</span> Iniciar Sessão
-  <span>4.1</span> Iniciar sessão com email
-  <span>4.2</span> Iniciar sessão com github
-<span>5.</span> Enviar Feedback
-<span>6.</span> Arrastar Tarefa
-<span>7.</span> Reordenar projeto
-<span>8.</span> Ver previsão da temperatura
-<span>9.</span> Configurar envio de email com resumo do dia
-<span>10.</span> Usar Pomodoro
-<span>11.</span> Iniciar Modo Foco
-<span>12.</span> Mudar tema
+<span>2.</span> Iniciar Sessão
+  <span>2.1</span> Iniciar sessão com email
+  <span>2.2</span> Iniciar sessão com github
+<span>3.</span> Enviar Feedback
+<span>4.</span> Configurar envio de email com resumo do dia
+<span>5.</span> Mudar tema
+<span>6.</span> Encerrar sessão
+<span>7.</span> Manter Tarefa
+  <span>7.1</span> Registrar tarefa
+  <span>7.2</span> Deletar tarefa
+<span>8.</span> Manter Projeto
+<span>9.</span> Arrastar Tarefa
+<span>10.</span> Reordenar projeto
+<span>11.</span> Ver previsão da temperatura
+<span>12.</span> Usar Pomodoro
+<span>13.</span> Iniciar Modo Foco
 </pre>
 
 <SlideNumber/>
@@ -184,20 +187,18 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                             |
 | Pré-condições     | Ator na tela de cadastro                                                            |
 | Trigger           | Ator seleciona "Sign up"                                                            |
-| Fluxo Principal   | 1. Ator digita um nome de usuário, email e senha nos campos do formulário [A1] [A2] |
-|                   | 2. Ator seleciona "Sign up"                                                         |
+| Fluxo Principal   | 1. Ator digita um nome de usuário, email e senha nos campos do formulário           |
+|                   | 2. Ator seleciona "Sign up"[A1]  [A2]                                               |
 |                   | 3. Sistema redireciona para tela de login                                           |
-| Fluxo Alternativo | A1 - Registrar com Github                                                           |
-|                   | A1.1 Ator seleciona "Sign up with Github"                                           |
-|                   | A1.2 Sistema redireciona para telas de confirmação                                  |
-|                   | A1.3 Ator seleciona "I accept"                                                      |
-|                   | A1.4 Sistema redireciona para tela de login                                         |
 | Fluxo Alternativo | A2 - E-mail já registrado                                                           |
+|                   | A2.1 - O sistema apresenta uma mensagem de erro                                     |
+|                   | A2.2 - Volta para o passo 1                                                         |
+| Fluxo Alternativo | A2 - Senha invalida                                                                 |
 |                   | A2.1 - O sistema apresenta uma mensagem de erro                                     |
 |                   | A2.2 - Volta para o passo 1                                                         |
 | Extensões         | N/A                                                                                 |
 | Pós-condições     | O ator é redirecionado para a tela de login                                         |
-| Regras de negócio | RN1                                                                                 |
+| Regras de negócio | RN1, RN8                                                                            |
 
 ---
 
