@@ -157,7 +157,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <span>9.</span> Configurar envio de email com resumo do dia
 <span>10.</span> Usar Pomodoro
 <span>11.</span> Iniciar Modo Foco
-<span>12.</span> Mudar tema da aplicação
+<span>12.</span> Mudar tema
 </pre>
 
 <SlideNumber/>
@@ -392,6 +392,45 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Regras de negócio | RN4                                                                         |
 
 <SlideNumber/>
+
+---
+
+## Casos de Uso<span> ></span> <h3>7.1 - Registrar Tarefa</h3>
+
+| Propriedade       | Descrição                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Nome              | Registrar tarefa                                                                    |
+| Objetivo          | Criar uma tarefa na aplicação                                                       |
+| Atores            | Usuário                                                                             |
+| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday"|
+| Trigger           | O ator clica no sinal "+"                                                           |
+| Fluxo Principal   | 1. O ator digita a descrição da tarefa, a data de inicio e data limite              |
+|                   | 2. O sitema salva a nova tarefa                                                     |
+| Fluxo Alternativo | N/A                                                                                 |
+| Extensões         | N/A                                                                                 |
+| Pós-condições     | O ator continua na mesma página                                                     |
+| Regras de negócio | RN3, RN4, RN5                                                                       |
+
+---
+
+## Casos de Uso<span> ></span> <h3>7.2 - Deletar Tarefa</h3>
+
+| Propriedade       | Descrição                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Nome              | Deletar tarefa                                                                      |
+| Objetivo          | Deletar uma tarefa na aplicação                                                     |
+| Atores            | Usuário                                                                             |
+| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday"|
+| Trigger           | O ator clica no icone de deletar (lixeira)                                           |
+| Fluxo Principal   | 1. O sistema pede uma confirmação da ação [A1]                                      |
+|                   | 2. O ator confirma a ação                                                           |
+|                   | 3. O sistema deleta a tarefa                                                        |
+| Fluxo Alternativo | A1 Não confirmar a ação                                                             |
+|                   | A1.1 O Sistema não deleta a tarefa                                                  |
+|                   | A1.2 Fim do caso de uso                                                             |
+| Extensões         | N/A                                                                                 |
+| Pós-condições     | O ator continua na mesma página                                                     |
+| Regras de negócio | RN4                                                                                 |
 
 ---
 
