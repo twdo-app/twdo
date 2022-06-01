@@ -31,6 +31,7 @@ export default function UserSettings({ user }: { user: User }) {
   };
 
   const onSave = (data: { name: string; email: string } | any) => {
+    console.log(data.name);
     if (data.name !== "" && data.name !== user.name) {
       api.patch("/users/change-name", {
         name: data.name,
@@ -49,17 +50,17 @@ export default function UserSettings({ user }: { user: User }) {
         <FormSection>
           <FormLabel>Change Name:</FormLabel>
           <TextInput
-            {...register("name")}
             className="flex-1"
-            value={user.name}
+            {...register("name")}
+            defaultValue={user.name}
           ></TextInput>
         </FormSection>
         <FormSection>
           <FormLabel>Change E-Mail:</FormLabel>
           <TextInput
-            {...register("email")}
             className="flex-1"
-            value={user.email}
+            {...register("email")}
+            defaultValue={user.email}
           ></TextInput>
         </FormSection>
         <Button type="submit" className="mb-4">
@@ -74,8 +75,6 @@ export default function UserSettings({ user }: { user: User }) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const api = getAPIClient(ctx);
   const user = (await api.get("users/me")).data.user;
-
-  console.log(user);
 
   return {
     props: {
