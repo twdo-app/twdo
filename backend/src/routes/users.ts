@@ -83,4 +83,12 @@ router.patch(
     UserController.changeName()
 );
 
+/**
+ * Get logged user information
+ *
+ * GET
+ */
+
+router.get("/me", UserAuth.verifyJWT(), UserController.getLoggedUser());
+
 export default router;

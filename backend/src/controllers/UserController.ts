@@ -145,6 +145,22 @@ class UserController {
         };
     }
 
+    getLoggedUser() {
+        return async (req: Request, res: Response, next: NextFunction) => {
+            try {
+                const { id } = req.user;
+                const user = await userDao.findById(id);
+                return res.status(200).send({
+                    user,
+                });
+            } catch (e: any) {
+                return res.status(500).send({
+                    error: e.message,
+                });
+            }
+        };
+    }
+
     async #checkPasswordByEmail(email: string, password: string) {
         const user = await userDao.findByEmail(email);
 
