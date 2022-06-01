@@ -4,7 +4,7 @@ export default function AuthLayout({
   children,
   onSubmit,
 }: {
-  children: ReactElement | ReactElement[];
+  children: React.ReactNode;
   onSubmit?: FormEventHandler<HTMLFormElement>;
 }) {
   return (

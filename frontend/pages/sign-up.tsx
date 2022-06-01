@@ -4,6 +4,7 @@ import AuthLayout from "../components/layouts/AuthLayout";
 import Button from "../components/common/Button";
 import Hyperlink from "../components/common/Hyperlink";
 import { useForm } from "react-hook-form";
+import Router from "next/router";
 
 type SignUpFormType = {
   name: string;
@@ -28,6 +29,7 @@ export default function SignUp() {
           password: data.password,
         }),
       });
+      Router.push("/sign-in");
     }
   };
 
