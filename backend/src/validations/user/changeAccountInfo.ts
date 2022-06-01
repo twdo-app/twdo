@@ -1,13 +1,14 @@
 import * as yup from "yup";
 
-const changeUserEmailRequest = yup.object({
+const changeUserAccountInformation = yup.object({
     user: yup.object({
         id: yup.number().required(),
     }),
     params: yup.object().optional(),
     body: yup.object({
         email: yup.string().email().required(),
+        name: yup.string().required(),
     }),
 });
 
-export default changeUserEmailRequest;
+export default changeUserAccountInformation;

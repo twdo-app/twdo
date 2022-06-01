@@ -73,14 +73,15 @@ class UserDao {
         }
     }
 
-    async updateEmail(id: number, email: string) {
+    async updateInfo(id: number, email: string, name: string) {
         try {
             return await prisma.user.update({
                 where: {
                     id,
                 },
                 data: {
-                    email: email,
+                    email,
+                    name,
                 },
             });
         } catch (e) {
