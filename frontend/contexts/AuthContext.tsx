@@ -31,7 +31,7 @@ export function AuthProvider({
         maxAge: 3600,
       });
 
-      api.defaults.headers["Authorization"] = `Bearer ${token}`;
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
       setUserIsAuthenticated(true);
 
