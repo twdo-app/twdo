@@ -147,9 +147,8 @@ class UserController {
 
     getLoggedUser() {
         return async (req: Request, res: Response, next: NextFunction) => {
-            const { id } = req.user;
-
             try {
+                const { id } = req.user;
                 const user = await userDao.findById(id);
                 return res.status(200).send({
                     user,
