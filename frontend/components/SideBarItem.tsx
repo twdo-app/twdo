@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { ReactElement } from "react";
-import { Link } from "react-router-dom";
 
 import { IconType } from "react-icons";
 import Clickable from "./common/Clickable";
@@ -16,7 +16,7 @@ export default function SideBarItem({
 }) {
   return (
     <li>
-      <Link to={`${route}`}>
+      <Link href={route}>
         <Clickable className="w-full mb-1">
           <Icon icon={icon} className={"mr-2"} />
           <p className="font-bold">{label.toLowerCase()}</p>
