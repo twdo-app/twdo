@@ -19,7 +19,7 @@ const FormSection = ({ children }: { children: React.ReactNode }) => {
 };
 
 const FormLabel = ({ children }: { children: React.ReactNode }) => {
-  return <p className="flex-shrink mr-5">{children}</p>;
+  return <p className="mr-5 min-w-[9rem]">{children}</p>;
 };
 
 export default function UserSettings({ user }: { user: User }) {
@@ -49,16 +49,11 @@ export default function UserSettings({ user }: { user: User }) {
       <form onSubmit={handleSubmit(onSave)}>
         <FormSection>
           <FormLabel>Change Name:</FormLabel>
-          <TextInput
-            className="flex-1"
-            {...register("name")}
-            defaultValue={user.name}
-          ></TextInput>
+          <TextInput {...register("name")} defaultValue={user.name}></TextInput>
         </FormSection>
         <FormSection>
           <FormLabel>Change E-Mail:</FormLabel>
           <TextInput
-            className="flex-1"
             {...register("email")}
             defaultValue={user.email}
           ></TextInput>
