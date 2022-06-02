@@ -11,9 +11,6 @@ export default function HeaderBar({ title }: { title: string }) {
   return (
     <header className="flex items-center justify-between w-full row-span-1 col-span-3 place-self-center">
       <Title>{title}</Title>
-      <Clickable className="w-8 h-8" onClick={() => addTask("")}>
-        <FiPlus />
-      </Clickable>
     </header>
   );
 }

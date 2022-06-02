@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Router from "next/router";
 import { GetServerSideProps } from "next";
 import { useForm } from "react-hook-form";
-import { destroyCookie } from "nookies";
+import { destroyCookie, parseCookies } from "nookies";
+import { FiCheck } from "react-icons/fi";
 
 import { getAPIClient } from "../services/axios";
 import { User } from "../types/user";
@@ -11,19 +12,13 @@ import { api } from "../services/api";
 import Button from "../components/common/Button";
 import TextInput from "../components/common/TextInput";
 import AppLayout from "../components/layouts/AppLayout";
-
-const FormSection = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="flex items-center justify-between mb-4">{children}</div>
-  );
-};
-
-const FormLabel = ({ children }: { children: React.ReactNode }) => {
-  return <p className="mr-5 min-w-[9rem]">{children}</p>;
-};
+import Modal from "../components/common/Modal";
+import FormSection from "../components/common/FormSection";
+import FormLabel from "../components/common/FormLabel";
 
 export default function UserSettings({ user }: { user: User }) {
   const { register, handleSubmit } = useForm();
+  const [showSuccessMessage, setshowSuccessMessage] = useState(false);
 
   const signOut = () => {
     destroyCookie(null, "twdo.token");
@@ -42,10 +37,13 @@ export default function UserSettings({ user }: { user: User }) {
         email: data.email,
       });
     }
+
+    setshowSuccessMessage(true);
   };
 
   return (
-    <AppLayout title="User Settings">
+    <AppLayout title={`Hi, ${user.name}`}>
+      <h3 className="text-lg mb-4 font-bold">Account Details</h3>
       <form onSubmit={handleSubmit(onSave)}>
         <FormSection>
           <FormLabel>Change Name:</FormLabel>
@@ -58,22 +56,71 @@ export default function UserSettings({ user }: { user: User }) {
             defaultValue={user.email}
           ></TextInput>
         </FormSection>
-        <Button type="submit" className="mb-4">
-          Save
-        </Button>
+        <div className="w-full flex justify-end">
+          <Button type="submit" className="mb-4">
+            Update Account Details
+          </Button>
+        </div>
       </form>
-      <Button onClick={signOut}>Sign out</Button>
+
+      <h3 className="text-lg mb-4 font-bold">Password</h3>
+      <form onSubmit={handleSubmit(onSave)}>
+        <FormSection>
+          <FormLabel>New Password:</FormLabel>
+          <TextInput
+            type="password"
+            placeholder="type your new password"
+          ></TextInput>
+        </FormSection>
+        <FormSection>
+          <FormLabel>Confirm Your New Password:</FormLabel>
+          <TextInput
+            type="password"
+            placeholder="confirm your new password"
+          ></TextInput>
+        </FormSection>
+        <div className="w-full flex justify-end">
+          <Button type="submit" className="mb-4">
+            update password
+          </Button>
+        </div>
+      </form>
+      <Button onClick={signOut}>sign out</Button>
+      {showSuccessMessage && (
+        <Modal
+          onClick={() => {
+            setshowSuccessMessage(false);
+            Router.reload();
+          }}
+        >
+          <p className="flex items-center">
+            <FiCheck className="stroke-green-400 mr-2" />
+            Data Updated!
+          </p>
+        </Modal>
+      )}
     </AppLayout>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const api = getAPIClient(ctx);
-  const user = (await api.get("users/me")).data.user;
+  const { ["twdo.token"]: token } = parseCookies(ctx);
 
-  return {
-    props: {
-      user,
-    },
-  };
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/sign-in",
+        permanent: false,
+      },
+    };
+  } else {
+    const api = getAPIClient(ctx);
+    const user = (await api.get("users/me")).data.user;
+
+    return {
+      props: {
+        user,
+      },
+    };
+  }
 };
