@@ -5,7 +5,7 @@ import UserAuth from "../middlewares/UserAuth";
 import yupValidator from "../validations/yupValidator";
 import register from "../validations/user/register";
 import login from "../validations/user/login";
-import changeUserEmailRequest from "../validations/user/changeEmail";
+import changeUserAccountInformation from "../validations/user/changeAccountInfo";
 import deleteAccount from "../validations/user/deleteAccount";
 import changePasswordRequest from "../validations/user/changePassword";
 import changeUserNameRequest from "../validations/user/changeName";
@@ -45,15 +45,15 @@ router.delete(
 );
 
 /**
- * Change account email
+ * Change account information.
  *
  * PATCH
  */
 
 router.patch(
-    "/change-email",
+    "/change-info",
     UserAuth.verifyJWT(),
-    yupValidator(changeUserEmailRequest),
+    yupValidator(changeUserAccountInformation),
     UserController.changeEmail()
 );
 
@@ -71,16 +71,11 @@ router.patch(
 );
 
 /**
- * Change account name
+ * Get logged user information
  *
- * PATCH
+ * GET
  */
 
-router.patch(
-    "/change-name",
-    UserAuth.verifyJWT(),
-    yupValidator(changeUserNameRequest),
-    UserController.changeName()
-);
+router.get("/me", UserAuth.verifyJWT(), UserController.getLoggedUser());
 
 export default router;

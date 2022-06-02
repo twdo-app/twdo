@@ -5,37 +5,38 @@ import IDecodedPayload from "../interfaces/decodedPayload";
 import errors from "../shared/errors";
 
 const _ensureTokenPresence = (req: Request) => {
-    const bearerAuthorization = req.headers.authorization;
+    try {
+        const bearerAuthorization = req.headers.authorization;
 
-    const token = bearerAuthorization && bearerAuthorization.split(" ").pop();
+        const token =
+            bearerAuthorization && bearerAuthorization.split(" ").pop();
 
-    return token ? token : null;
+        if (!token) {
+            throw new Error(errors.requestWithoutToken);
+        }
+
+        return token;
+    } catch (e) {
+        throw new Error(errors.requestWithoutToken);
+    }
 };
 
 class UserAuth {
     static verifyJWT() {
         return (req: Request, res: Response, next: NextFunction) => {
-            const token = _ensureTokenPresence(req);
-
-            if (!token) {
-                const err = new Error();
-                res.status(401).send({
-                    message: errors.requestWithoutToken,
-                });
-                return next();
-            }
-
             try {
+                const token: string | undefined = _ensureTokenPresence(req);
+
                 const decoded = jsonwebtoken.verify(
-                    token,
+                    token as string,
                     process.env.SECRET as string
                 ) as IDecodedPayload;
                 req.user = { id: decoded.id };
 
                 next();
-            } catch (e) {
+            } catch (e: any) {
                 res.status(401).send({
-                    message: errors.invalidToken,
+                    message: e.message,
                 });
             }
         };
