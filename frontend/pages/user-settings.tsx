@@ -38,14 +38,30 @@ export default function UserSettings({ user }: { user: User }) {
   };
 
   const onUpdatePassword = (
-    data: { password: string; passwordConfirmation: string } | any
+    data:
+      | {
+          oldPassword: string;
+          newPassword: string;
+          passwordConfirmation: string;
+        }
+      | any
   ) => {
-    if (data.password === data.passwordConfirmation && data.password !== "") {
-      api.patch("/users/change-password", {
-        password: data.password,
-      });
-
-      setShowSuccessMessage(true);
+    if (
+      data.newPassword === data.passwordConfirmation &&
+      data.oldPassword !== "" &&
+      data.newPassword !== ""
+    ) {
+      api
+        .patch("/users/change-password", {
+          oldPassword: data.oldPassword,
+          newPassword: data.newPassword,
+        })
+        .then(() => {
+          setShowSuccessMessage(true);
+        })
+        .catch(() => {
+          setShowErrorMessage(true);
+        });
     } else {
       setShowErrorMessage(true);
     }
@@ -76,9 +92,17 @@ export default function UserSettings({ user }: { user: User }) {
       <h3 className="text-lg mb-4 font-bold">Password</h3>
       <form onSubmit={handleSubmit(onUpdatePassword)}>
         <FormSection>
+          <FormLabel>Confirm Your New Password:</FormLabel>
+          <TextInput
+            {...register("oldPassword")}
+            type="password"
+            placeholder="type your old password"
+          ></TextInput>
+        </FormSection>
+        <FormSection>
           <FormLabel>New Password:</FormLabel>
           <TextInput
-            {...register("password")}
+            {...register("newPassword")}
             type="password"
             placeholder="type your new password"
           ></TextInput>
