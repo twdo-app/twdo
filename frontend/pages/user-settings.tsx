@@ -3,7 +3,7 @@ import Router from "next/router";
 import { GetServerSideProps } from "next";
 import { useForm } from "react-hook-form";
 import { destroyCookie, parseCookies } from "nookies";
-import { FiCheck } from "react-icons/fi";
+import { FiCheck, FiX } from "react-icons/fi";
 
 import { getAPIClient } from "../services/axios";
 import { User } from "../types/user";
@@ -18,33 +18,43 @@ import FormLabel from "../components/common/FormLabel";
 
 export default function UserSettings({ user }: { user: User }) {
   const { register, handleSubmit } = useForm();
-  const [showSuccessMessage, setshowSuccessMessage] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const signOut = () => {
     destroyCookie(null, "twdo.token");
     Router.push("/sign-in");
   };
 
-  const onSave = (data: { name: string; email: string } | any) => {
-    console.log(data.name);
-    if (data.name !== "" && data.name !== user.name) {
-      api.patch("/users/change-name", {
-        name: data.name,
-      });
-    }
-    if (data.email !== "" && data.email !== user.email) {
-      api.patch("/users/change-email", {
-        email: data.email,
-      });
-    }
+  const onUpdateAccountDetails = (
+    data: { name: string; email: string } | any
+  ) => {
+    api.patch("/users/change-info", {
+      name: data.name === "" ? user.name : data.name,
+      email: data.email === "" ? user.email : data.email,
+    });
 
-    setshowSuccessMessage(true);
+    setShowSuccessMessage(true);
+  };
+
+  const onUpdatePassword = (
+    data: { password: string; passwordConfirmation: string } | any
+  ) => {
+    if (data.password === data.passwordConfirmation && data.password !== "") {
+      api.patch("/users/change-password", {
+        password: data.password,
+      });
+
+      setShowSuccessMessage(true);
+    } else {
+      setShowErrorMessage(true);
+    }
   };
 
   return (
     <AppLayout title={`Hi, ${user.name}`}>
       <h3 className="text-lg mb-4 font-bold">Account Details</h3>
-      <form onSubmit={handleSubmit(onSave)}>
+      <form onSubmit={handleSubmit(onUpdateAccountDetails)}>
         <FormSection>
           <FormLabel>Change Name:</FormLabel>
           <TextInput {...register("name")} defaultValue={user.name}></TextInput>
@@ -64,10 +74,11 @@ export default function UserSettings({ user }: { user: User }) {
       </form>
 
       <h3 className="text-lg mb-4 font-bold">Password</h3>
-      <form onSubmit={handleSubmit(onSave)}>
+      <form onSubmit={handleSubmit(onUpdatePassword)}>
         <FormSection>
           <FormLabel>New Password:</FormLabel>
           <TextInput
+            {...register("password")}
             type="password"
             placeholder="type your new password"
           ></TextInput>
@@ -75,6 +86,7 @@ export default function UserSettings({ user }: { user: User }) {
         <FormSection>
           <FormLabel>Confirm Your New Password:</FormLabel>
           <TextInput
+            {...register("passwordConfirmation")}
             type="password"
             placeholder="confirm your new password"
           ></TextInput>
@@ -89,13 +101,25 @@ export default function UserSettings({ user }: { user: User }) {
       {showSuccessMessage && (
         <Modal
           onClick={() => {
-            setshowSuccessMessage(false);
+            setShowSuccessMessage(false);
             Router.reload();
           }}
         >
           <p className="flex items-center">
             <FiCheck className="stroke-green-400 mr-2" />
             Data Updated!
+          </p>
+        </Modal>
+      )}
+      {showErrorMessage && (
+        <Modal
+          onClick={() => {
+            setShowErrorMessage(false);
+          }}
+        >
+          <p className="flex items-center">
+            <FiX className="stroke-pink-400 mr-2" />
+            Invalid Input!
           </p>
         </Modal>
       )}
