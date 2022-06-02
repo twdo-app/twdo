@@ -121,9 +121,9 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN4 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email, senha e nome) após se autenticar. |
 | RN5 |<b> Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.    </b>                    |
 | RN6 | <b>Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.  </b>                    |
-| RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                              |
-| RN8 | Só serão aceitas senhas com no minimo 5 caracteres                                                                                                  |
-| RN9 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada                                                                               |
+| RN7 | <b>Um usuário só poderá trocar a senha fornecendo a senha atual da conta.</b>                                                                       |
+| RN8 | <b>Só serão aceitas senhas com no minimo 5 caracteres</b>                                                                                           |
+| RN9 | <b>Um usuário só poderá iniciar a sessão caso tenha uma conta registrada</b>                                                                        |
 
 <SlideNumber/>
 
@@ -146,8 +146,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>1.1</span> Registrar Conta
   <span>1.2</span> Deletar Conta
   <span>1.3</span> Alterar Email
-  <span>1.4</span> Alterar Senha
-  <span>1.5</span> Alterar Nome
+  <b><span>1.4</span> Alterar Senha</b>
+  <b><span>1.5</span> Alterar Nome</b>
 <span>2.</span> Iniciar Sessão
   <span>2.1</span> Iniciar sessão com email
   <span>2.2</span> Iniciar sessão com github
@@ -158,10 +158,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <span>7.</span> Manter Tarefa
   <span>7.1</span> Registrar tarefa
   <span>7.2</span> Deletar tarefa
-<span>8.</span> Manter Projeto
-<span>9.</span> Arrastar Tarefa
-<span>10.</span> Reordenar projeto
-<span>11.</span> Ver previsão da temperatura
+<span>8.</span> Exibir a temperatura atual
+<span>9.</span> Manter Projeto
+<span>10.</span> Arrastar Tarefa
+<span>11.</span> Reordenar projeto
 <span>12.</span> Usar Pomodoro
 <span>13.</span> Iniciar Modo Foco
 </pre>
@@ -471,6 +471,23 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Extensões         | N/A                                                                                 |
 | Pós-condições     | O ator continua na mesma página                                                     |
 | Regras de negócio | RN4                                                                                 |
+
+---
+
+## Casos de Uso<span> ></span> <h3>8 - Exibir a temperatura atual</h3>
+
+| Propriedade       | Descrição                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Nome              | Exibir a temperatura atual                                                          |
+| Objetivo          | Exibir a temperatura atual na aplicação                                             |
+| Atores            | N/A                                                                                 |
+| Pré-condições     | O Usuário precisa estar logado na aplicação e na página "Today"                     |
+| Trigger           | N/A                                                                                 |
+| Fluxo Principal   | 1. O sistema exibe a temperatura atual do dia na tela                               |
+| Fluxo Alternativo | N/A                                                                                 |
+| Extensões         | N/A                                                                                 |
+| Pós-condições     | N/A                                                                                 |
+| Regras de negócio | N/A                                                                                 |
 
 ---
 
