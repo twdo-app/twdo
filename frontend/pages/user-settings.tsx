@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Router from "next/router";
 import { GetServerSideProps } from "next";
 import { useForm } from "react-hook-form";
-import { destroyCookie } from "nookies";
+import { destroyCookie, parseCookies } from "nookies";
+import { FiCheck, FiX } from "react-icons/fi";
 
 import { getAPIClient } from "../services/axios";
 import { User } from "../types/user";
@@ -11,42 +12,49 @@ import { api } from "../services/api";
 import Button from "../components/common/Button";
 import TextInput from "../components/common/TextInput";
 import AppLayout from "../components/layouts/AppLayout";
-
-const FormSection = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="flex items-center justify-between mb-4">{children}</div>
-  );
-};
-
-const FormLabel = ({ children }: { children: React.ReactNode }) => {
-  return <p className="mr-5 min-w-[9rem]">{children}</p>;
-};
+import Modal from "../components/common/Modal";
+import FormSection from "../components/common/FormSection";
+import FormLabel from "../components/common/FormLabel";
 
 export default function UserSettings({ user }: { user: User }) {
   const { register, handleSubmit } = useForm();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const signOut = () => {
     destroyCookie(null, "twdo.token");
     Router.push("/sign-in");
   };
 
-  const onSave = (data: { name: string; email: string } | any) => {
-    console.log(data.name);
-    if (data.name !== "" && data.name !== user.name) {
-      api.patch("/users/change-name", {
-        name: data.name,
+  const onUpdateAccountDetails = (
+    data: { name: string; email: string } | any
+  ) => {
+    api.patch("/users/change-info", {
+      name: data.name === "" ? user.name : data.name,
+      email: data.email === "" ? user.email : data.email,
+    });
+
+    setShowSuccessMessage(true);
+  };
+
+  const onUpdatePassword = (
+    data: { password: string; passwordConfirmation: string } | any
+  ) => {
+    if (data.password === data.passwordConfirmation && data.password !== "") {
+      api.patch("/users/change-password", {
+        password: data.password,
       });
-    }
-    if (data.email !== "" && data.email !== user.email) {
-      api.patch("/users/change-email", {
-        email: data.email,
-      });
+
+      setShowSuccessMessage(true);
+    } else {
+      setShowErrorMessage(true);
     }
   };
 
   return (
-    <AppLayout title="User Settings">
-      <form onSubmit={handleSubmit(onSave)}>
+    <AppLayout title={`Hi, ${user.name}`}>
+      <h3 className="text-lg mb-4 font-bold">Account Details</h3>
+      <form onSubmit={handleSubmit(onUpdateAccountDetails)}>
         <FormSection>
           <FormLabel>Change Name:</FormLabel>
           <TextInput {...register("name")} defaultValue={user.name}></TextInput>
@@ -58,22 +66,85 @@ export default function UserSettings({ user }: { user: User }) {
             defaultValue={user.email}
           ></TextInput>
         </FormSection>
-        <Button type="submit" className="mb-4">
-          Save
-        </Button>
+        <div className="w-full flex justify-end">
+          <Button type="submit" className="mb-4">
+            Update Account Details
+          </Button>
+        </div>
       </form>
-      <Button onClick={signOut}>Sign out</Button>
+
+      <h3 className="text-lg mb-4 font-bold">Password</h3>
+      <form onSubmit={handleSubmit(onUpdatePassword)}>
+        <FormSection>
+          <FormLabel>New Password:</FormLabel>
+          <TextInput
+            {...register("password")}
+            type="password"
+            placeholder="type your new password"
+          ></TextInput>
+        </FormSection>
+        <FormSection>
+          <FormLabel>Confirm Your New Password:</FormLabel>
+          <TextInput
+            {...register("passwordConfirmation")}
+            type="password"
+            placeholder="confirm your new password"
+          ></TextInput>
+        </FormSection>
+        <div className="w-full flex justify-end">
+          <Button type="submit" className="mb-4">
+            update password
+          </Button>
+        </div>
+      </form>
+      <Button onClick={signOut}>sign out</Button>
+      {showSuccessMessage && (
+        <Modal
+          onClick={() => {
+            setShowSuccessMessage(false);
+            Router.reload();
+          }}
+        >
+          <p className="flex items-center">
+            <FiCheck className="stroke-green-400 mr-2" />
+            Data Updated!
+          </p>
+        </Modal>
+      )}
+      {showErrorMessage && (
+        <Modal
+          onClick={() => {
+            setShowErrorMessage(false);
+          }}
+        >
+          <p className="flex items-center">
+            <FiX className="stroke-pink-400 mr-2" />
+            Invalid Input!
+          </p>
+        </Modal>
+      )}
     </AppLayout>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const api = getAPIClient(ctx);
-  const user = (await api.get("users/me")).data.user;
+  const { ["twdo.token"]: token } = parseCookies(ctx);
 
-  return {
-    props: {
-      user,
-    },
-  };
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/sign-in",
+        permanent: false,
+      },
+    };
+  } else {
+    const api = getAPIClient(ctx);
+    const user = (await api.get("users/me")).data.user;
+
+    return {
+      props: {
+        user,
+      },
+    };
+  }
 };

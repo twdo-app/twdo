@@ -1,9 +1,6 @@
 import HeaderBar from "../HeaderBar";
 import SideBar from "../SideBar";
 
-import dynamic from "next/dynamic";
-const TaskView = dynamic(import("../TaskView"));
-
 export default function AppLayout({
   title,
   children,
