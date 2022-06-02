@@ -28,7 +28,7 @@ O twdo é um organizador pessoal de tarefas minimalista, pensado em ser um ambie
 Ele permite que o usuário crie uma conta (utilizando e-mail pessoal ou conta existente no GitHub) e já comece a criar suas tarefas. As tarefas podem ser agrupadas em projetos e arrastadas ao longo da tela para ordená-las. Dependendo da direção que o usuário arraste a tarefa, ela pode ser adicionada para um projeto ou iniciar um timer pomodoro para a realização da tarefa.
 <br>
 <br>
-A aplicação também conta com uma área reservada para as tarefas do dia atual (que possui também informações relacionadas à temperatura climática), de maneira que o usuário possa configurar um envio automático de e-mail para avisá-lo das tarefas que ele organizou para aquele dia. As tarefas também podem ser agendadas para serem realizadas em um determinado dia, com uma área dedicada do aplicativo para listar essas tarefas.
+A aplicação também conta com uma área reservada para as tarefas do dia atual (que possui também informações relacionadas à <b> temperatura climática </b>), de maneira que o usuário possa configurar um envio automático de e-mail para avisá-lo das tarefas que ele organizou para aquele dia. As tarefas também <b> podem </b> ser agendadas para serem realizadas em um determinado dia, com uma área dedicada do aplicativo para listar essas tarefas.
 
 <SlideNumber/>
 
@@ -66,7 +66,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF7  | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
 | RF8  | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
 | RF9  | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
-| RF10 | O sistema deve permitir que o usuário edite o descrição de seus Projetos                                   |
+|<b> RF10 </b> | O sistema deve permitir que o usuário edite o descrição de seus Projetos                           |
 
 <SlideNumber/>
 
@@ -76,10 +76,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF   | Descrição                                                                               |
 | ---- | --------------------------------------------------------------------------------------- |
-| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email.                  |
+|<b> RF10 </b>| O sistema deve permitir que o usuário crie uma conta utilizando email.           |
 | RF11 | O sistema deve permitir que o usuário se autentique informando email e senha            |
 | RF12 | O sistema deve permitir que o usuário delete sua própria conta                          |
-| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta |
+| <b>RF13 </b>| O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta |
 
 <SlideNumber/>
 
@@ -93,7 +93,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF15 | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
 | RF16 | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores.                                                 |
 | RF17 | O sistema deve permitir que o usuário inicie o "Modo Foco" da funcionalidade de "Pomodoro"                                              |
-| RF18 | O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados PostgreSQL                                      |
+|<b> RF18 </b>| O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados PostgreSQL                                      |
 
 <SlideNumber/>
 
@@ -104,8 +104,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RNF  | Descrição                                                                                                                                                                      |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | RNF1 | O sistema deve criptografar a senha do usuário utilizando a biblioteca brcypt.js antes de armazená-la no banco de dados                                                        |
-| RNF2 | O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia |
-| RNF3 | O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github                                                                          |
+| <b>RNF2 </b>| O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia |
+|<b> RNF3</b> | O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github                                                                          |
 
 <SlideNumber/>
 
@@ -119,8 +119,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN2 | Um usuário não pode alterar o email da sua conta para um email já pertencente à outra conta cadastrada.                                             |
 | RN3 | Um usuário não pode associar uma Tarefa à mais de um Projeto.                                                                                       |
 | RN4 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email, senha e nome) após se autenticar. |
-| RN5 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                               |
-| RN6 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                             |
+| RN5 |<b> Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.    </b>                    |
+| RN6 | <b>Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.  </b>                    |
 | RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                              |
 | RN8 | Só serão aceitas senhas com no minimo 5 caracteres                                                                                                  |
 | RN9 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada                                                                               |
