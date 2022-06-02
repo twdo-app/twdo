@@ -152,9 +152,9 @@ class UserController {
             throw new Error(errors.invalidCredentials);
         }
 
-        return bcrypt.compareSync(password, user.password)
-            ? true
-            : new Error(errors.invalidCredentials);
+        if(bcrypt.compareSync(password, user.password)) return true
+        
+        throw new Error(errors.invalidCredentials);
     }
 
     async #checkPasswordById(id: number, password: string) {
