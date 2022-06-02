@@ -270,12 +270,21 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Fluxo Alternativo | A1 - Senha atual invalida                                                                                  |
 |                   | A1.1 - O sistema apresenta uma mensagem de erro                                                            |
 |                   | A1.2 - Volta para o passo 1                                                                                |
-| Fluxo Alternativo | A2 - Não confirmar a ação                                                                                  |
-|                   | A2.1 O Sistema não altera a senha                                                                          |
-|                   | A2.2 Fim do caso de uso                                                                                    |
-| Extensões         | N/A                                                                                                        |
-| Pós-condições     | O Ator permanece na tela "Settings"                                                                        |
-| Regras de negócio | RN4, RN7, RN8                                                                                              |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso<span> ></span> <h3>1.4 - Alterar Senha</h3>
+
+| Propriedade       | Descrição                           |
+| ----------------- | ----------------------------------- |
+| Fluxo Alternativo | A2 - Não confirmar a ação           |
+|                   | A2.1 O Sistema não altera a senha   |
+|                   | A2.2 Fim do caso de uso             |
+| Extensões         | N/A                                 |
+| Pós-condições     | O Ator permanece na tela "Settings" |
+| Regras de negócio | RN4, RN7, RN8                       |
 
 <SlideNumber/>
 
@@ -307,22 +316,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>2.1 - Iniciar sessão com email</h3>
 
-| Propriedade       | Descrição                                                                   |
-| ----------------- | --------------------------------------------------------------------------- |
-| Nome              | Iniciar sessão com email                                                    |
-| Objetivo          | Iniciar sessão na aplicação                                                 |
-| Atores            | Usuário                                                                     |
-| Pré-condições     | O usuário não pode estar logado na aplicação                                |
-| Trigger           | Ator seleciona "Sign in"                                                    |
-| Fluxo Principal   | 1. O ator digita email e senha nos campos do formulário e clica em "Sign in"|
-|                   | 2. O sistema valida os campos preenchidos[A1]                               |
-|                   | 3. O sistema redireciona para tela inicial de "Today"                       |
-| Fluxo Alternativo | A1 - Email ou senha invalidas                                               |
-|                   | A1.1 O sistema informa que um dos campos está incorreto                     |
-|                   | A1.2 Volta para o passo 1                                                   |
-| Extensões         | N/A                                                                         |
-| Pós-condições     | O Ator é redirecionado para a tela "Today"                                  |
-| Regras de negócio | N/A                                                                         |
+| Propriedade       | Descrição                                                                    |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Nome              | Iniciar sessão com email                                                     |
+| Objetivo          | Iniciar sessão na aplicação                                                  |
+| Atores            | Usuário                                                                      |
+| Pré-condições     | O usuário não pode estar logado na aplicação                                 |
+| Trigger           | Ator seleciona "Sign in"                                                     |
+| Fluxo Principal   | 1. O ator digita email e senha nos campos do formulário e clica em "Sign in" |
+|                   | 2. O sistema valida os campos preenchidos[A1]                                |
+|                   | 3. O sistema redireciona para tela inicial de "Today"                        |
+| Fluxo Alternativo | A1 - Email ou senha invalidas                                                |
+|                   | A1.1 O sistema informa que um dos campos está incorreto                      |
+|                   | A1.2 Volta para o passo 1                                                    |
+| Extensões         | N/A                                                                          |
+| Pós-condições     | O Ator é redirecionado para a tela "Today"                                   |
+| Regras de negócio | N/A                                                                          |
 
 <SlideNumber/>
 
@@ -330,22 +339,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>2.2 - Iniciar sessão com github</h3>
 
-| Propriedade       | Descrição                                                                   |
-| ----------------- | --------------------------------------------------------------------------- |
-| Nome              | Iniciar sessão com github                                                   |
-| Objetivo          | Iniciar sessão na aplicação                                                 |
-| Atores            | Usuário                                                                     |
+| Propriedade       | Descrição                                                                        |
+| ----------------- | -------------------------------------------------------------------------------- |
+| Nome              | Iniciar sessão com github                                                        |
+| Objetivo          | Iniciar sessão na aplicação                                                      |
+| Atores            | Usuário                                                                          |
 | Pré-condições     | O usuário não pode estar logado na aplicação e deve possuir uma conta registrada |
-| Trigger           | Ator seleciona "Sign in with github"                                        |
-| Fluxo Principal   | 1 Sistema redireciona para a tela de confirmação [A1]                       |
-|                   | 2 Ator seleciona "I accept"                                                 |
-|                   | 3 Sistema redireciona para tela "Today"                                     |
-| Fluxo Alternativo | A1 Não confirmar a ação                                                     |
-|                   | A1.1 O Sistema não efetua o login                                           |
-|                   | A1.2 Fim do caso de uso                                                     |
-| Extensões         | N/A                                                                         |
-| Pós-condições     | O Ator é redirecionado para a tela "Today"                                  |
-| Regras de negócio | N/A                                                                         |
+| Trigger           | Ator seleciona "Sign in with github"                                             |
+| Fluxo Principal   | 1 Sistema redireciona para a tela de confirmação [A1]                            |
+|                   | 2 Ator seleciona "I accept"                                                      |
+|                   | 3 Sistema redireciona para tela "Today"                                          |
+| Fluxo Alternativo | A1 Não confirmar a ação                                                          |
+|                   | A1.1 O Sistema não efetua o login                                                |
+|                   | A1.2 Fim do caso de uso                                                          |
+| Extensões         | N/A                                                                              |
+| Pós-condições     | O Ator é redirecionado para a tela "Today"                                       |
+| Regras de negócio | N/A                                                                              |
 
 <SlideNumber/>
 
@@ -394,19 +403,19 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>5 - Mudar Tema</h3>
 
-| Propriedade       | Descrição                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| Nome              | Mudar Tema                                                                                                 |
-| Objetivo          | Mudar o tema da aplicação para Dark ou Light                                                               |
-| Atores            | Usuário                                                                                                    |
-| Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"                                           |
-| Trigger           | O Ator clica na caixa de "Theme"                                                                           |
-| Fluxo Principal   | 1. Ator seleciona um dos temas                                                                             |
-|                   | 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças                                      |
-| Fluxo Alternativo | N/A                                                                                                        |
-| Extensões         | N/A                                                                                                        |
-| Pós-condições     | O Ator permanece na tela "Settings"                                                                        |
-| Regras de negócio | RN4                                                                                                        |
+| Propriedade       | Descrição                                                             |
+| ----------------- | --------------------------------------------------------------------- |
+| Nome              | Mudar Tema                                                            |
+| Objetivo          | Mudar o tema da aplicação para Dark ou Light                          |
+| Atores            | Usuário                                                               |
+| Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"      |
+| Trigger           | O Ator clica na caixa de "Theme"                                      |
+| Fluxo Principal   | 1. Ator seleciona um dos temas                                        |
+|                   | 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças |
+| Fluxo Alternativo | N/A                                                                   |
+| Extensões         | N/A                                                                   |
+| Pós-condições     | O Ator permanece na tela "Settings"                                   |
+| Regras de negócio | RN4                                                                   |
 
 <SlideNumber/>
 
@@ -414,22 +423,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>6 - Encerrar Sessão</h3>
 
-| Propriedade       | Descrição                                                                   |
-| ----------------- | --------------------------------------------------------------------------- |
-| Nome              | Encerrar sessão                                                             |
-| Objetivo          | Encerrar sessão na aplicação                                                |
-| Atores            | Usuário                                                                     |
-| Pré-condições     | O usuário precisa estar logado na aplicação e na na tela de User            |
-| Trigger           | Ator seleciona "Sign out"                                                   |
-| Fluxo Principal   | 1. O Sistema solicita uma confirmação da ação [A1]                          |
-|                   | 2. O ator confirma a ação                                                   |
-|                   | 3. O sistema efetua o logout                                                |
-| Fluxo Alternativo | A1 Não confirmar a ação                                                     |
-|                   | A1.1 O Sistema não efetua o logout                                          |
-|                   | A1.2 Fim do caso de uso                                                     |
-| Extensões         | N/A                                                                         |
-| Pós-condições     | O Ator é redirecionado para a tela de "Sign In"                             |
-| Regras de negócio | RN4                                                                         |
+| Propriedade       | Descrição                                                        |
+| ----------------- | ---------------------------------------------------------------- |
+| Nome              | Encerrar sessão                                                  |
+| Objetivo          | Encerrar sessão na aplicação                                     |
+| Atores            | Usuário                                                          |
+| Pré-condições     | O usuário precisa estar logado na aplicação e na na tela de User |
+| Trigger           | Ator seleciona "Sign out"                                        |
+| Fluxo Principal   | 1. O Sistema solicita uma confirmação da ação [A1]               |
+|                   | 2. O ator confirma a ação                                        |
+|                   | 3. O sistema efetua o logout                                     |
+| Fluxo Alternativo | A1 Não confirmar a ação                                          |
+|                   | A1.1 O Sistema não efetua o logout                               |
+|                   | A1.2 Fim do caso de uso                                          |
+| Extensões         | N/A                                                              |
+| Pós-condições     | O Ator é redirecionado para a tela de "Sign In"                  |
+| Regras de negócio | RN4                                                              |
 
 <SlideNumber/>
 
@@ -437,40 +446,40 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>7.1 - Registrar Tarefa</h3>
 
-| Propriedade       | Descrição                                                                           |
-| ----------------- | ----------------------------------------------------------------------------------- |
-| Nome              | Registrar tarefa                                                                    |
-| Objetivo          | Criar uma tarefa na aplicação                                                       |
-| Atores            | Usuário                                                                             |
-| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday"|
-| Trigger           | O ator clica no sinal "+"                                                           |
-| Fluxo Principal   | 1. O ator digita a descrição da tarefa, a data de inicio e data limite              |
-|                   | 2. O sitema salva a nova tarefa                                                     |
-| Fluxo Alternativo | N/A                                                                                 |
-| Extensões         | N/A                                                                                 |
-| Pós-condições     | O ator continua na mesma página                                                     |
-| Regras de negócio | RN3, RN4, RN5                                                                       |
+| Propriedade       | Descrição                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------- |
+| Nome              | Registrar tarefa                                                                      |
+| Objetivo          | Criar uma tarefa na aplicação                                                         |
+| Atores            | Usuário                                                                               |
+| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
+| Trigger           | O ator clica no sinal "+"                                                             |
+| Fluxo Principal   | 1. O ator digita a descrição da tarefa, a data de inicio e data limite                |
+|                   | 2. O sitema salva a nova tarefa                                                       |
+| Fluxo Alternativo | N/A                                                                                   |
+| Extensões         | N/A                                                                                   |
+| Pós-condições     | O ator continua na mesma página                                                       |
+| Regras de negócio | RN3, RN4, RN5                                                                         |
 
 ---
 
 ## Casos de Uso<span> ></span> <h3>7.2 - Deletar Tarefa</h3>
 
-| Propriedade       | Descrição                                                                           |
-| ----------------- | ----------------------------------------------------------------------------------- |
-| Nome              | Deletar tarefa                                                                      |
-| Objetivo          | Deletar uma tarefa na aplicação                                                     |
-| Atores            | Usuário                                                                             |
-| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday"|
-| Trigger           | O ator clica no icone de deletar (lixeira)                                           |
-| Fluxo Principal   | 1. O sistema pede uma confirmação da ação [A1]                                      |
-|                   | 2. O ator confirma a ação                                                           |
-|                   | 3. O sistema deleta a tarefa                                                        |
-| Fluxo Alternativo | A1 Não confirmar a ação                                                             |
-|                   | A1.1 O Sistema não deleta a tarefa                                                  |
-|                   | A1.2 Fim do caso de uso                                                             |
-| Extensões         | N/A                                                                                 |
-| Pós-condições     | O ator continua na mesma página                                                     |
-| Regras de negócio | RN4                                                                                 |
+| Propriedade       | Descrição                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------- |
+| Nome              | Deletar tarefa                                                                        |
+| Objetivo          | Deletar uma tarefa na aplicação                                                       |
+| Atores            | Usuário                                                                               |
+| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
+| Trigger           | O ator clica no icone de deletar (lixeira)                                            |
+| Fluxo Principal   | 1. O sistema pede uma confirmação da ação [A1]                                        |
+|                   | 2. O ator confirma a ação                                                             |
+|                   | 3. O sistema deleta a tarefa                                                          |
+| Fluxo Alternativo | A1 Não confirmar a ação                                                               |
+|                   | A1.1 O Sistema não deleta a tarefa                                                    |
+|                   | A1.2 Fim do caso de uso                                                               |
+| Extensões         | N/A                                                                                   |
+| Pós-condições     | O ator continua na mesma página                                                       |
+| Regras de negócio | RN4                                                                                   |
 
 ---
 

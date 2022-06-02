@@ -35,7 +35,7 @@ export function AuthProvider({
 
       setUserIsAuthenticated(true);
 
-      Router.push("/today");
+      Router.push("/user-settings");
     }
   }
 
