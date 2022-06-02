@@ -14,4 +14,6 @@ COPY --chown=node:node . /home/node/twdo-backend
 
 EXPOSE 4001
 
+RUN npx prisma generate
+
 CMD ["yarn", "dev"]

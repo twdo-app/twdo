@@ -88,10 +88,10 @@ class UserController {
     changeEmail() {
         return (req: Request, res: Response, next: NextFunction) => {
             const { id: userId } = req.user;
-            const { email } = req.body;
+            const { email, name } = req.body;
 
             return userDao
-                .updateEmail(userId, email)
+                .updateInfo(userId, email, name)
                 .then((user) =>
                     res.status(200).send({
                         user,
