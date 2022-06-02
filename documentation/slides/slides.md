@@ -28,7 +28,7 @@ O twdo é um organizador pessoal de tarefas minimalista, pensado em ser um ambie
 Ele permite que o usuário crie uma conta (utilizando e-mail pessoal ou conta existente no GitHub) e já comece a criar suas tarefas. As tarefas podem ser agrupadas em projetos e arrastadas ao longo da tela para ordená-las. Dependendo da direção que o usuário arraste a tarefa, ela pode ser adicionada para um projeto ou iniciar um timer pomodoro para a realização da tarefa.
 <br>
 <br>
-A aplicação também conta com uma área reservada para as tarefas do dia atual (que possui também informações relacionadas à temperatura climática), de maneira que o usuário possa configurar um envio automático de e-mail para avisá-lo das tarefas que ele organizou para aquele dia. As tarefas também podem ser agendadas para serem realizadas em um determinado dia, com uma área dedicada do aplicativo para listar essas tarefas.
+A aplicação também conta com uma área reservada para as tarefas do dia atual (que possui também informações relacionadas à <b> temperatura climática </b>), de maneira que o usuário possa configurar um envio automático de e-mail para avisá-lo das tarefas que ele organizou para aquele dia. As tarefas também <b> podem </b> ser agendadas para serem realizadas em um determinado dia, com uma área dedicada do aplicativo para listar essas tarefas.
 
 <SlideNumber/>
 
@@ -66,7 +66,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF7  | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
 | RF8  | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
 | RF9  | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
-| RF10 | O sistema deve permitir que o usuário edite o descrição de seus Projetos                                   |
+|<b>RF10</b> | <b>O sistema deve permitir que o usuário edite o descrição de seus Projetos</b>                       |
 
 <SlideNumber/>
 
@@ -76,10 +76,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF   | Descrição                                                                               |
 | ---- | --------------------------------------------------------------------------------------- |
-| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email.                  |
+|<b>RF10</b>| <b>O sistema deve permitir que o usuário crie uma conta utilizando email. </b>          |
 | RF11 | O sistema deve permitir que o usuário se autentique informando email e senha            |
 | RF12 | O sistema deve permitir que o usuário delete sua própria conta                          |
-| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta |
+|<b>RF13</b>| <b>O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta</b>|
 
 <SlideNumber/>
 
@@ -93,7 +93,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF15 | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
 | RF16 | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores.                                                 |
 | RF17 | O sistema deve permitir que o usuário inicie o "Modo Foco" da funcionalidade de "Pomodoro"                                              |
-| RF18 | O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados PostgreSQL                                      |
+|<b>RF18</b> | <b>O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados PostgreSQL</b>                         |
 
 <SlideNumber/>
 
@@ -104,8 +104,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RNF  | Descrição                                                                                                                                                                      |
 | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | RNF1 | O sistema deve criptografar a senha do usuário utilizando a biblioteca brcypt.js antes de armazená-la no banco de dados                                                        |
-| RNF2 | O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia |
-| RNF3 | O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github                                                                          |
+|<b>RNF2</b> | <b>O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia</b>|
+|<b>RNF3</b> | <b>O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github</b>                                 |
 
 <SlideNumber/>
 
@@ -119,11 +119,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN2 | Um usuário não pode alterar o email da sua conta para um email já pertencente à outra conta cadastrada.                                             |
 | RN3 | Um usuário não pode associar uma Tarefa à mais de um Projeto.                                                                                       |
 | RN4 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email, senha e nome) após se autenticar. |
-| RN5 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                               |
-| RN6 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                             |
-| RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                              |
-| RN8 | Só serão aceitas senhas com no minimo 5 caracteres                                                                                                  |
-| RN9 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada                                                                               |
+|<b>RN5</b>| <b>Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.  </b>                      |
+|<b>RN6</b>| <b>Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele. </b>                     |
+|<b>RN7</b>| <b>Um usuário só poderá trocar a senha fornecendo a senha atual da conta.</b>                                                                       |
+|<b>RN8</b>| <b>Só serão aceitas senhas com no minimo 5 caracteres</b>                                                                                           |
+|<b>RN9</b>| <b>Um usuário só poderá iniciar a sessão caso tenha uma conta registrada</b>                                                                        |
 
 <SlideNumber/>
 
@@ -146,21 +146,24 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>1.1</span> Registrar Conta
   <span>1.2</span> Deletar Conta
   <span>1.3</span> Alterar Email
-  <span>1.4</span> Alterar Senha
-  <span>1.5</span> Alterar Nome
-<span>2.</span> Manter Tarefa
-<span>3.</span> Manter Projeto
-<span>4.</span> Iniciar Sessão
-  <span>4.1</span> Iniciar sessão com email
-  <span>4.2</span> Iniciar sessão com github
-<span>5.</span> Enviar Feedback
-<span>6.</span> Arrastar Tarefa
-<span>7.</span> Reordenar projeto
-<span>8.</span> Ver previsão da temperatura
-<span>9.</span> Configurar envio de email com resumo do dia
-<span>10.</span> Usar Pomodoro
-<span>11.</span> Iniciar Modo Foco
-<span>12.</span> Mudar tema
+  <b><span>1.4</span> Alterar Senha</b>
+  <b><span>1.5</span> Alterar Nome</b>
+<span>2.</span> Iniciar Sessão
+  <b><span>2.1</span> Iniciar sessão com email</b>
+  <b><span>2.2</span> Iniciar sessão com github</b>
+<span>3.</span> Enviar Feedback
+<span>4.</span> Configurar envio de email com resumo do dia
+<span>5.</span> Mudar tema
+<span>6.</span> Encerrar sessão
+<span>7.</span> Manter Tarefa
+  <span>7.1</span> Registrar tarefa
+  <span>7.2</span> Deletar tarefa
+<span>8.</span> Exibir a temperatura atual
+<span>9.</span> Manter Projeto
+<span>10.</span> Arrastar Tarefa
+<span>11.</span> Reordenar projeto
+<span>12.</span> Usar Pomodoro
+<span>13.</span> Iniciar Modo Foco
 </pre>
 
 <SlideNumber/>
@@ -184,20 +187,18 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                             |
 | Pré-condições     | Ator na tela de cadastro                                                            |
 | Trigger           | Ator seleciona "Sign up"                                                            |
-| Fluxo Principal   | 1. Ator digita um nome de usuário, email e senha nos campos do formulário [A1] [A2] |
-|                   | 2. Ator seleciona "Sign up"                                                         |
+| Fluxo Principal   | 1. Ator digita um nome de usuário, email e senha nos campos do formulário           |
+|                   | 2. Ator seleciona "Sign up"[A1]  [A2]                                               |
 |                   | 3. Sistema redireciona para tela de login                                           |
-| Fluxo Alternativo | A1 - Registrar com Github                                                           |
-|                   | A1.1 Ator seleciona "Sign up with Github"                                           |
-|                   | A1.2 Sistema redireciona para telas de confirmação                                  |
-|                   | A1.3 Ator seleciona "I accept"                                                      |
-|                   | A1.4 Sistema redireciona para tela de login                                         |
 | Fluxo Alternativo | A2 - E-mail já registrado                                                           |
+|                   | A2.1 - O sistema apresenta uma mensagem de erro                                     |
+|                   | A2.2 - Volta para o passo 1                                                         |
+| Fluxo Alternativo | A2 - Senha invalida                                                                 |
 |                   | A2.1 - O sistema apresenta uma mensagem de erro                                     |
 |                   | A2.2 - Volta para o passo 1                                                         |
 | Extensões         | N/A                                                                                 |
 | Pós-condições     | O ator é redirecionado para a tela de login                                         |
-| Regras de negócio | RN1                                                                                 |
+| Regras de negócio | RN1, RN8                                                                            |
 
 ---
 
@@ -470,6 +471,23 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Extensões         | N/A                                                                                 |
 | Pós-condições     | O ator continua na mesma página                                                     |
 | Regras de negócio | RN4                                                                                 |
+
+---
+
+## Casos de Uso<span> ></span> <h3>8 - Exibir a temperatura atual</h3>
+
+| Propriedade       | Descrição                                                                           |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| Nome              | Exibir a temperatura atual                                                          |
+| Objetivo          | Exibir a temperatura atual na aplicação                                             |
+| Atores            | N/A                                                                                 |
+| Pré-condições     | O Usuário precisa estar logado na aplicação e na página "Today"                     |
+| Trigger           | N/A                                                                                 |
+| Fluxo Principal   | 1. O sistema exibe a temperatura atual do dia na tela                               |
+| Fluxo Alternativo | N/A                                                                                 |
+| Extensões         | N/A                                                                                 |
+| Pós-condições     | N/A                                                                                 |
+| Regras de negócio | N/A                                                                                 |
 
 ---
 
