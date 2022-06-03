@@ -92,7 +92,7 @@ export default function UserSettings({ user }: { user: User }) {
       <h3 className="text-lg mb-4 font-bold">Password</h3>
       <form onSubmit={handleSubmit(onUpdatePassword)}>
         <FormSection>
-          <FormLabel>Confirm Your New Password:</FormLabel>
+          <FormLabel>Old Password:</FormLabel>
           <TextInput
             {...register("oldPassword")}
             type="password"
