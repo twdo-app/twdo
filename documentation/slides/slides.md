@@ -180,47 +180,47 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>1.1 - Registrar Conta</h3>
 
-| Propriedade       | Descrição                                                                 |
-| ----------------- | ------------------------------------------------------------------------- |
-| Nome              | Registrar conta                                                           |
-| Objetivo          | Criar conta na aplicação                                                  |
-| Atores            | Usuário                                                                   |
-| Pré-condições     | Ator na tela de cadastro                                                  |
-| Trigger           | Ator seleciona "Sign up"                                                  |
-| Fluxo Principal   | 1. Ator digita um nome de usuário, email e senha nos campos do formulário |
-|                   | 2. Ator seleciona "Sign up"[A1] [A2]                                      |
-|                   | 3. Sistema redireciona para tela de login                                 |
-| Fluxo Alternativo | A2 - E-mail já registrado                                                 |
-|                   | A2.1 - O sistema apresenta uma mensagem de erro                           |
-|                   | A2.2 - Volta para o passo 1                                               |
-| Fluxo Alternativo | A2 - Senha invalida                                                       |
-|                   | A2.1 - O sistema apresenta uma mensagem de erro                           |
-|                   | A2.2 - Volta para o passo 1                                               |
-| Extensões         | N/A                                                                       |
-| Pós-condições     | O ator é redirecionado para a tela de login                               |
-| Regras de negócio | RN1, RN8                                                                  |
+| Propriedade              | Descrição                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| Nome                     | Registrar conta                                                                    |
+| Objetivo                 | Criar conta na aplicação                                                           |
+| Atores                   | Usuário                                                                            |
+| Pré-condições            | Ator na tela de cadastro                                                           |
+| Trigger                  | Ator seleciona "Sign up"                                                           |
+| <b>Fluxo Principal</b>   | <b> 1. Ator digita um nome de usuário, email e senha nos campos do formulário </b> |
+|                          | <b> 2. Ator seleciona "Sign up"[A1] [A2] </b>                                      |
+|                          | <b> 3. Sistema redireciona para tela de login </b>                                 |
+| <b>Fluxo Alternativo</b> | <b> A2 - E-mail já registrado </b>                                                 |
+|                          | <b> A2.1 - O sistema apresenta uma mensagem de erro </b>                           |
+|                          | <b> A2.2 - Volta para o passo 1 </b>                                               |
+| <b>Fluxo Alternativo</b> | <b> A2 - Senha invalida </b>                                                       |
+|                          | <b> A2.1 - O sistema apresenta uma mensagem de erro </b>                           |
+|                          | <b> A2.2 - Volta para o passo 1 </b>                                               |
+| Extensões                | N/A                                                                                |
+| Pós-condições            | O ator é redirecionado para a tela de login                                        |
+| Regras de negócio        | RN1, RN8                                                                           |
 
 ---
 
 ## Casos de Uso<span> ></span> <h3>1.2 - Deletar Conta</h3>
 
-| Propriedade       | Descrição                                                    |
-| ----------------- | ------------------------------------------------------------ |
-| Nome              | Deletar conta                                                |
-| Objetivo          | Deletar conta da aplicação                                   |
-| Atores            | Usuário                                                      |
-| Pré-condições     | Ator precisa estar logado e na página "Settings"             |
-| Trigger           | Ator clica em "Delete your Account"                          |
-| Fluxo Principal   | 1. Ator clica no botão "Delete your Account"                 |
-|                   | 2. Sistema pede uma confirmação da ação[A1]                  |
-|                   | 3. Ator confirma a ação                                      |
-|                   | 4. Sistema deleta a conta e redireciona para tela de sign up |
-| Fluxo Alternativo | A1 - Não confirmar a ação                                    |
-|                   | A1.1 O Sistema não deleta a conta                            |
-|                   | A1.2 Fim do caso de uso                                      |
-| Extensões         | N/A                                                          |
-| Pós-condições     | O Ator é redirecionado para a tela de sign up                |
-| Regras de negócio | RN4                                                          |
+| Propriedade                | Descrição                                                             |
+| -------------------------- | --------------------------------------------------------------------- |
+| Nome                       | Deletar conta                                                         |
+| Objetivo                   | Deletar conta da aplicação                                            |
+| Atores                     | Usuário                                                               |
+| Pré-condições              | Ator precisa estar logado e na página "Settings"                      |
+| Trigger                    | Ator clica em "Delete your Account"                                   |
+| <b> Fluxo Principal </b>   | <b> 1. Ator clica no botão "Delete your Account" </b>                 |
+|                            | <b> 2. Sistema pede uma confirmação da ação[A1] </b>                  |
+|                            | <b> 3. Ator confirma a ação </b>                                      |
+|                            | <b> 4. Sistema deleta a conta e redireciona para tela de sign up </b> |
+| <b> Fluxo Alternativo </b> | <b> A1 - Não confirmar a ação </b>                                    |
+|                            | <b> A1.1 O Sistema não deleta a conta </b>                            |
+|                            | <b> A1.2 Fim do caso de uso </b>                                      |
+| Extensões                  | N/A                                                                   |
+| Pós-condições              | O Ator é redirecionado para a tela de sign up                         |
+| Regras de negócio          | RN4                                                                   |
 
 <SlideNumber/>
 
@@ -228,26 +228,26 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>1.3 - Alterar Email</h3>
 
-| Propriedade       | Descrição                                                            |
-| ----------------- | -------------------------------------------------------------------- |
-| Nome              | Alterar email                                                        |
-| Objetivo          | Alterar endereço de email da conta                                   |
-| Atores            | Usuário                                                              |
-| Pré-condições     | Ator precisa estar logado e na página "Settings"                     |
-| Trigger           | Ator clica em "Change my email"                                      |
-| Fluxo Principal   | 1. Ator preenche formulário com novo email e clica em "Save Changes" |
-|                   | 2. Sistema pede uma confirmação da ação [A2]                         |
-|                   | 3. Ator confirma a ação [A1]                                         |
-|                   | 4. Sistema altera email e mostra uma notificação                     |
-| Fluxo Alternativo | A1 - E-mail já registrado                                            |
-|                   | A1.1 - O sistema apresenta uma mensagem de erro                      |
-|                   | A1.2 - Volta para o passo 1                                          |
-| Fluxo Alternativo | A2 - Não confirmar a ação                                            |
-|                   | A2.1 O Sistema não altera o email                                    |
-|                   | A2.2 Fim do caso de uso                                              |
-| Extensões         | N/A                                                                  |
-| Pós-condições     | O Ator permanece na tela "Settings"                                  |
-| Regras de negócio | RN2, RN4                                                             |
+| Propriedade                | Descrição                                                                     |
+| -------------------------- | ----------------------------------------------------------------------------- |
+| Nome                       | Alterar email                                                                 |
+| Objetivo                   | Alterar endereço de email da conta                                            |
+| Atores                     | Usuário                                                                       |
+| Pré-condições              | Ator precisa estar logado e na página "Settings"                              |
+| Trigger                    | Ator clica em "Change my email"                                               |
+| <b> Fluxo Principal </b>   | <b> 1. Ator preenche formulário com novo email e clica em "Save Changes" </b> |
+|                            | <b> 2. Sistema pede uma confirmação da ação [A2] </b>                         |
+|                            | <b> 3. Ator confirma a ação [A1] </b>                                         |
+|                            | <b> 4. Sistema altera email e mostra uma notificação </b>                     |
+| <b> Fluxo Alternativo </b> | <b> A1 - E-mail já registrado </b>                                            |
+|                            | <b> A1.1 - O sistema apresenta uma mensagem de erro </b>                      |
+|                            | <b> A1.2 - Volta para o passo 1 </b>                                          |
+| <b> Fluxo Alternativo </b> | <b> A2 - Não confirmar a ação </b>                                            |
+|                            | <b> A2.1 O Sistema não altera o email </b>                                    |
+|                            | <b> A2.2 Fim do caso de uso </b>                                              |
+| Extensões                  | N/A                                                                           |
+| Pós-condições              | O Ator permanece na tela "Settings"                                           |
+| Regras de negócio          | RN2, RN4                                                                      |
 
 <SlideNumber/>
 
@@ -255,21 +255,21 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>1.4 - Alterar Senha</h3>
 
-| Propriedade       | Descrição                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| Nome              | Alterar senha                                                                                              |
-| Objetivo          | Alterar a senha da conta                                                                                   |
-| Atores            | Usuário                                                                                                    |
-| Pré-condições     | Ator precisa estar logado e na página "Settings"                                                           |
-| Trigger           | Ator clica em "Change my password"                                                                         |
-| Fluxo Principal   | 1. O ator preenche os campos "senha atual", "nova senha" e clica em "Save Changes"                         |
-|                   | 2. O sistema pede uma confirmação da ação                                                                  |
-|                   | 3. O ator confirma a ação                                                                                  |
-|                   | 4. O sistema valida a senha atual [A1]                                                                     |
-|                   | 5. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela |
-| Fluxo Alternativo | A1 - Senha atual invalida                                                                                  |
-|                   | A1.1 - O sistema apresenta uma mensagem de erro                                                            |
-|                   | A1.2 - Volta para o passo 1                                                                                |
+| Propriedade                | Descrição                                                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Nome                       | Alterar senha                                                                                                       |
+| Objetivo                   | Alterar a senha da conta                                                                                            |
+| Atores                     | Usuário                                                                                                             |
+| Pré-condições              | Ator precisa estar logado e na página "Settings"                                                                    |
+| Trigger                    | Ator clica em "Change my password"                                                                                  |
+| <b> Fluxo Principal </b>   | <b> 1. O ator preenche os campos "senha atual", "nova senha" e clica em "Save Changes" </b>                         |
+|                            | <b> 2. O sistema pede uma confirmação da ação </b>                                                                  |
+|                            | <b> 3. O ator confirma a ação </b>                                                                                  |
+|                            | <b> 4. O sistema valida a senha atual [A1] </b>                                                                     |
+|                            | <b> 5. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela </b> |
+| <b> Fluxo Alternativo </b> | <b> A1 - Senha atual invalida </b>                                                                                  |
+|                            | <b> A1.1 - O sistema apresenta uma mensagem de erro </b>                                                            |
+|                            | <b> A1.2 - Volta para o passo 1 </b>                                                                                |
 
 <SlideNumber/>
 
@@ -277,14 +277,14 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>1.4 - Alterar Senha</h3>
 
-| Propriedade       | Descrição                           |
-| ----------------- | ----------------------------------- |
-| Fluxo Alternativo | A2 - Não confirmar a ação           |
-|                   | A2.1 O Sistema não altera a senha   |
-|                   | A2.2 Fim do caso de uso             |
-| Extensões         | N/A                                 |
-| Pós-condições     | O Ator permanece na tela "Settings" |
-| Regras de negócio | RN4, RN7, RN8                       |
+| Propriedade                | Descrição                                  |
+| -------------------------- | ------------------------------------------ |
+| <b> Fluxo Alternativo </b> | <b> A2 - Não confirmar a ação </b>         |
+|                            | <b> A2.1 O Sistema não altera a senha </b> |
+|                            | <b> A2.2 Fim do caso de uso </b>           |
+| Extensões                  | N/A                                        |
+| Pós-condições              | O Ator permanece na tela "Settings"        |
+| Regras de negócio          | RN4, RN7, RN8                              |
 
 <SlideNumber/>
 
@@ -292,23 +292,23 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>1.5 - Alterar Nome</h3>
 
-| Propriedade       | Descrição                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| Nome              | Alterar nome                                                                                               |
-| Objetivo          | Alterar a nome da conta                                                                                    |
-| Atores            | Usuário                                                                                                    |
-| Pré-condições     | Ator precisa estar logado e na página "Settings"                                                           |
-| Trigger           | Ator clica em "Change my username"                                                                         |
-| Fluxo Principal   | 1. O ator preenche o campo "Novo nome" e clica em "Save Changes"                                           |
-|                   | 2. O sistema pede uma confirmação da ação                                                                  |
-|                   | 3. O ator confirma a ação                                                                                  |
-|                   | 4. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela |
-| Fluxo Alternativo | A1 - Não confirmar a ação                                                                                  |
-|                   | A1.1 O Sistema não altera o nome                                                                           |
-|                   | A1.2 Fim do caso de uso                                                                                    |
-| Extensões         | N/A                                                                                                        |
-| Pós-condições     | O Ator permanece na tela "Settings"                                                                        |
-| Regras de negócio | RN4                                                                                                        |
+| Propriedade       | Descrição                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Nome              | Alterar nome                                                                                                        |
+| Objetivo          | Alterar a nome da conta                                                                                             |
+| Atores            | Usuário                                                                                                             |
+| Pré-condições     | Ator precisa estar logado e na página "Settings"                                                                    |
+| Trigger           | Ator clica em "Change my username"                                                                                  |
+| Fluxo Principal   | <b> 1. O ator preenche o campo "Novo nome" e clica em "Save Changes" </b>                                           |
+|                   | <b> 2. O sistema pede uma confirmação da ação </b>                                                                  |
+|                   | <b> 3. O ator confirma a ação </b>                                                                                  |
+|                   | <b> 4. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela </b> |
+| Fluxo Alternativo | <b> A1 - Não confirmar a ação </b>                                                                                  |
+|                   | <b> A1.1 O Sistema não altera o nome </b>                                                                           |
+|                   | <b> A1.2 Fim do caso de uso </b>                                                                                    |
+| Extensões         | N/A                                                                                                                 |
+| Pós-condições     | O Ator permanece na tela "Settings"                                                                                 |
+| Regras de negócio | RN4                                                                                                                 |
 
 <SlideNumber/>
 
@@ -316,22 +316,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>2.1 - Iniciar sessão com email</h3>
 
-| Propriedade       | Descrição                                                                    |
-| ----------------- | ---------------------------------------------------------------------------- |
-| Nome              | Iniciar sessão com email                                                     |
-| Objetivo          | Iniciar sessão na aplicação                                                  |
-| Atores            | Usuário                                                                      |
-| Pré-condições     | O usuário não pode estar logado na aplicação                                 |
-| Trigger           | Ator seleciona "Sign in"                                                     |
-| Fluxo Principal   | 1. O ator digita email e senha nos campos do formulário e clica em "Sign in" |
-|                   | 2. O sistema valida os campos preenchidos[A1]                                |
-|                   | 3. O sistema redireciona para tela inicial de "Today"                        |
-| Fluxo Alternativo | A1 - Email ou senha invalidas                                                |
-|                   | A1.1 O sistema informa que um dos campos está incorreto                      |
-|                   | A1.2 Volta para o passo 1                                                    |
-| Extensões         | N/A                                                                          |
-| Pós-condições     | O Ator é redirecionado para a tela "Today"                                   |
-| Regras de negócio | N/A                                                                          |
+| Propriedade                | Descrição                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------------- |
+| Nome                       | Iniciar sessão com email                                                              |
+| Objetivo                   | Iniciar sessão na aplicação                                                           |
+| Atores                     | Usuário                                                                               |
+| Pré-condições              | O usuário não pode estar logado na aplicação                                          |
+| Trigger                    | Ator seleciona "Sign in"                                                              |
+| <b> Fluxo Principal </b>   | <b> 1. O ator digita email e senha nos campos do formulário e clica em "Sign in" </b> |
+|                            | <b> 2. O sistema valida os campos preenchidos[A1] </b>                                |
+|                            | <b> 3. O sistema redireciona para tela inicial de "Today" </b>                        |
+| <b> Fluxo Alternativo </b> | A1 - Email ou senha invalidas                                                         |
+|                            | A1.1 O sistema informa que um dos campos está incorreto                               |
+|                            | A1.2 Volta para o passo 1                                                             |
+| Extensões                  | N/A                                                                                   |
+| Pós-condições              | O Ator é redirecionado para a tela "Today"                                            |
+| Regras de negócio          | N/A                                                                                   |
 
 <SlideNumber/>
 
@@ -339,22 +339,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>2.2 - Iniciar sessão com github</h3>
 
-| Propriedade       | Descrição                                                                        |
-| ----------------- | -------------------------------------------------------------------------------- |
-| Nome              | Iniciar sessão com github                                                        |
-| Objetivo          | Iniciar sessão na aplicação                                                      |
-| Atores            | Usuário                                                                          |
-| Pré-condições     | O usuário não pode estar logado na aplicação e deve possuir uma conta registrada |
-| Trigger           | Ator seleciona "Sign in with github"                                             |
-| Fluxo Principal   | 1 Sistema redireciona para a tela de confirmação [A1]                            |
-|                   | 2 Ator seleciona "I accept"                                                      |
-|                   | 3 Sistema redireciona para tela "Today"                                          |
-| Fluxo Alternativo | A1 Não confirmar a ação                                                          |
-|                   | A1.1 O Sistema não efetua o login                                                |
-|                   | A1.2 Fim do caso de uso                                                          |
-| Extensões         | N/A                                                                              |
-| Pós-condições     | O Ator é redirecionado para a tela "Today"                                       |
-| Regras de negócio | N/A                                                                              |
+| Propriedade                | Descrição                                                                        |
+| -------------------------- | -------------------------------------------------------------------------------- |
+| Nome                       | Iniciar sessão com github                                                        |
+| Objetivo                   | Iniciar sessão na aplicação                                                      |
+| Atores                     | Usuário                                                                          |
+| Pré-condições              | O usuário não pode estar logado na aplicação e deve possuir uma conta registrada |
+| Trigger                    | Ator seleciona "Sign in with github"                                             |
+| <b> Fluxo Principal </b>   | <b> 1 Sistema redireciona para a tela de confirmação [A1] </b>                   |
+|                            | <b> 2 Ator seleciona "I accept" </b>                                             |
+|                            | <b> 3 Sistema redireciona para tela "Today" </b>                                 |
+| <b> Fluxo Alternativo </b> | <b> A1 Não confirmar a ação </b>                                                 |
+|                            | <b> A1.1 O Sistema não efetua o login </b>                                       |
+|                            | <b> A1.2 Fim do caso de uso </b>                                                 |
+| Extensões                  | N/A                                                                              |
+| Pós-condições              | O Ator é redirecionado para a tela "Today"                                       |
+| Regras de negócio          | N/A                                                                              |
 
 <SlideNumber/>
 
@@ -403,19 +403,19 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>5 - Mudar Tema</h3>
 
-| Propriedade       | Descrição                                                             |
-| ----------------- | --------------------------------------------------------------------- |
-| Nome              | Mudar Tema                                                            |
-| Objetivo          | Mudar o tema da aplicação para Dark ou Light                          |
-| Atores            | Usuário                                                               |
-| Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Settings"      |
-| Trigger           | O Ator clica na caixa de "Theme"                                      |
-| Fluxo Principal   | 1. Ator seleciona um dos temas                                        |
-|                   | 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças |
-| Fluxo Alternativo | N/A                                                                   |
-| Extensões         | N/A                                                                   |
-| Pós-condições     | O Ator permanece na tela "Settings"                                   |
-| Regras de negócio | RN4                                                                   |
+| Propriedade                | Descrição                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| Nome                       | Mudar Tema                                                                     |
+| Objetivo                   | Mudar o tema da aplicação para Dark ou Light                                   |
+| Atores                     | Usuário                                                                        |
+| Pré-condições              | O Ator precisa estar logado na aplicação e na tela de "Settings"               |
+| Trigger                    | O Ator clica na caixa de "Theme"                                               |
+| <b> Fluxo Principal </b>   | <b> 1. Ator seleciona um dos temas </b>                                        |
+|                            | <b> 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças </b> |
+| <b> Fluxo Alternativo </b> | <b> N/A </b>                                                                   |
+| Extensões                  | N/A                                                                            |
+| Pós-condições              | O Ator permanece na tela "Settings"                                            |
+| Regras de negócio          | RN4                                                                            |
 
 <SlideNumber/>
 
@@ -423,22 +423,22 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Casos de Uso<span> ></span> <h3>6 - Encerrar Sessão</h3>
 
-| Propriedade       | Descrição                                                        |
-| ----------------- | ---------------------------------------------------------------- |
-| Nome              | Encerrar sessão                                                  |
-| Objetivo          | Encerrar sessão na aplicação                                     |
-| Atores            | Usuário                                                          |
-| Pré-condições     | O usuário precisa estar logado na aplicação e na na tela de User |
-| Trigger           | Ator seleciona "Sign out"                                        |
-| Fluxo Principal   | 1. O Sistema solicita uma confirmação da ação [A1]               |
-|                   | 2. O ator confirma a ação                                        |
-|                   | 3. O sistema efetua o logout                                     |
-| Fluxo Alternativo | A1 Não confirmar a ação                                          |
-|                   | A1.1 O Sistema não efetua o logout                               |
-|                   | A1.2 Fim do caso de uso                                          |
-| Extensões         | N/A                                                              |
-| Pós-condições     | O Ator é redirecionado para a tela de "Sign In"                  |
-| Regras de negócio | RN4                                                              |
+| Propriedade                | Descrição                                                        |
+| -------------------------- | ---------------------------------------------------------------- |
+| Nome                       | Encerrar sessão                                                  |
+| Objetivo                   | Encerrar sessão na aplicação                                     |
+| Atores                     | Usuário                                                          |
+| Pré-condições              | O usuário precisa estar logado na aplicação e na na tela de User |
+| Trigger                    | Ator seleciona "Sign out"                                        |
+| <b> Fluxo Principal </b>   | <b> 1. O Sistema solicita uma confirmação da ação [A1] </b>      |
+|                            | <b> 2. O ator confirma a ação </b>                               |
+|                            | <b> 3. O sistema efetua o logout </b>                            |
+| <b> Fluxo Alternativo </b> | <b> A1 Não confirmar a ação </b>                                 |
+|                            | <b> A1.1 O Sistema não efetua o logout </b>                      |
+|                            | <b> A1.2 Fim do caso de uso </b>                                 |
+| Extensões                  | N/A                                                              |
+| Pós-condições              | O Ator é redirecionado para a tela de "Sign In"                  |
+| Regras de negócio          | RN4                                                              |
 
 <SlideNumber/>
 
