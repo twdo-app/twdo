@@ -109,6 +109,11 @@ html,
   line-height: 1.5rem;
 }
 
+.slidev-layout .sumario {
+  @apply font-sans text-sm;
+  line-height: 1.25rem;
+}
+
 .slidev-layout img {
   position: absolute;
   right: 50%;

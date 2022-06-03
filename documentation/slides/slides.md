@@ -20,6 +20,31 @@ aspectRatio: "16/10"
 
 ---
 
+## Sumário
+
+<pre class="sumario">
+<span class="sumario">4</span> Minimundo
+<span class="sumario">5</span> Glossário
+<span class="sumario">6</span> Requisitos Funcionais
+<span class="sumario">9</span> Requisitos Não Funcionais
+<span class="sumario">10</span> Regras de Negócio
+<span class="sumario">11</span> Integrações
+<span class="sumario">12</span> Casos de Uso
+    <span class="sumario"> 15</span> Manter Conta
+    <span class="sumario"> 24</span> Iniciar Sessão
+    <span class="sumario"> 26</span> Enviar Feedback
+    <span class="sumario"> 27</span> Configurar envio de email com resumo do dia
+    <span class="sumario"> 28</span> Mudar tema
+    <span class="sumario"> 29</span> Encerrar sessão
+    <span class="sumario"> 30</span> Manter Tarefa
+    <span class="sumario"> 32</span> Manter Tarefa
+<span class="sumario">14</span> Diagrama de Casos de Uso
+<span class="sumario">33</span> Diagrama de Classes
+<span class="sumario">34</span> Links
+</pre>
+
+---
+
 ## Minimundo
 
 O twdo é um organizador pessoal de tarefas minimalista, pensado em ser um ambiente simples e livre de distrações, de maneira que o usuário possa focar no que realmente precisa ser feito. Ele faz isso através de uma interface limpa, fácil de entender e agradável de utilizar.
@@ -158,12 +183,19 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <span>7.</span> Manter Tarefa
   <span>7.1</span> Registrar tarefa
   <span>7.2</span> Deletar tarefa
-<span>8.</span> Exibir a temperatura atual
+</pre>
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso
+
+<pre>
+<span>8.</span> Ver a temperatura atual
 <span>9.</span> Manter Projeto
-<span>10.</span> Arrastar Tarefa
-<span>11.</span> Reordenar projeto
-<span>12.</span> Usar Pomodoro
-<span>13.</span> Iniciar Modo Foco
+<span>10.</span> Usar Pomodoro
+<span>11.</span> Iniciar Modo Foco
 </pre>
 
 <SlideNumber/>
@@ -196,9 +228,20 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | <b>Fluxo Alternativo</b> | <b> A2 - Senha invalida </b>                                                       |
 |                          | <b> A2.1 - O sistema apresenta uma mensagem de erro </b>                           |
 |                          | <b> A2.2 - Volta para o passo 1 </b>                                               |
-| Extensões                | N/A                                                                                |
-| Pós-condições            | O ator é redirecionado para a tela de login                                        |
-| Regras de negócio        | RN1, RN8                                                                           |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso<span> ></span> <h3>1.1 - Registrar Conta</h3>
+
+| Propriedade       | Descrição                                   |
+| ----------------- | ------------------------------------------- |
+| Extensões         | N/A                                         |
+| Pós-condições     | O ator é redirecionado para a tela de login |
+| Regras de negócio | RN1, RN8                                    |
+
+<SlideNumber/>
 
 ---
 
@@ -245,9 +288,18 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | <b> Fluxo Alternativo </b> | <b> A2 - Não confirmar a ação </b>                                            |
 |                            | <b> A2.1 O Sistema não altera o email </b>                                    |
 |                            | <b> A2.2 Fim do caso de uso </b>                                              |
-| Extensões                  | N/A                                                                           |
-| Pós-condições              | O Ator permanece na tela "Settings"                                           |
-| Regras de negócio          | RN2, RN4                                                                      |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso<span> ></span> <h3>1.3 - Alterar Email</h3>
+
+| Propriedade       | Descrição                           |
+| ----------------- | ----------------------------------- |
+| Extensões         | N/A                                 |
+| Pós-condições     | O Ator permanece na tela "Settings" |
+| Regras de negócio | RN2, RN4                            |
 
 <SlideNumber/>
 
@@ -306,9 +358,18 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Fluxo Alternativo | <b> A1 - Não confirmar a ação </b>                                                                                  |
 |                   | <b> A1.1 O Sistema não altera o nome </b>                                                                           |
 |                   | <b> A1.2 Fim do caso de uso </b>                                                                                    |
-| Extensões         | N/A                                                                                                                 |
-| Pós-condições     | O Ator permanece na tela "Settings"                                                                                 |
-| Regras de negócio | RN4                                                                                                                 |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso<span> ></span> <h3>1.5 - Alterar Nome</h3>
+
+| Propriedade       | Descrição                           |
+| ----------------- | ----------------------------------- |
+| Extensões         | N/A                                 |
+| Pós-condições     | O Ator permanece na tela "Settings" |
+| Regras de negócio | RN4                                 |
 
 <SlideNumber/>
 
@@ -460,6 +521,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pós-condições     | O ator continua na mesma página                                                       |
 | Regras de negócio | RN3, RN4, RN5                                                                         |
 
+<SlideNumber/>
+
 ---
 
 ## Casos de Uso<span> ></span> <h3>7.2 - Deletar Tarefa</h3>
@@ -481,14 +544,16 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pós-condições     | O ator continua na mesma página                                                       |
 | Regras de negócio | RN4                                                                                   |
 
+<SlideNumber/>
+
 ---
 
-## Casos de Uso<span> ></span> <h3>8 - Exibir a temperatura atual</h3>
+## Casos de Uso<span> ></span> <h3>8 - Ver a temperatura atual</h3>
 
 | Propriedade       | Descrição                                                       |
 | ----------------- | --------------------------------------------------------------- |
-| Nome              | Exibir a temperatura atual                                      |
-| Objetivo          | Exibir a temperatura atual na aplicação                         |
+| Nome              | Ver a temperatura atual                                         |
+| Objetivo          | Ver a temperatura atual na aplicação                            |
 | Atores            | N/A                                                             |
 | Pré-condições     | O Usuário precisa estar logado na aplicação e na página "Today" |
 | Trigger           | N/A                                                             |
@@ -498,10 +563,23 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pós-condições     | N/A                                                             |
 | Regras de negócio | N/A                                                             |
 
+<SlideNumber/>
+
+---
+
+## Diagrama de Classes
+
+<img src="/diagrama_de_classes.png">
+
+<SlideNumber/>
+
 ---
 
 ## Links
 
-- https://balsamiq.cloud/sxy21mi/pcz15al
+- Protótipo: https://balsamiq.cloud/sxy21mi/pcz15al
+
+- Entrega 1: https://youtu.be/J9r6dCj7s7g
+- Entrega 2: https://youtu.be/dIR6Wl-MPQs
 
 <SlideNumber/>
