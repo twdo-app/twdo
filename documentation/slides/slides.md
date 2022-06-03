@@ -172,7 +172,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Diagrama de Casos de Uso
 
-<img src="/use_cases.png">
+<img src="/twdouasecaase_png.png">
 
 <SlideNumber/>
 
