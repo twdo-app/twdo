@@ -125,3 +125,7 @@ html,
 .slide-total-number {
   color: #fff;
 }
+
+b {
+  @apply text-sky-400;
+}
