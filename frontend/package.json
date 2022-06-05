@@ -11,7 +11,6 @@
   "dependencies": {
     "axios": "^0.27.2",
     "next": "12.1.6",
-    "next-auth": "^4.3.4",
     "next-themes": "^0.2.0",
     "nookies": "^2.5.2",
     "react": "18.1.0",
