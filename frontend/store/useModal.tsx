@@ -61,7 +61,14 @@ export const useModal = create<ModalState>((set) => ({
             <p className="mb-4">{message}</p>
             <div className="flex items-center justify-between">
               <Button onClick={state.hideModal}>Cancel</Button>
-              <Button onClick={confirmationAction}>Confirm</Button>
+              <Button
+                onClick={() => {
+                  confirmationAction();
+                  state.hideModal;
+                }}
+              >
+                Confirm
+              </Button>
             </div>
           </div>
         ),
