@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { parseCookies } from "nookies";
 
-import { AuthContext } from "../contexts/AuthContext";
 import { SignInData } from "../types/auth";
 
 import Title from "../components/common/Title";
@@ -9,14 +8,12 @@ import TextInput from "../components/common/TextInput";
 import AuthLayout from "../components/layouts/AuthLayout";
 import Button from "../components/common/Button";
 import Hyperlink from "../components/common/Hyperlink";
-import Modal from "../components/common/Modal";
-import { FiX } from "react-icons/fi";
-import { parseCookies } from "nookies";
 import { useModal } from "../store/useModal";
+import { useAuth } from "../store/useAuth";
 
 export default function SignIn() {
   const showErrorMessage = useModal((state) => state.showErrorMessage);
-  const { signIn } = useContext(AuthContext);
+  const signIn = useAuth((state) => state.signIn);
   const { register, handleSubmit } = useForm();
 
   const onSignIn = async (data: SignInData | any) => {

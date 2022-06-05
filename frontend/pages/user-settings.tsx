@@ -15,6 +15,7 @@ import AppLayout from "../components/layouts/AppLayout";
 import FormSection from "../components/common/FormSection";
 import FormLabel from "../components/common/FormLabel";
 import { useModal } from "../store/useModal";
+import { useAuth } from "../store/useAuth";
 
 export default function UserSettings({ user }: { user: User }) {
   const { register, handleSubmit } = useForm();
@@ -24,10 +25,7 @@ export default function UserSettings({ user }: { user: User }) {
     (state) => state.showConfirmationModal
   );
 
-  const signOut = () => {
-    destroyCookie(null, "twdo.token");
-    Router.push("/sign-in");
-  };
+  const signOut = useAuth((state) => state.signOut);
 
   const onUpdateAccountDetails = (
     data: { name: string; email: string } | any
@@ -73,12 +71,14 @@ export default function UserSettings({ user }: { user: User }) {
   const onDeleteAccount = () => {
     showConfirmationModal(
       "This action will delete your account. Are you sure?",
-      () =>
+      () => {
         api.delete(`/users/delete`, {
           data: {
             id: user.id,
           },
-        })
+        });
+        signOut();
+      }
     );
   };
 

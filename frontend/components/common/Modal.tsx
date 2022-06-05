@@ -1,19 +1,27 @@
 import { MouseEvent, useEffect, useState } from "react";
+
 import { useModal } from "../../store/useModal";
-import Button from "./Button";
 
 export default function Modal() {
   const modalIsVisible = useModal((state) => state.modalState);
   const modalContent = useModal((state) => state.modalContent);
   const hideModal = useModal((state) => state.hideModal);
-  const [hidden, setHidden] = useState(true);
+
+  const [shouldRender, setShouldRender] = useState(false);
+  const [fade, setFade] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setHidden(false), 100);
-  }, [hidden]);
+    if (modalIsVisible) {
+      setShouldRender(true);
+      setTimeout(() => setFade(true), 100);
+    } else {
+      setFade(false);
+      setTimeout(() => setShouldRender(false), 100);
+    }
+  }, [modalIsVisible]);
 
   const handleModalBgClick = () => {
-    setHidden(true);
+    setFade(false);
     setTimeout(hideModal, 100);
   };
 
@@ -21,11 +29,14 @@ export default function Modal() {
     e.stopPropagation();
   };
 
-  return modalIsVisible ? (
+  return shouldRender ? (
     <div
-      className={`z-10 absolute bottom-0 left-0 w-screen h-screen flex items-center justify-center bg-slate-300/60 dark:bg-slate-900/80 ${
-        !hidden ? "backdrop-blur-lg opacity-100" : "backdrop-blur-0 opacity-0"
-      } transition-all`}
+      className={`z-10 absolute bottom-0 left-0 w-screen h-screen flex items-center justify-center bg-slate-300/60 dark:bg-slate-900/80 transition-all
+      ${
+        fade
+          ? "backdrop-blur-lg opacity-100  translate-x-0"
+          : "backdrop-blur-0 opacity-0 translate-y-4"
+      }`}
       onClick={handleModalBgClick}
     >
       <div
