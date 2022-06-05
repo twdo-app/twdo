@@ -7,7 +7,7 @@ import Modal from "../components/common/Modal";
 
 export default function MyApp({
   Component,
-  pageProps: { theme, session, ...pageProps },
+  pageProps: { theme, ...pageProps },
 }: AppProps) {
   return (
     <ThemeProvider attribute="class">
