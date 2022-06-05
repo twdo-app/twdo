@@ -12,14 +12,17 @@ import { api } from "../services/api";
 import Button from "../components/common/Button";
 import TextInput from "../components/common/TextInput";
 import AppLayout from "../components/layouts/AppLayout";
-import Modal from "../components/common/Modal";
 import FormSection from "../components/common/FormSection";
 import FormLabel from "../components/common/FormLabel";
+import { useModal } from "../store/useModal";
 
 export default function UserSettings({ user }: { user: User }) {
   const { register, handleSubmit } = useForm();
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const showSuccessMessage = useModal((state) => state.showSuccessMessage);
+  const showErrorMessage = useModal((state) => state.showErrorMessage);
+  const showConfirmationModal = useModal(
+    (state) => state.showConfirmationModal
+  );
 
   const signOut = () => {
     destroyCookie(null, "twdo.token");
@@ -34,7 +37,7 @@ export default function UserSettings({ user }: { user: User }) {
       email: data.email === "" ? user.email : data.email,
     });
 
-    setShowSuccessMessage(true);
+    showSuccessMessage("Data Updated!");
   };
 
   const onUpdatePassword = (
@@ -57,14 +60,26 @@ export default function UserSettings({ user }: { user: User }) {
           newPassword: data.newPassword,
         })
         .then(() => {
-          setShowSuccessMessage(true);
+          showSuccessMessage("Data Updated!");
         })
         .catch(() => {
-          setShowErrorMessage(true);
+          showErrorMessage("Invalid Input!");
         });
     } else {
-      setShowErrorMessage(true);
+      showErrorMessage("Invalid Input!");
     }
+  };
+
+  const onDeleteAccount = () => {
+    showConfirmationModal(
+      "This action will delete your account. Are you sure?",
+      () =>
+        api.delete(`/users/delete`, {
+          data: {
+            id: user.id,
+          },
+        })
+    );
   };
 
   return (
@@ -122,31 +137,12 @@ export default function UserSettings({ user }: { user: User }) {
         </div>
       </form>
       <Button onClick={signOut}>sign out</Button>
-      {showSuccessMessage && (
-        <Modal
-          onClick={() => {
-            setShowSuccessMessage(false);
-            Router.reload();
-          }}
-        >
-          <p className="flex items-center">
-            <FiCheck className="stroke-green-400 mr-2" />
-            Data Updated!
-          </p>
-        </Modal>
-      )}
-      {showErrorMessage && (
-        <Modal
-          onClick={() => {
-            setShowErrorMessage(false);
-          }}
-        >
-          <p className="flex items-center">
-            <FiX className="stroke-pink-400 mr-2" />
-            Invalid Input!
-          </p>
-        </Modal>
-      )}
+      <button
+        onClick={onDeleteAccount}
+        className="mt-4 underline dark:text-pink-400 text-blue-400"
+      >
+        Delete your Account
+      </button>
     </AppLayout>
   );
 }
