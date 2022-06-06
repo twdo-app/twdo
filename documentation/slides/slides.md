@@ -91,7 +91,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF7         | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
 | RF8         | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
 | RF9         | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
-| <b>RF10</b> | <b>O sistema deve permitir que o usuário edite o descrição de seus Projetos</b>                            |
+| RF10 | O sistema deve permitir que o usuário edite o descrição de seus Projetos                                          |
 
 <SlideNumber/>
 
@@ -101,10 +101,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF          | Descrição                                                                                      |
 | ----------- | ---------------------------------------------------------------------------------------------- |
-| <b>RF10</b> | <b>O sistema deve permitir que o usuário crie uma conta utilizando email. </b>                 |
+| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email.                                |
 | RF11        | O sistema deve permitir que o usuário se autentique informando email e senha                   |
 | RF12        | O sistema deve permitir que o usuário delete sua própria conta                                 |
-| <b>RF13</b> | <b>O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta</b> |
+| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta               |
 
 <SlideNumber/>
 
@@ -118,7 +118,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF15        | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
 | RF16        | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores.                                                 |
 | RF17        | O sistema deve permitir que o usuário inicie o "Modo Foco" da funcionalidade de "Pomodoro"                                              |
-| <b>RF18</b> | <b>O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados PostgreSQL</b>                               |
+| RF18 | O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados PostgreSQL                                             |
 
 <SlideNumber/>
 
@@ -129,8 +129,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RNF         | Descrição                                                                                                                                                                             |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | RNF1        | O sistema deve criptografar a senha do usuário utilizando a biblioteca brcypt.js antes de armazená-la no banco de dados                                                               |
-| <b>RNF2</b> | <b>O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia</b> |
-| <b>RNF3</b> | <b>O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github</b>                                                                          |
+| RNF2 | O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia |
+| RNF3 | O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github                                                                    |
 
 <SlideNumber/>
 
@@ -144,11 +144,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN2        | Um usuário não pode alterar o email da sua conta para um email já pertencente à outra conta cadastrada.                                             |
 | RN3        | Um usuário não pode associar uma Tarefa à mais de um Projeto.                                                                                       |
 | RN4        | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email, senha e nome) após se autenticar. |
-| <b>RN5</b> | <b>Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais. </b>                       |
-| <b>RN6</b> | <b>Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele. </b>                     |
-| <b>RN7</b> | <b>Um usuário só poderá trocar a senha fornecendo a senha atual da conta.</b>                                                                       |
-| <b>RN8</b> | <b>Só serão aceitas senhas com no minimo 5 caracteres</b>                                                                                           |
-| <b>RN9</b> | <b>Um usuário só poderá iniciar a sessão caso tenha uma conta registrada</b>                                                                        |
+| RN5 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                       |
+| RN6 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                      |
+| RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                       |
+| RN8 | Só serão aceitas senhas com no minimo 5 caracteres.                                                                                          |
+| RN9 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada.                                                                        |
 
 <SlideNumber/>
 
@@ -171,11 +171,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>1.1</span> Registrar Conta
   <span>1.2</span> Deletar Conta
   <span>1.3</span> Alterar Email
-  <b><span>1.4</span> Alterar Senha</b>
-  <b><span>1.5</span> Alterar Nome</b>
+  <span>1.4</span> Alterar Senha
+  <span>1.5</span> Alterar Nome
 <span>2.</span> Iniciar Sessão
-  <b><span>2.1</span> Iniciar sessão com email</b>
-  <b><span>2.2</span> Iniciar sessão com github</b>
+  <span>2.1</span> Iniciar sessão com email
+  <span>2.2</span> Iniciar sessão com github
 <span>3.</span> Enviar Feedback
 <span>4.</span> Configurar envio de email com resumo do dia
 <span>5.</span> Mudar tema
@@ -219,15 +219,15 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                   | Usuário                                                                            |
 | Pré-condições            | Ator na tela de cadastro                                                           |
 | Trigger                  | Ator seleciona "Sign up"                                                           |
-| <b>Fluxo Principal</b>   | <b> 1. Ator digita um nome de usuário, email e senha nos campos do formulário </b> |
-|                          | <b> 2. Ator seleciona "Sign up"[A1] [A2] </b>                                      |
-|                          | <b> 3. Sistema redireciona para tela de login </b>                                 |
-| <b>Fluxo Alternativo</b> | <b> A2 - E-mail já registrado </b>                                                 |
-|                          | <b> A2.1 - O sistema apresenta uma mensagem de erro </b>                           |
-|                          | <b> A2.2 - Volta para o passo 1 </b>                                               |
-| <b>Fluxo Alternativo</b> | <b> A2 - Senha invalida </b>                                                       |
-|                          | <b> A2.1 - O sistema apresenta uma mensagem de erro </b>                           |
-|                          | <b> A2.2 - Volta para o passo 1 </b>                                               |
+| Fluxo Principal          | 1. Ator digita um nome de usuário, email e senha nos campos do formulário  |
+|                          | 2. Ator seleciona "Sign up"[A1] [A2]                                       |
+|                          | 3. Sistema redireciona para tela de login                                  |
+| Fluxo Alternativo        | A2 - E-mail já registrado                                                  |
+|                          | A2.1 - O sistema apresenta uma mensagem de erro                            |
+|                          | A2.2 - Volta para o passo 1                                                |
+| <b>Fluxo Alternativo</b> | A2 - Senha invalida                                                        |
+|                          | A2.1 - O sistema apresenta uma mensagem de erro                            |
+|                          | A2.2 - Volta para o passo 1                                                |
 
 <SlideNumber/>
 
@@ -254,13 +254,13 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                               |
 | Pré-condições              | Ator precisa estar logado e na página "Settings"                      |
 | Trigger                    | Ator clica em "Delete your Account"                                   |
-| <b> Fluxo Principal </b>   | <b> 1. Ator clica no botão "Delete your Account" </b>                 |
-|                            | <b> 2. Sistema pede uma confirmação da ação[A1] </b>                  |
-|                            | <b> 3. Ator confirma a ação </b>                                      |
-|                            | <b> 4. Sistema deleta a conta e redireciona para tela de sign up </b> |
-| <b> Fluxo Alternativo </b> | <b> A1 - Não confirmar a ação </b>                                    |
-|                            | <b> A1.1 O Sistema não deleta a conta </b>                            |
-|                            | <b> A1.2 Fim do caso de uso </b>                                      |
+| Fluxo Principal            | 1. Ator clica no botão "Delete your Account"                         |
+|                            | 2. Sistema pede uma confirmação da ação[A1]                          |
+|                            | 3. Ator confirma a ação                                              |
+|                            | 4. Sistema deleta a conta e redireciona para tela de sign up         |
+| Fluxo Alternativo          | A1 - Não confirmar a ação                                            |
+|                            | A1.1 O Sistema não deleta a conta                                    |
+|                            | A1.2 Fim do caso de uso                                              |
 | Extensões                  | N/A                                                                   |
 | Pós-condições              | O Ator é redirecionado para a tela de sign up                         |
 | Regras de negócio          | RN4                                                                   |
@@ -278,16 +278,16 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                                       |
 | Pré-condições              | Ator precisa estar logado e na página "Settings"                              |
 | Trigger                    | Ator clica em "Change my email"                                               |
-| <b> Fluxo Principal </b>   | <b> 1. Ator preenche formulário com novo email e clica em "Save Changes" </b> |
-|                            | <b> 2. Sistema pede uma confirmação da ação [A2] </b>                         |
-|                            | <b> 3. Ator confirma a ação [A1] </b>                                         |
-|                            | <b> 4. Sistema altera email e mostra uma notificação </b>                     |
-| <b> Fluxo Alternativo </b> | <b> A1 - E-mail já registrado </b>                                            |
-|                            | <b> A1.1 - O sistema apresenta uma mensagem de erro </b>                      |
-|                            | <b> A1.2 - Volta para o passo 1 </b>                                          |
-| <b> Fluxo Alternativo </b> | <b> A2 - Não confirmar a ação </b>                                            |
-|                            | <b> A2.1 O Sistema não altera o email </b>                                    |
-|                            | <b> A2.2 Fim do caso de uso </b>                                              |
+| Fluxo Principal            | 1. Ator preenche formulário com novo email e clica em "Save Changes"         |
+|                            | 2. Sistema pede uma confirmação da ação [A2]                                 |
+|                            | 3. Ator confirma a ação [A1]                                                 |
+|                            | 4. Sistema altera email e mostra uma notificação                             |
+| Fluxo Alternativo          | A1 - E-mail já registrado                                                    |
+|                            | A1.1 - O sistema apresenta uma mensagem de erro                              |
+|                            | A1.2 - Volta para o passo 1                                                   |
+| Fluxo Alternativo          | A2 - Não confirmar a ação                                                    |
+|                            | A2.1 O Sistema não altera o email                                            |
+|                            | A2.2 Fim do caso de uso                                                      |
 
 <SlideNumber/>
 
@@ -314,14 +314,14 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                                                                             |
 | Pré-condições              | Ator precisa estar logado e na página "Settings"                                                                    |
 | Trigger                    | Ator clica em "Change my password"                                                                                  |
-| <b> Fluxo Principal </b>   | <b> 1. O ator preenche os campos "senha atual", "nova senha" e clica em "Save Changes" </b>                         |
-|                            | <b> 2. O sistema pede uma confirmação da ação </b>                                                                  |
-|                            | <b> 3. O ator confirma a ação </b>                                                                                  |
-|                            | <b> 4. O sistema valida a senha atual [A1] </b>                                                                     |
-|                            | <b> 5. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela </b> |
-| <b> Fluxo Alternativo </b> | <b> A1 - Senha atual invalida </b>                                                                                  |
-|                            | <b> A1.1 - O sistema apresenta uma mensagem de erro </b>                                                            |
-|                            | <b> A1.2 - Volta para o passo 1 </b>                                                                                |
+| Fluxo Principal            | 1. O ator preenche os campos "senha atual", "nova senha" e clica em "Save Changes"                          |
+|                            | 2. O sistema pede uma confirmação da ação                                                                   |
+|                            | 3. O ator confirma a ação                                                                                   |
+|                            | 4. O sistema valida a senha atual [A1]                                                                      |
+|                            | 5. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela  |
+| Fluxo Alternativo          | A1 - Senha atual invalida                                                                                   |
+|                            | A1.1 - O sistema apresenta uma mensagem de erro                                                             |
+|                            | A1.2 - Volta para o passo 1                                                                                 |
 
 <SlideNumber/>
 
@@ -331,9 +331,9 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | Propriedade                | Descrição                                  |
 | -------------------------- | ------------------------------------------ |
-| <b> Fluxo Alternativo </b> | <b> A2 - Não confirmar a ação </b>         |
-|                            | <b> A2.1 O Sistema não altera a senha </b> |
-|                            | <b> A2.2 Fim do caso de uso </b>           |
+| Fluxo Alternativo          | A2 - Não confirmar a ação          |
+|                            | A2.1 O Sistema não altera a senha  |
+|                            | A2.2 Fim do caso de uso            |
 | Extensões                  | N/A                                        |
 | Pós-condições              | O Ator permanece na tela "Settings"        |
 | Regras de negócio          | RN4, RN7, RN8                              |
@@ -351,13 +351,13 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                                                             |
 | Pré-condições     | Ator precisa estar logado e na página "Settings"                                                                    |
 | Trigger           | Ator clica em "Change my username"                                                                                  |
-| Fluxo Principal   | <b> 1. O ator preenche o campo "Novo nome" e clica em "Save Changes" </b>                                           |
-|                   | <b> 2. O sistema pede uma confirmação da ação </b>                                                                  |
-|                   | <b> 3. O ator confirma a ação </b>                                                                                  |
-|                   | <b> 4. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela </b> |
-| Fluxo Alternativo | <b> A1 - Não confirmar a ação </b>                                                                                  |
-|                   | <b> A1.1 O Sistema não altera o nome </b>                                                                           |
-|                   | <b> A1.2 Fim do caso de uso </b>                                                                                    |
+| Fluxo Principal   | 1. O ator preenche o campo "Novo nome" e clica em "Save Changes"                                            |
+|                   | 2. O sistema pede uma confirmação da ação                                                                   |
+|                   | 3. O ator confirma a ação                                                                                   |
+|                   | 4. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela  |
+| Fluxo Alternativo | A1 - Não confirmar a ação                                                                                   |
+|                   | A1.1 O Sistema não altera o nome                                                                            |
+|                   | A1.2 Fim do caso de uso                                                                                     |
 
 <SlideNumber/>
 
@@ -384,10 +384,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                                               |
 | Pré-condições              | O usuário não pode estar logado na aplicação                                          |
 | Trigger                    | Ator seleciona "Sign in"                                                              |
-| <b> Fluxo Principal </b>   | <b> 1. O ator digita email e senha nos campos do formulário e clica em "Sign in" </b> |
-|                            | <b> 2. O sistema valida os campos preenchidos[A1] </b>                                |
-|                            | <b> 3. O sistema redireciona para tela inicial de "Today" </b>                        |
-| <b> Fluxo Alternativo </b> | A1 - Email ou senha invalidas                                                         |
+| Fluxo Principal            | 1. O ator digita email e senha nos campos do formulário e clica em "Sign in"  |
+|                            | 2. O sistema valida os campos preenchidos[A1]                                 |
+|                            | 3. O sistema redireciona para tela inicial de "Today"                         |
+| Fluxo Alternativo          | A1 - Email ou senha invalidas                                                         |
 |                            | A1.1 O sistema informa que um dos campos está incorreto                               |
 |                            | A1.2 Volta para o passo 1                                                             |
 | Extensões                  | N/A                                                                                   |
@@ -407,12 +407,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                                          |
 | Pré-condições              | O usuário não pode estar logado na aplicação e deve possuir uma conta registrada |
 | Trigger                    | Ator seleciona "Sign in with github"                                             |
-| <b> Fluxo Principal </b>   | <b> 1 Sistema redireciona para a tela de confirmação [A1] </b>                   |
-|                            | <b> 2 Ator seleciona "I accept" </b>                                             |
-|                            | <b> 3 Sistema redireciona para tela "Today" </b>                                 |
-| <b> Fluxo Alternativo </b> | <b> A1 Não confirmar a ação </b>                                                 |
-|                            | <b> A1.1 O Sistema não efetua o login </b>                                       |
-|                            | <b> A1.2 Fim do caso de uso </b>                                                 |
+| Fluxo Principal            | 1 Sistema redireciona para a tela de confirmação [A1]                    |
+|                            | 2 Ator seleciona "I accept"                                              |
+|                            | 3 Sistema redireciona para tela "Today"                                  |
+| Fluxo Alternativo          | A1 Não confirmar a ação                                                 |
+|                            | A1.1 O Sistema não efetua o login                                        |
+|                            | A1.2 Fim do caso de uso                                                  |
 | Extensões                  | N/A                                                                              |
 | Pós-condições              | O Ator é redirecionado para a tela "Today"                                       |
 | Regras de negócio          | N/A                                                                              |
@@ -471,9 +471,9 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                                        |
 | Pré-condições              | O Ator precisa estar logado na aplicação e na tela de "Settings"               |
 | Trigger                    | O Ator clica na caixa de "Theme"                                               |
-| <b> Fluxo Principal </b>   | <b> 1. Ator seleciona um dos temas </b>                                        |
-|                            | <b> 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças </b> |
-| <b> Fluxo Alternativo </b> | <b> N/A </b>                                                                   |
+| Fluxo Principal            | 1. Ator seleciona um dos temas                                         |
+|                            | 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças  |
+| Fluxo Alternativo          | N/A                                                                    |
 | Extensões                  | N/A                                                                            |
 | Pós-condições              | O Ator permanece na tela "Settings"                                            |
 | Regras de negócio          | RN4                                                                            |
@@ -491,12 +491,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                          |
 | Pré-condições              | O usuário precisa estar logado na aplicação e na na tela de User |
 | Trigger                    | Ator seleciona "Sign out"                                        |
-| <b> Fluxo Principal </b>   | <b> 1. O Sistema solicita uma confirmação da ação [A1] </b>      |
-|                            | <b> 2. O ator confirma a ação </b>                               |
-|                            | <b> 3. O sistema efetua o logout </b>                            |
-| <b> Fluxo Alternativo </b> | <b> A1 Não confirmar a ação </b>                                 |
-|                            | <b> A1.1 O Sistema não efetua o logout </b>                      |
-|                            | <b> A1.2 Fim do caso de uso </b>                                 |
+| Fluxo Principal            | 1. O Sistema solicita uma confirmação da ação [A1]       |
+|                            | 2. O ator confirma a ação                                |
+|                            | 3. O sistema efetua o logout                             |
+| Fluxo Alternativo          | A1 Não confirmar a ação                                  |
+|                            | A1.1 O Sistema não efetua o logout                       |
+|                            | A1.2 Fim do caso de uso                                  |
 | Extensões                  | N/A                                                              |
 | Pós-condições              | O Ator é redirecionado para a tela de "Sign In"                  |
 | Regras de negócio          | RN4                                                              |
