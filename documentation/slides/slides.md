@@ -73,7 +73,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Tarefa           | Tarefa ligada à um único usuário que conterá uma descrição, data e data limite.                                                                                                                                                                                                                                                        |
 | Projeto          | Conjunto de Tarefas.                                                                                                                                                                                                                                                                                                                   |
 | Pomodoro         | Timer utilizado para que o usuário possa focar em realizar uma tarefa dentro de um determinado período de tempo.                                                                                                                                                                                                                       |
-| Modo Foco       | Amplia a tela do Pomodoro, deixando-o em tela cheia tempo.                                                                                                                                                                                                                       |
+| Modo Foco       | Amplia a tela do Pomodoro, deixando-o em tela cheia                                                                                                                                                                                                                        |
 
 <SlideNumber/>
 
@@ -84,15 +84,13 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF          | Descrição                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------- |
 | RF1         | O sistema deve permitir que o usuário crie uma Tarefa preenchendo os campos descrição, data e data limite. |
-| RF2         | O sistema deve permitir que o usuário liste as Tarefas dele agendadas para aquele dia                      |
-| RF3         | O sitema deve permitir que o usuário liste as Tarefas agendadas para dias futuros                          |
-| RF4         | O sitema deve permitir que o usuário marque uma Tarefa como feita                                          |
-| RF5         | O sitema deve permitir que o usuário edite a descrição e as datas de uma Tarefa                            |
-| RF6         | O sistema deve permitir que o usuário crie um Projeto preenchendo o campo descrição                        |
-| RF7         | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
-| RF8         | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
-| RF9         | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
-| RF10 | O sistema deve permitir que o usuário edite o descrição de seus Projetos                                          |
+<b>| RF2         | O sistema deve permitir que o usuário liste as Tarefas dele agendadas de determinados dias              | </b>
+| RF3         | O sitema deve permitir que o usuário marque uma Tarefa como feita                                          | 
+<b>| RF4         | O sitema deve permitir que o usuário edite a descrição e as datas de uma Tarefa e Projetos              |</b>
+| RF5        | O sistema deve permitir que o usuário crie um Projeto preenchendo o campo descrição                        |
+| RF6         | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
+| RF7         | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
+| RF8         | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
 
 <SlideNumber/>
 
@@ -102,10 +100,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF          | Descrição                                                                                      |
 | ----------- | ---------------------------------------------------------------------------------------------- |
-| RF10 | O sistema deve permitir que o usuário crie uma conta utilizando email.                                |
-| RF11        | O sistema deve permitir que o usuário se autentique informando email e senha                   |
-| RF12        | O sistema deve permitir que o usuário delete sua própria conta                                 |
-| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta               |
+| RF9 | O sistema deve permitir que o usuário crie uma conta utilizando email.                                |
+| RF10        | O sistema deve permitir que o usuário se autentique informando email e senha                   |
+| RF11        | O sistema deve permitir que o usuário delete sua própria conta                                 |
+| RF12 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta               |
 
 <SlideNumber/>
 
@@ -115,10 +113,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF          | Descrição                                                                                                                               |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| RF14        | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
-| RF15        | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
-| RF16        | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores.                                                 |
-| RF17        | O sistema deve permitir que o usuário inicie o "Modo Foco" da funcionalidade de "Pomodoro"                                              |
+| RF13        | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
+| RF14        | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
+| RF15        | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                  |
+| RF16        | O sistema deve permitir que o usuário veja a temmperatura climática atual                                                               |
+| RF17        | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
 
 
 <SlideNumber/>
@@ -180,11 +179,15 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>2.2</span> Iniciar sessão com github
 <span>3.</span> Enviar Feedback
 <span>4.</span> Configurar envio de email com resumo do dia
-<span>5.</span> Mudar tema
+<span>5.</span> Mudar Tema da Aplicação
 <span>6.</span> Encerrar sessão
 <span>7.</span> Manter Tarefa
-  <span>7.1</span> Registrar tarefa
-  <span>7.2</span> Deletar tarefa
+ <b> <span>7.1</span> Arrastar Tarefa
+     <span>7.1.1.</span> Reordenar Tarefa
+     <span>7.1.2.</span> Ativar Pomodoro
+     <span>7.1.3.</span> Mover Tarefa de Projeto </b>
+  <span>7.2</span> Registrar tarefa
+  <span>7.3</span> Deletar tarefa
 </pre>
 
 <SlideNumber/>
@@ -194,8 +197,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 ## Casos de Uso
 
 <pre>
-<span>8.</span> Ver a temperatura atual
-<span>9.</span> Manter Projeto
+<span>8.</span> Ver Previsão de Temperatura
+<b><span>9.</span> Manter Projeto
+    <span>9.1</span> Arrastar Projeto
+    <span>9.1.2</span> Reordenar Projeto </b>
 <span>10.</span> Usar Pomodoro
 <span>11.</span> Iniciar Modo Foco
 </pre>
@@ -221,14 +226,15 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                   | Usuário                                                                            |
 | Pré-condições            | Ator na tela de cadastro                                                           |
 | Trigger                  | Ator seleciona "Cadastro"                                                          |
-| Fluxo Principal          | 1. Ator digita um nome de usuário, email e senha nos campos do formulário          |
+| Fluxo Principal          | 1. Sistema apresenta campos para preenchimento                                     |
+|                            1. Ator digita um nome de usuário, email e senha nos campos do formulário          |
 |                          | 2. Ator seleciona "Cadastro"[A1] [A2]                                              |
 |                          | 3. Sistema redireciona para tela de login                                          |
 | Fluxo Alternativo        | A2 - E-mail já registrado                                                          |
-|                          | A2.1 - O sistema apresenta uma mensagem de erro                                    |
+|                          | A2.1 - O Sistema apresenta uma mensagem de erro                                    |
 |                          | A2.2 - Volta para o passo 1                                                        |
 | Fluxo Alternativo        | A2 - Senha inválida                                                                |
-|                          | A2.1 - O sistema apresenta uma mensagem de erro                                    |
+|                          | A2.1 - O Sistema apresenta uma mensagem de erro                                    |
 |                          | A2.2 - Volta para o passo 1                                                        |
 
 <SlideNumber/>
@@ -277,10 +283,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Objetivo                   | Alterar endereço de email da conta                                            |
 | Atores                     | Usuário                                                                       |
 | Pré-condições              | Ator precisa estar logado e na página "Configurações"                         |
-| Trigger                    | Ator clica em "Change my email"                                               |
-| Fluxo Principal            | 1. Ator preenche formulário com novo email e clica em "Salvar Alterações"     |
-|                            | 2. Sistema pede uma confirmação da ação [A2]                                  |
-|                            | 3. Ator confirma a ação [A1]                                                  |
+| Trigger                    | Ator clica em "Mudar meu email"                                               |
+| Fluxo Principal            | 1. Sistema apresenta campos para preenchimento do formulário                  |
+|                            | 2. Ator preenche formulário com novo email e clica em "Salvar Alterações"     |
+|                            | 3. Sistema pede uma confirmação da ação [A2]                                  |
+|                            | 4. Ator confirma a ação [A1]                                                  |
 |                            | 4. Sistema altera email e mostra uma notificação                              |
 | Fluxo Alternativo          | A1 - E-mail já registrado                                                     |
 |                            | A1.1 - O sistema apresenta uma mensagem de erro                               |
@@ -313,12 +320,13 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Objetivo                   | Alterar a senha da conta                                                                                            |
 | Atores                     | Usuário                                                                                                             |
 | Pré-condições              | Ator precisa estar logado e na página "Configurações"                                                               |
-| Trigger                    | Ator clica em "Change my password"                                                                                  |
-| Fluxo Principal            | 1. O ator preenche os campos "senha atual", "nova senha" e clica em "Salvar Alterações"                             |
-|                            | 2. O sistema pede uma confirmação da ação                                                                           |
-|                            | 3. O ator confirma a ação                                                                                           |
-|                            | 4. O sistema valida a senha atual [A1]                                                                              |
-|                            | 5. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela          |
+| Trigger                    | Ator clica em "Mudar Minha Senha"                                                                                   |
+| Fluxo Principal            | 1. Sistema apresenta campo para preenchimento da nova senha                                                         |
+|                            | 1. O Ator preenche os campos "Senha atual", "Nova senha" e clica em "Salvar Alterações"                             |
+|                            | 2. O Sistema pede uma confirmação da ação                                                                           |
+|                            | 3. O Ator confirma a ação                                                                                           |
+|                            | 4. O Sistema valida a senha atual [A1]                                                                              |
+|                            | 5. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela          |
 | Fluxo Alternativo          | A1 - Senha atual invalida                                                                                           |
 |                            | A1.1 - O sistema apresenta uma mensagem de erro                                                                     |
 |                            | A1.2 - Volta para o passo 1                                                                                         |
@@ -350,10 +358,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                                                             |
 | Pré-condições     | Ator precisa estar logado e na página "Configurações"                                                               |
 | Trigger           | Ator clica em "Change my username"                                                                                  |
-| Fluxo Principal   | 1. O ator preenche o campo "Novo nome" e clica em "Salvar Alterações"                                               |
-|                   | 2. O sistema pede uma confirmação da ação                                                                           |
-|                   | 3. O ator confirma a ação                                                                                           |
-|                   | 4. O sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela          |
+| Fluxo Principal   | 1. Sistema apresenta campo para preenchimento do novo nome                                                          |
+|                   | 2. O Ator preenche o campo "Novo Nome" e clica em "Salvar Alterações"                                               |
+|                   | 3. O Sistema pede uma confirmação da ação                                                                           |
+|                   | 4. O Ator confirma a ação                                                                                           |
+|                   | 5. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela          |
 | Fluxo Alternativo | A1 - Não confirmar a ação                                                                                           |
 |                   | A1.1 O Sistema não altera o nome                                                                                    |
 
@@ -382,11 +391,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Objetivo                   | Iniciar sessão na aplicação                                                           |
 | Atores                     | Usuário                                                                               |
 | Pré-condições              | O usuário não pode estar logado na aplicação                                          |
-| Trigger                    | Ator seleciona "Sign in"                                                              |
-| Fluxo Principal            | 1. O ator digita email e senha nos campos do formulário e clica em "Entrar"           |
-|                            | 2. O sistema valida os campos preenchidos[A1] e redireciona para tela inicial de "Today" |
+| Trigger                    | Ator seleciona "Entrar"                                                               |
+| Fluxo Principal            | 1. Sistema apresenta campos para preenchimento dos dados                              |
+|                            | 2. O Ator digita email e senha nos campos do formulário e clica em "Entrar"           |
+|                            | 3. O Sistema valida os campos preenchidos[A1] e redireciona para tela inicial de "Today" |
 | Fluxo Alternativo          | A1 - Email ou senha inválidas                                                         |
-|                            | A1.1 O sistema informa que um dos campos está incorreto                               |
+|                            | A1.1 O Sistema informa que um dos campos está incorreto                               |
 |                            | A1.2 Volta para o passo 1                                                             |
 | Extensões                  | N/A                                                                                   |
 | Pós-condições              | O Ator é redirecionado para a tela "Today"                                            |
@@ -448,8 +458,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores            | Usuário                                                                                                    |
 | Pré-condições     | O Ator precisa estar logado na aplicação e na tela de "Configurações"                                      |
 | Trigger           | O Ator clica na caixa "Send daily reminder of my Tasks"                                                    |
-| Fluxo Principal   | 1. Ator seleciona o botão "Salvar Alterações"                                                              |
-|                   | 2. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela |
+| Fluxo Principal   | 1. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela |
 | Fluxo Alternativo | N/A                                                                                                        |
 | Extensões         | N/A                                                                                                        |
 | Pós-condições     | O Ator permanece na tela "Configurações"                                                                   |
@@ -468,8 +477,9 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Atores                     | Usuário                                                                        |
 | Pré-condições              | O Ator precisa estar logado na aplicação e na tela de "Configurações"          |
 | Trigger                    | O Ator clica na caixa de "Temas"                                               |
-| Fluxo Principal            | 1. Ator seleciona um dos temas                                                 |
-|                            | 2. O Sistema muda de acordo com a opção escolhida e salva as mudanças          |
+| Fluxo Principal            | 1. Sistema apresenta as opções de Temas                                        |
+|                              2. Ator seleciona um dos temas                                                 |
+|                            | 3. O Sistema muda de acordo com a opção escolhida e salva as mudanças          |
 | Fluxo Alternativo          | N/A                                                                            |
 | Extensões                  | N/A                                                                            |
 | Pós-condições              | O Ator permanece na tela "Configurações"                                       |
@@ -486,11 +496,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome                       | Encerrar sessão                                                  |
 | Objetivo                   | Encerrar sessão na aplicação                                     |
 | Atores                     | Usuário                                                          |
-| Pré-condições              | O usuário precisa estar logado na aplicação e na na tela de User |
+| Pré-condições              | O Usuário precisa estar logado na aplicação e na na tela de User |
 | Trigger                    | Ator seleciona "Sair"                                            |
 | Fluxo Principal            | 1. O Sistema solicita uma confirmação da ação [A1]               |
-|                            | 2. O ator confirma a ação                                        |
-|                            | 3. O sistema efetua o logout                                     |
+|                            | 2. O Ator confirma a ação                                        |
+|                            | 3. O Sistema efetua o logout                                     |
 | Fluxo Alternativo          | A1 Não confirmar a ação                                          |
 |                            | A1.1 O Sistema não efetua o logout                               |
 | Extensões                  | N/A                                                              |
@@ -508,10 +518,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome              | Registrar tarefa                                                                      |
 | Objetivo          | Criar uma tarefa na aplicação                                                         |
 | Atores            | Usuário                                                                               |
-| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
-| Trigger           | O ator clica no sinal "+"                                                             |
-| Fluxo Principal   | 1. O ator digita a descrição da tarefa, a data de inicio e data limite                |
-|                   | 2. O sitema salva a nova tarefa                                                       |
+| Pré-condições     | O Ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
+| Trigger           | O Ator clica no sinal "+"                                                             |
+| Fluxo Principal   | 1. O Sistema apresenta uma caixa de preenchimento                                     |
+|                   | 2. O Ator digita a descrição da tarefa, a data de inicio e data limite               |
+|                   | 3. O Sitema salva a nova tarefa                                                       |
 | Fluxo Alternativo | N/A                                                                                   |
 | Extensões         | N/A                                                                                   |
 | Pós-condições     | O ator continua na mesma página                                                       |
@@ -528,11 +539,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome              | Deletar tarefa                                                                        |
 | Objetivo          | Deletar uma tarefa na aplicação                                                       |
 | Atores            | Usuário                                                                               |
-| Pré-condições     | O ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
-| Trigger           | O ator clica no icone de deletar (lixeira)                                            |
-| Fluxo Principal   | 1. O sistema pede uma confirmação da ação [A1]                                        |
-|                   | 2. O ator confirma a ação                                                             |
-|                   | 3. O sistema deleta a tarefa                                                          |
+| Pré-condições     | O Ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
+| Trigger           | O Ator clica no icone de deletar (lixeira)                                            |
+| Fluxo Principal   | 1. O Sistema pede uma confirmação da ação [A1]                                        |
+|                   | 2. O Ator confirma a ação                                                             |
+|                   | 3. O Sistema deleta a tarefa                                                          |
 | Fluxo Alternativo | A1 Não confirmar a ação                                                               |
 |                   | A1.1 O Sistema não deleta a tarefa                                                    |
 | Extensões         | N/A                                                                                   |
@@ -551,8 +562,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Objetivo          | Ver a temperatura atual na aplicação                            |
 | Atores            | N/A                                                             |
 | Pré-condições     | O Usuário precisa estar logado na aplicação e na página "Today" |
-| Trigger           | N/A                                                             |
-| Fluxo Principal   | 1. O sistema exibe a temperatura atual do dia na tela           |
+| Trigger           | O Ator olha para o local que exibe a temperatura                |
+| Fluxo Principal   | 1. O Sistema exibe a temperatura atual do dia na tela           |
 | Fluxo Alternativo | N/A                                                             |
 | Extensões         | N/A                                                             |
 | Pós-condições     | N/A                                                             |
