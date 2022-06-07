@@ -84,10 +84,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF          | Descrição                                                                                                  |
 | ----------- | ---------------------------------------------------------------------------------------------------------- |
 | RF1         | O sistema deve permitir que o usuário crie uma Tarefa preenchendo os campos descrição, data e data limite. |
-<b>| RF2         | O sistema deve permitir que o usuário liste as Tarefas dele agendadas de determinados dias              | </b>
+|<b>RF2</b>   |<b>O sistema deve permitir que o usuário liste as Tarefas dele agendadas de determinados dias</b>           | 
 | RF3         | O sitema deve permitir que o usuário marque uma Tarefa como feita                                          | 
-<b>| RF4         | O sitema deve permitir que o usuário edite a descrição e as datas de uma Tarefa e Projetos              |</b>
-| RF5        | O sistema deve permitir que o usuário crie um Projeto preenchendo o campo descrição                        |
+|<b>RF4</b>   |<b>O sitema deve permitir que o usuário edite a descrição e as datas de uma Tarefa e Projetos </b>          |
+| RF5         | O sistema deve permitir que o usuário crie um Projeto preenchendo o campo descrição                        |
 | RF6         | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
 | RF7         | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
 | RF8         | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
@@ -562,7 +562,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Objetivo          | Ver a temperatura atual na aplicação                            |
 | Atores            | N/A                                                             |
 | Pré-condições     | O Usuário precisa estar logado na aplicação e na página "Today" |
-| Trigger           | O Ator olha para o local que exibe a temperatura                |
+| <b>Trigger</b>    | <b>O Ator faz login na aplicação</b>                            |
 | Fluxo Principal   | 1. O Sistema exibe a temperatura atual do dia na tela           |
 | Fluxo Alternativo | N/A                                                             |
 | Extensões         | N/A                                                             |
