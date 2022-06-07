@@ -91,6 +91,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF6         | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                         |
 | RF7         | O sistema deve permitir que o usuário veja seus Projetos atuais                                            |
 | RF8         | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                    |
+|<b>RF9</b>   | <b>O sistema deve permitir que o usuário visualize a "Data restante" da sua tarefa</b>|    
 
 <SlideNumber/>
 
@@ -100,10 +101,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF          | Descrição                                                                                      |
 | ----------- | ---------------------------------------------------------------------------------------------- |
-| RF9 | O sistema deve permitir que o usuário crie uma conta utilizando email.                                |
-| RF10        | O sistema deve permitir que o usuário se autentique informando email e senha                   |
-| RF11        | O sistema deve permitir que o usuário delete sua própria conta                                 |
-| RF12 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta               |
+| <b>RF10</b> |<b>O sistema deve permitir que o usuário crie uma conta utilizando email, nome e senha</b>      |
+| RF11        | O sistema deve permitir que o usuário se autentique informando email e senha                   |
+| RF12        | O sistema deve permitir que o usuário delete sua própria conta                                 |
+| RF13 | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta               |
 
 <SlideNumber/>
 
@@ -113,11 +114,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF          | Descrição                                                                                                                               |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| RF13        | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
-| RF14        | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
-| RF15        | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                  |
-| RF16        | O sistema deve permitir que o usuário veja a temmperatura climática atual                                                               |
-| RF17        | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
+| RF14        | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
+| RF15        | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                         |
+| RF16        | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                  |
+| RF17        | O sistema deve permitir que o usuário veja a temmperatura climática atual                                                               |
+| RF18        | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
+|<b>RF19</b>  | <b>O sistema deve permitir que o usuário veja a temperatura atual do clima dentro da aplicação</b> |
 
 
 <SlideNumber/>
@@ -132,6 +134,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RNF2 | O sistema deve permitir que o usuário ao alterar um tema tenha as opções de modo claro e modo escuro que auxiliam na melhor visualização do sistema em diferentes horas do dia |
 | RNF3 | O sistema deve permitir ao usuário a opção de autenticação por meio da integração com a API do Github                                                                    |
 | RNF4 | O sistema deve armazenar os registros de Usuários, Tarefas e Projetos em banco de dados                                           |
+| <b>RNF5</b> | <b>O sistema deve coletar informações sobre a temperatura climática através do weather API</b> |
 
 <SlideNumber/>
 
@@ -150,6 +153,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN7 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                                     |
 | RN8 | Só serão aceitas senhas com no minimo 5 caracteres.                                                                                                        |
 | RN9 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada.                                                                                     |
+| <b>RN10</b> | <b>O sistema deve calcular quantos dias faltam para chegar na "Data limite" de uma tarefa</b> |
+| <b>RN11</b> | <b>Um cadastro é feito preenchendo obrigatoriamente os campos "email", "nome" e "senha"</b>| 
 
 <SlideNumber/>
 
@@ -227,12 +232,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições            | Ator na tela de cadastro                                                           |
 | Trigger                  | Ator seleciona "Cadastro"                                                          |
 | Fluxo Principal          | 1. Sistema apresenta campos para preenchimento                                     |
-|                          | 2. Ator digita um nome de usuário, email e senha nos campos do formulário          |
-|                          | 3. Ator seleciona "Cadastro"[A1] [A2]                                              |
-|                          | 4. Sistema redireciona para tela de login                                          |
-| Fluxo Alternativo        | A2 - E-mail já registrado                                                          |
-|                          | A2.1 - O Sistema apresenta uma mensagem de erro                                    |
-|                          | A2.2 - Volta para o passo 1                                                        |
+|                          | <b>2. Ator digita um nome de usuário, email, senha nos campos do formulário e seleciona "Cadastrar" [A1] [A2] </b>         |
+|                          | 3. Sistema redireciona para tela de login                                          |
+| Fluxo Alternativo        | A1 - E-mail já registrado                                                          |
+|                          | A1.1 - O Sistema apresenta uma mensagem de erro                                    |
+|                          | A1.2 - Volta para o passo 1                                                        |
 | Fluxo Alternativo        | A2 - Senha inválida                                                                |
 |                          | A2.1 - O Sistema apresenta uma mensagem de erro                                    |
 |                          | A2.2 - Volta para o passo 1                                                        |
@@ -324,9 +328,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Fluxo Principal            | 1. Sistema apresenta campo para preenchimento da nova senha                                                         |
 |                            | 1. O Ator preenche os campos "Senha atual", "Nova senha" e clica em "Salvar Alterações"                             |
 |                            | 2. O Sistema pede uma confirmação da ação                                                                           |
-|                            | 3. O Ator confirma a ação                                                                                           |
-|                            | 4. O Sistema valida a senha atual [A1]                                                                              |
-|                            | 5. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela          |
+|                            | 3. O Ator confirma a ação [A2]                                                                                           |
+|                            | 4. O Sistema valida a senha atual e mostra uma notificação de que as configurações foram salvas [A1]                                                                              |
 | Fluxo Alternativo          | A1 - Senha atual invalida                                                                                           |
 |                            | A1.1 - O sistema apresenta uma mensagem de erro                                                                     |
 |                            | A1.2 - Volta para o passo 1                                                                                         |
@@ -361,7 +364,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Fluxo Principal   | 1. Sistema apresenta campo para preenchimento do novo nome                                                          |
 |                   | 2. O Ator preenche o campo "Novo Nome" e clica em "Salvar Alterações"                                               |
 |                   | 3. O Sistema pede uma confirmação da ação                                                                           |
-|                   | 4. O Ator confirma a ação                                                                                           |
+|                   | 4. O Ator confirma a [A1] ação                                                                                           |
 |                   | 5. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela          |
 | Fluxo Alternativo | A1 - Não confirmar a ação                                                                                           |
 |                   | A1.1 O Sistema não altera o nome                                                                                    |
@@ -413,7 +416,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome                       | Iniciar sessão com github                                                        |
 | Objetivo                   | Iniciar sessão na aplicação                                                      |
 | Atores                     | Usuário                                                                          |
-| Pré-condições              | O usuário não pode estar logado na aplicação e deve possuir uma conta registrada |
+| <b>Pré-condições</b>       | <b>O usuário não pode estar logado na aplicação</b>                              |
 | Trigger                    | Ator seleciona "Entrar com Github"                                               |
 | Fluxo Principal            | 1 Sistema redireciona para a tela de confirmação [A1]                            |
 |                            | 2 Ator seleciona "I accept"                                                      |
