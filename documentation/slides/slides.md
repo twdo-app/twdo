@@ -227,9 +227,9 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições            | Ator na tela de cadastro                                                           |
 | Trigger                  | Ator seleciona "Cadastro"                                                          |
 | Fluxo Principal          | 1. Sistema apresenta campos para preenchimento                                     |
-|                            1. Ator digita um nome de usuário, email e senha nos campos do formulário          |
-|                          | 2. Ator seleciona "Cadastro"[A1] [A2]                                              |
-|                          | 3. Sistema redireciona para tela de login                                          |
+|                          | 2. Ator digita um nome de usuário, email e senha nos campos do formulário          |
+|                          | 3. Ator seleciona "Cadastro"[A1] [A2]                                              |
+|                          | 4. Sistema redireciona para tela de login                                          |
 | Fluxo Alternativo        | A2 - E-mail já registrado                                                          |
 |                          | A2.1 - O Sistema apresenta uma mensagem de erro                                    |
 |                          | A2.2 - Volta para o passo 1                                                        |
