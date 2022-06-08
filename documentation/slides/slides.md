@@ -88,6 +88,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RF7                | O sistema deve permitir que o usuário veja seus Projetos atuais                                              |
 | RF8                | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                      |
 | `<b>`RF9`</b>` | `<b>`O sistema deve permitir que o usuário visualize a "Data restante" da sua tarefa`</b>`               |
+| <b>RF10</b> | <b>O sistema deve permitir que o usuário arraste suas tarefas e projetos</b>                                 |
+| <b>RF11</b> | <b>O sistema deve permitir que o usuário reordene suas tarefas e projetos</b>                                 |
 
 <SlideNumber/>
 
@@ -97,10 +99,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF                  | Descrição                                                                                         |
 | ------------------- | --------------------------------------------------------------------------------------------------- |
-| `<b>`RF10`</b>` | `<b>`O sistema deve permitir que o usuário crie uma conta utilizando email, nome e senha`</b>` |
-| RF11                | O sistema deve permitir que o usuário se autentique informando email e senha                       |
-| RF12                | O sistema deve permitir que o usuário delete sua própria conta                                    |
-| RF13                | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta           |
+| `<b>`RF12`</b>` | `<b>`O sistema deve permitir que o usuário crie uma conta utilizando email, nome e senha`</b>` |
+| RF13                | O sistema deve permitir que o usuário se autentique informando email e senha                       |
+| RF14                | O sistema deve permitir que o usuário delete sua própria conta                                    |
+| RF15                | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta           |
 
 <SlideNumber/>
 
@@ -110,12 +112,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF                  | Descrição                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| RF14                | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
-| RF15                | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                           |
-| RF16                | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                    |
-| RF17                | O sistema deve permitir que o usuário veja a temmperatura climática atual                                                                |
-| RF18                | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
-| `<b>`RF19`</b>` | `<b>`O sistema deve permitir que o usuário veja a temperatura atual do clima dentro da aplicação`</b>`                              |
+| RF16                | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
+| RF17                | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                           |
+| RF18                | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                    |
+| RF19                | O sistema deve permitir que o usuário veja a temmperatura climática atual                                                                |
+| RF20                | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
+| `<b>`RF21`</b>` | `<b>`O sistema deve permitir que o usuário veja a temperatura atual do clima dentro da aplicação`</b>`                              |
 
 <SlideNumber/>
 
