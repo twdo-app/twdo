@@ -213,7 +213,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Diagrama de Casos de Uso
 
-<img src="/twdouasecaase_png.png">
+<img src="/twdousecase_3.png">
 
 <SlideNumber/>
 
