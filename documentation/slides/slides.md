@@ -213,7 +213,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Diagrama de Casos de Uso
 
-<img src="/twdousecase_3.png">
+<img src="documentation/docs/twdousecase_3.png">
 
 <SlideNumber/>
 
@@ -573,7 +573,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Diagrama de Classes
 
-<img src="/class-diagram-3-0.png">
+<img src="documentation/docs/class-diagram-3-0.png">
 
 <SlideNumber/>
 
