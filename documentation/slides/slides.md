@@ -75,7 +75,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Requisitos Funcionais<span> > <h3>Projetos e Tarefas</h3>
+## Requisitos Funcionais <h3>Projetos e Tarefas</h3>
 
 | RF                 | Descrição                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------------------------------------------- |
@@ -95,7 +95,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Requisitos Funcionais<span> > <h3>Conta e Autenticação</h3>
+## Requisitos Funcionais <h3>Conta e Autenticação</h3>
 
 | RF                  | Descrição                                                                                         |
 | ------------------- | --------------------------------------------------------------------------------------------------- |
@@ -108,7 +108,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Requisitos Funcionais<span> > <h3>Features e Armazenamento</h3>
+## Requisitos Funcionais <h3>Features e Armazenamento</h3>
 
 | RF                  | Descrição                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -219,7 +219,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.1 - Registrar Conta</h3>
+## Casos de Uso <h3>1.1 - Registrar Conta</h3>
 
 | Propriedade       | Descrição                                                                                                                  |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -242,7 +242,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.1 - Registrar Conta</h3>
+## Casos de Uso <h3>1.1 - Registrar Conta</h3>
 
 | Propriedade        | Descrição                                  |
 | ------------------ | -------------------------------------------- |
@@ -254,7 +254,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.2 - Deletar Conta</h3>
+## Casos de Uso <h3>1.2 - Deletar Conta</h3>
 
 | Propriedade        | Descrição                                                   |
 | ------------------ | ------------------------------------------------------------- |
@@ -276,7 +276,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.3 - Alterar Email</h3>
+## Casos de Uso <h3>1.3 - Alterar Email</h3>
 
 | Propriedade       | Descrição                                                                  |
 | ----------------- | ---------------------------------------------------------------------------- |
@@ -300,7 +300,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.3 - Alterar Email</h3>
+## Casos de Uso <h3>1.3 - Alterar Email</h3>
 
 | Propriedade        | Descrição                                |
 | ------------------ | ------------------------------------------ |
@@ -312,7 +312,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.4 - Alterar Senha</h3>
+## Casos de Uso <h3>1.4 - Alterar Senha</h3>
 
 | Propriedade       | Descrição                                                                                              |
 | ----------------- | -------------------------------------------------------------------------------------------------------- |
@@ -334,7 +334,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.4 - Alterar Senha</h3>
+## Casos de Uso <h3>1.4 - Alterar Senha</h3>
 
 | Propriedade        | Descrição                                |
 | ------------------ | ------------------------------------------ |
@@ -348,7 +348,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.5 - Alterar Nome</h3>
+## Casos de Uso <h3>1.5 - Alterar Nome</h3>
 
 | Propriedade       | Descrição                                                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -369,7 +369,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>1.5 - Alterar Nome</h3>
+## Casos de Uso <h3>1.5 - Alterar Nome</h3>
 
 | Propriedade        | Descrição                                |
 | ------------------ | ------------------------------------------ |
@@ -381,7 +381,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>2.1 - Iniciar sessão com email</h3>
+## Casos de Uso <h3>2.1 - Iniciar sessão com email</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -404,7 +404,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>2.2 - Iniciar sessão com github</h3>
+## Casos de Uso <h3>2.2 - Iniciar sessão com github</h3>
 
 | Propriedade                     | Descrição                                                     |
 | ------------------------------- | --------------------------------------------------------------- |
@@ -426,7 +426,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>3 - Enviar Feedback</h3>
+## Casos de Uso <h3>3 - Enviar Feedback</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -447,7 +447,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>4 - Configurar envio de email com resumo do dia</h3>
+## Casos de Uso <h3>4 - Configurar envio de email com resumo do dia</h3>
 
 | Propriedade        | Descrição                                                                                                    |
 | ------------------ | -------------------------------------------------------------------------------------------------------------- |
@@ -466,7 +466,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>5 - Mudar Tema</h3>
+## Casos de Uso <h3>5 - Mudar Tema</h3>
 
 | Propriedade                    | Descrição                                                               |
 | ------------------------------ | ------------------------------------------------------------------------- |
@@ -487,7 +487,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>6 - Encerrar Sessão</h3>
+## Casos de Uso <h3>6 - Encerrar Sessão</h3>
 
 | Propriedade        | Descrição                                                         |
 | ------------------ | ------------------------------------------------------------------- |
@@ -509,7 +509,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>7.1 - Registrar Tarefa</h3>
+## Casos de Uso <h3>7.1 - Registrar Tarefa</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -530,7 +530,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>7.2 - Deletar Tarefa</h3>
+## Casos de Uso <h3>7.2 - Deletar Tarefa</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -552,7 +552,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso<span> > <h3>8 - Ver a temperatura atual</h3>
+## Casos de Uso <h3>8 - Ver a temperatura atual</h3>
 
 | Propriedade            | Descrição                                                         |
 | ---------------------- | ------------------------------------------------------------------- |
