@@ -573,7 +573,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ## Diagrama de Classes
 
-<img src="/diagrama_de_classes.png">
+<img src="/class-diagram-3-0.png">
 
 <SlideNumber/>
 
