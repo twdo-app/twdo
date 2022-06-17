@@ -29,7 +29,6 @@ aspectRatio: "16/10"
     <span class="sumario"> 15</span> Manter Conta
     <span class="sumario"> 24</span> Iniciar Sessão
     <span class="sumario"> 26</span> Enviar Feedback
-    <span class="sumario"> 27</span> Configurar envio de email com resumo do dia
     <span class="sumario"> 28</span> Mudar tema
     <span class="sumario"> 29</span> Encerrar sessão
     <span class="sumario"> 30</span> Manter Tarefa
@@ -79,17 +78,16 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF                 | Descrição                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------------------------------------------- |
-| RF1                | O sistema deve permitir que o usuário crie uma Tarefa preenchendo os campos descrição, data e data limite. |
-| <b>RF2</b> | <b>O sistema deve permitir que o usuário liste as Tarefas dele agendadas de determinados dias</b>    |
+| <b>RF1</b>         | <b>O sistema deve permitir que o usuário crie uma Tarefa preenchendo os campos descrição.</b>                 |
+| <b>RF2</b> | <b>O sistema deve permitir que o usuário liste as Tarefas criadas</b>    |
 | RF3                | O sitema deve permitir que o usuário marque uma Tarefa como feita                                            |
-| <b>RF4</b> | <b>O sitema deve permitir que o usuário edite a descrição e as datas de uma Tarefa e Projetos </b> |
+| <b>RF4</b> | <b>O sitema deve permitir que o usuário edite a descrição de uma Tarefa e Projetos </b> |
 | RF5                | O sistema deve permitir que o usuário crie um Projeto preenchendo o campo descrição                        |
 | RF6                | O sistema deve permitir que o usuário agrupe Tarefas em um Projeto                                           |
 | RF7                | O sistema deve permitir que o usuário veja seus Projetos atuais                                              |
 | RF8                | O sistema deve permitir que o usuário edite as Tarefas de seus Projetos                                      |
-| <b>RF9</b> | <b>O sistema deve permitir que o usuário visualize a "Data restante" da sua tarefa</b>               |
-| <b>RF10</b> | <b>O sistema deve permitir que o usuário arraste suas tarefas e projetos</b>                                 |
-| <b>RF11</b> | <b>O sistema deve permitir que o usuário reordene suas tarefas e projetos</b>                                 |
+| <b>RF9</b> | <b>O sistema deve permitir que o usuário arraste suas tarefas e projetos</b>                                 |
+| <b>RF10</b> | <b>O sistema deve permitir que o usuário reordene suas tarefas e projetos</b>                                 |
 
 <SlideNumber/>
 
@@ -99,10 +97,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF                  | Descrição                                                                                         |
 | ------------------- | --------------------------------------------------------------------------------------------------- |
-| <b>RF12</b> | <b>O sistema deve permitir que o usuário crie uma conta utilizando email, nome e senha</b> |
-| RF13                | O sistema deve permitir que o usuário se autentique informando email e senha                       |
-| RF14                | O sistema deve permitir que o usuário delete sua própria conta                                    |
-| RF15                | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta           |
+| <b>RF11</b> | <b>O sistema deve permitir que o usuário crie uma conta utilizando email, nome e senha</b> |
+| RF12                | O sistema deve permitir que o usuário se autentique informando email e senha                       |
+| RF13                | O sistema deve permitir que o usuário delete sua própria conta                                    |
+| RF14                | O sistema deve permitir que o usuário altere o email, senha e nome da sua própria conta           |
 
 <SlideNumber/>
 
@@ -112,12 +110,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 | RF                  | Descrição                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| RF16                | O sistema deve permitir que o usuário configure um envio de email automático para lembrá-lo das suas Tarefas agendadas para o dia atual |
-| RF17                | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                           |
-| RF18                | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                    |
-| RF19                | O sistema deve permitir que o usuário veja a temmperatura climática atual                                                                |
-| RF20                | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
-| <b>RF21</b> | <b>O sistema deve permitir que o usuário veja a temperatura atual do clima dentro da aplicação</b>                              |
+| RF15                | O sistema deve permitir que o usuário utilize um timer pomodoro                                                                           |
+| RF16                | O sistema deve permitir que o usuário possa enviar um feedback para os desenvolvedores                                                    |
+| RF17                | O sistema deve permitir que o usuário altere o tema da aplicação                                                                        |
+| <b>RF18</b> | <b>O sistema deve permitir que o usuário veja a temperatura atual do clima dentro da aplicação</b>                              |
 
 <SlideNumber/>
 
@@ -145,13 +141,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN2                 | Um usuário não pode alterar o email da sua conta para um email já pertencente à outra conta cadastrada.                                               |
 | RN3                 | Um usuário não pode associar uma Tarefa à mais de um Projeto.                                                                                          |
 | RN4                 | Um usuário só pode realizar qualquer operação de usuário (Manter tarefas, projetos, deletar conta, alterar email, senha e nome) após se autenticar. |
-| RN5                 | Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição", os campos "data" e "data limite" são opcionais.                                 |
+| <b>RN5</b>         | <b>Uma tarefa é criada preenchendo obrigatoriamente o campo "descrição".</b>                                 |
 | RN6                 | Um projeto é criado preenchendo obrigatoriamente o campo "descrição" e atribuindo nenhuma ou inúmeras tarefas para ele.                               |
 | RN7                 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                                 |
 | RN8                 | Só serão aceitas senhas com no minimo 5 caracteres.                                                                                                     |
 | RN9                 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada.                                                                                |
-| <b>RN10</b> | <b>O sistema deve calcular quantos dias faltam para chegar na "Data limite" de uma tarefa</b>                                                     |
-| <b>RN11</b> | <b>Um cadastro é feito preenchendo obrigatoriamente os campos "email", "nome" e "senha"</b>                                                      |
+| <b>RN10</b> | <b>Um cadastro é feito preenchendo obrigatoriamente os campos "email", "nome" e "senha"</b>                                                      |
 
 <SlideNumber/>
 
@@ -180,16 +175,15 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
   <span>2.1</span> Iniciar sessão com email
   <span>2.2</span> Iniciar sessão com github
 <span>3.</span> Enviar Feedback
-<span>4.</span> Configurar envio de email com resumo do dia
-<span>5.</span> Mudar Tema da Aplicação
-<span>6.</span> Encerrar sessão
-<span>7.</span> Manter Tarefa
- <b> <span>7.1</span> Arrastar Tarefa
-     <span>7.1.1.</span> Reordenar Tarefa
-     <span>7.1.2.</span> Ativar Pomodoro
-     <span>7.1.3.</span> Mover Tarefa de Projeto </b>
-  <span>7.2</span> Registrar tarefa
-  <span>7.3</span> Deletar tarefa
+<span>4.</span> Mudar Tema da Aplicação
+<span>5.</span> Encerrar sessão
+<span>6.</span> Manter Tarefa
+ <b> <span>6.1</span> Arrastar Tarefa
+     <span>6.1.1.</span> Reordenar Tarefa
+     <span>6.1.2.</span> Ativar Pomodoro
+     <span>6.1.3.</span> Mover Tarefa de Projeto </b>
+  <span>6.2</span> Registrar tarefa
+  <span>6.3</span> Deletar tarefa
 </pre>
 
 <SlideNumber/>
@@ -199,12 +193,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 ## Casos de Uso
 
 <pre>
-<span>8.</span> Ver Previsão de Temperatura
-<b><span>9.</span> Manter Projeto
-    <span>9.1</span> Arrastar Projeto
-    <span>9.1.1</span> Reordenar Projeto </b>
-<span>10.</span> Usar Pomodoro
-<span>11.</span> Iniciar Modo Foco
+<span>7.</span> Ver Previsão de Temperatura
+<b><span>8.</span> Manter Projeto
+    <span>8.1</span> Arrastar Projeto
+    <span>8.1.1</span> Reordenar Projeto </b>
+<span>9.</span> Usar Pomodoro
+<span>10.</span> Iniciar Modo Foco
 </pre>
 
 <SlideNumber/>
@@ -226,7 +220,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome              | Registrar conta                                                                                                              |
 | Objetivo          | Criar conta na aplicação                                                                                                   |
 | Atores            | Usuário                                                                                                                     |
-| Pré-condições  | Ator na tela de cadastro                                                                                                     |
+| Pré-condições     | Ator na tela de cadastro                                                                                                     |
 | Trigger           | Ator seleciona "Cadastro"                                                                                                    |
 | Fluxo Principal   | 1. Sistema apresenta campos para preenchimento                                                                               |
 |                   | <b>2. Ator digita um nome de usuário, email, senha nos campos do formulário e seleciona "Cadastrar" [A1] [A2] </b> |
@@ -261,7 +255,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome               | Deletar conta                                                 |
 | Objetivo           | Deletar conta da aplicação                                  |
 | Atores             | Usuário                                                      |
-| Pré-condições   | Ator precisa estar logado e na página "Configurações"      |
+| Pré-condições      | Ator precisa estar logado e na página "Configurações"      |
 | Trigger            | Ator clica em "Deletar Conta"                                 |
 | Fluxo Principal    | 1. Sistema pede uma confirmação da ação[A1]               |
 |                    | 2. Ator confirma a ação                                     |
@@ -433,7 +427,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Nome               | Enviar Feedback                                                                          |
 | Objetivo           | Enviar feedback da aplicação para os desenvolvedores                                   |
 | Atores             | Usuário                                                                                 |
-| Pré-condições   | O Ator precisa estar logado na aplicação e na tela de "Configurações"                |
+| Pré-condições      | O Ator precisa estar logado na aplicação e na tela de "Configurações"                |
 | Trigger            | Ator seleciona "Send Feedback"                                                           |
 | Fluxo Principal    | 1. Sistema mostra uma caixa de texto para o usuário                                     |
 |                    | 2. Ator digita sua mensagem na caixa de texto e clica no botão "Enviar feedback"        |
@@ -447,26 +441,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso <h3>4 - Configurar envio de email com resumo do dia</h3>
-
-| Propriedade        | Descrição                                                                                                    |
-| ------------------ | -------------------------------------------------------------------------------------------------------------- |
-| Nome               | Configurar envio de email com resumo do dia                                                                    |
-| Objetivo           | Configurar envio de email diário com informações das tarefas agendadas para aquele dia                      |
-| Atores             | Usuário                                                                                                       |
-| Pré-condições   | O Ator precisa estar logado na aplicação e na tela de "Configurações"                                      |
-| Trigger            | O Ator clica na caixa "Send daily reminder of my Tasks"                                                        |
-| Fluxo Principal    | 1. O Sistema mostra uma notificação de que as configurações foram salvas e retira a caixa de texto da tela |
-| Fluxo Alternativo  | N/A                                                                                                            |
-| Extensões         | N/A                                                                                                            |
-| Pós-condições   | O Ator permanece na tela "Configurações"                                                                     |
-| Regras de negócio | RN4                                                                                                            |
-
-<SlideNumber/>
-
----
-
-## Casos de Uso <h3>5 - Mudar Tema</h3>
+## Casos de Uso <h3>4 - Mudar Tema</h3>
 
 | Propriedade                    | Descrição                                                               |
 | ------------------------------ | ------------------------------------------------------------------------- |
@@ -476,7 +451,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pré-condições               | O Ator precisa estar logado na aplicação e na tela de "Configurações" |
 | Trigger                        | O Ator clica na caixa de "Temas"                                          |
 | Fluxo Principal                | 1. Sistema apresenta as opções de Temas                                 |
-| 2. Ator seleciona um dos temas |                                                                           |
+|                                | 2. Ator seleciona um dos temas                                          |
 |                                | 3. O Sistema muda de acordo com a opção escolhida e salva as mudanças  |
 | Fluxo Alternativo              | N/A                                                                       |
 | Extensões                     | N/A                                                                       |
@@ -487,7 +462,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso <h3>6 - Encerrar Sessão</h3>
+## Casos de Uso <h3>5 - Encerrar Sessão</h3>
 
 | Propriedade        | Descrição                                                         |
 | ------------------ | ------------------------------------------------------------------- |
@@ -509,17 +484,17 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso <h3>7.1 - Registrar Tarefa</h3>
+## Casos de Uso <h3>6.1 - Registrar Tarefa</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
 | Nome               | Registrar tarefa                                                                         |
 | Objetivo           | Criar uma tarefa na aplicação                                                          |
 | Atores             | Usuário                                                                                 |
-| Pré-condições   | O Ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
+| Pré-condições      | O Ator precisa estar logado na aplicação                                                   |
 | Trigger            | O Ator clica no sinal "+"                                                                |
 | Fluxo Principal    | 1. O Sistema apresenta uma caixa de preenchimento                                        |
-|                    | 2. O Ator digita a descrição da tarefa, a data de inicio e data limite                 |
+|                    | <b>2. O Ator digita a descrição da tarefa<b>                                              |
 |                    | 3. O Sitema salva a nova tarefa                                                          |
 | Fluxo Alternativo  | N/A                                                                                      |
 | Extensões         | N/A                                                                                      |
@@ -530,14 +505,14 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
 
-## Casos de Uso <h3>7.2 - Deletar Tarefa</h3>
+## Casos de Uso <h3>6.2 - Deletar Tarefa</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
 | Nome               | Deletar tarefa                                                                           |
 | Objetivo           | Deletar uma tarefa na aplicação                                                        |
 | Atores             | Usuário                                                                                 |
-| Pré-condições   | O Ator precisa estar logado na aplicação e na página "Today", "Upcoming" ou "Someday" |
+| Pré-condições      | O Ator precisa estar logado na aplicação                                               |
 | Trigger            | O Ator clica no icone de deletar (lixeira)                                               |
 | Fluxo Principal    | 1. O Sistema pede uma confirmação da ação [A1]                                       |
 |                    | 2. O Ator confirma a ação                                                              |
@@ -547,12 +522,12 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Extensões         | N/A                                                                                      |
 | Pós-condições   | O ator continua na mesma página                                                         |
 | Regras de negócio | RN4                                                                                      |
-
+ 
 <SlideNumber/>
 
 ---
 
-## Casos de Uso <h3>8 - Ver a temperatura atual</h3>
+## Casos de Uso <h3>7 - Ver a temperatura atual</h3>
 
 | Propriedade            | Descrição                                                         |
 | ---------------------- | ------------------------------------------------------------------- |
