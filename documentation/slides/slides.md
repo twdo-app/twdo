@@ -202,8 +202,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
     <span>8.3</span> Alterar descrição do Projeto
     <span>8.4</span> Arrastar Projeto
         <span>8.4.1</span> Reordenar Projeto </b>
-<span>9.</span> Usar Pomodoro
-<span>10.</span> Iniciar Modo Foco
+<b><span>9.</span> Usar Pomodoro</b>
+<b><span>10.</span> Iniciar Modo Foco</b>
 </pre>
 
 <SlideNumber/>
@@ -711,7 +711,83 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <SlideNumber/>
 
 ---
+    
+## Casos de Uso <h3>9.1 - Iniciar pomodoro</h3>
 
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| Nome               | Iniciar pomodoro                                                                         |
+| Objetivo           | Iniciar o timer pomodor na aplicação                                                     |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter ativado o timer pomodoro               |
+| Trigger            | O Ator clica no ícone de 'Começar'                                                          |
+| Fluxo Principal    | 1. O Sistema inicia a contagem do cronômetro                                             |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | N/A                                                                                      |
+ 
+<SlideNumber/>
+
+---
+    
+## Casos de Uso <h3>9.2 - Pausar pomodoro</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| Nome               | Pausar pomodoro                                                                         |
+| Objetivo           | Pausar o timer pomodor na aplicação                                                     |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter iniciado o timer pomodoro        |
+| Trigger            | O Ator clica no ícone de 'Parar'                                                          |
+| Fluxo Principal    | 1. O Sistema pausa a contagem do cronômetro                                             |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | N/A                                                                                      |
+ 
+<SlideNumber/>
+
+---
+
+## Casos de Uso <h3>9.3 - Reiniciar pomodoro</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| Nome               | Reiniciar pomodoro                                                                         |
+| Objetivo           | Reiniciar o timer pomodor na aplicação                                                     |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter iniciado o timer pomodoro        |
+| Trigger            | O Ator clica no ícone de 'Recomeçar'                                                      |
+| Fluxo Principal    | 1. O Sistema reinicia a contagem do cronômetro                                            |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | N/A                                                                                      |
+ 
+<SlideNumber/>
+
+---
+    
+## Casos de Uso <h3>10. - Iniciar modo foco</h3>
+
+| Propriedade        | Descrição                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| Nome               | Iniciar modo foco                                                                         |
+| Objetivo           | Exibir o modo foco na aplicação                                                           |
+| Atores             | Usuário                                                                                   |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter ativado o timer pomodoro          |
+| Trigger            | O Ator clica no ícone de expandir                                                         |
+| Fluxo Principal    | 1. O Sistema aplica o modo foco                                                           |
+| Fluxo Alternativo  | N/A                                                                                       |
+| Extensões          | N/A                                                                                       |
+| Pós-condições      | O ator continua na mesma página                                                           |
+| Regras de negócio  | N/A                                                                                       |
+ 
+<SlideNumber/>
+
+---
+    
 ## Diagrama de Classes
 
 <img src="documentation/docs/class-diagram-3-0.png">
