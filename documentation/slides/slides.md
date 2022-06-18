@@ -552,6 +552,63 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <SlideNumber/>
 
 ---
+    
+## Casos de Uso <h3>6.4.1 - Reordenar tarefa</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Reordenar tarefa                                                                         |
+| Objetivo           | Alterar a ordenação de uma tarefa na aplicação                                           |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter pelo menos 2 tarefas criadas     |
+| Trigger            | O Ator arrasta uma tarefa para a posição que deseja                                      |
+| Fluxo Principal    | 1. O Sistema salva a nova ordenação                                                      |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | RN4                                                                                      |
+ 
+<SlideNumber/>
+
+---
+    
+## Casos de Uso <h3>6.4.2 - Ativar pomodoro</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Ativar pomodoro                                                                         |
+| Objetivo           | Permitir que o usuário utilize o pomodoro                                                 |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter pelo menos uma tarefa criada     |
+| Trigger            | O Ator arrasta uma tarefa para o ícone do pomodoro                                      |
+| Fluxo Principal    | 1. O Sistema exibe o pomodoro na tela da aplicação                                       |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | RN4                                                                                      |
+ 
+<SlideNumber/>
+
+---
+    
+## Casos de Uso <h3>6.4.3 - Mover tarefa de projeto</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Mover tarefa de projeto                                                                  |
+| Objetivo           | Permitir que o usuário mova a tarefa de um projeto para outro                            |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação, ter criado uma tarefa e ter criado pelo menos 2 projetos |
+| Trigger            | O Ator arrasta uma tarefa para um projeto                                      |
+| Fluxo Principal    | 1. O Sistema salva a terefa no projeto escolhido                                       |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | RN4                                                                                      |
+ 
+<SlideNumber/>
+
+---
 
 ## Casos de Uso <h3>7 - Ver a temperatura atual</h3>
 
@@ -615,7 +672,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 ---
     
-## Casos de Uso <h3>6.3 - Alterar a descrição do projeto</h3>
+## Casos de Uso <h3>8.3 - Alterar a descrição do projeto</h3>
 
 | Propriedade        | Descrição                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -627,6 +684,25 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Fluxo Principal    | 1. O Sistema libera o formulário para alteração                                          |
 |                    | 2. O Ator preenche o formulário                                                          |
 |                    | 3. O Sistema salva a alteração feita                                                     |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | RN4                                                                                      |
+ 
+<SlideNumber/>
+
+---
+    
+## Casos de Uso <h3>8.4.1 - Reordenar projeto</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Reordenar projeto                                                                        |
+| Objetivo           | Alterar a ordenação de uma projeto na aplicação                                           |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação e precisar ter pelo menos 2 projetos criadas     |
+| Trigger            | O Ator arrasta um projeto para a posição que deseja                                      |
+| Fluxo Principal    | 1. O Sistema salva a nova ordenação                                                      |
 | Fluxo Alternativo  | N/A                                                                                      |
 | Extensões          | N/A                                                                                      |
 | Pós-condições      | O ator continua na mesma página                                                          |
