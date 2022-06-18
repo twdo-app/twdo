@@ -146,7 +146,8 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | RN7                 | Um usuário só poderá trocar a senha fornecendo a senha atual da conta.                                                                                 |
 | RN8                 | Só serão aceitas senhas com no minimo 5 caracteres.                                                                                                     |
 | RN9                 | Um usuário só poderá iniciar a sessão caso tenha uma conta registrada.                                                                                |
-| <b>RN10</b> | <b>Um cadastro é feito preenchendo obrigatoriamente os campos "email", "nome" e "senha"</b>                                                      |
+| <b>RN10</b> | <b>Um cadastro é feito preenchendo obrigatoriamente os campos "email", "nome" e "senha"</b>                                               |
+| <b>RN11</b> | <b>Delentando um projeto suas tarefas também devem ser deletadas |
 
 <SlideNumber/>
 
@@ -166,25 +167,25 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 
 <pre>
 <span>1.</span> Manter Conta
-  <span>1.1</span> Registrar Conta
-  <span>1.2</span> Deletar Conta
-  <span>1.3</span> Alterar Email
-  <span>1.4</span> Alterar Senha
-  <span>1.5</span> Alterar Nome
+    <span>1.1</span> Registrar Conta
+    <span>1.2</span> Deletar Conta
+    <span>1.3</span> Alterar Email
+    <span>1.4</span> Alterar Senha
+    <span>1.5</span> Alterar Nome
 <span>2.</span> Iniciar Sessão
-  <span>2.1</span> Iniciar sessão com email
-  <span>2.2</span> Iniciar sessão com github
+    <span>2.1</span> Iniciar sessão com email
+    <span>2.2</span> Iniciar sessão com github
 <span>3.</span> Enviar Feedback
 <span>4.</span> Mudar Tema da Aplicação
 <span>5.</span> Encerrar sessão
 <span>6.</span> Manter Tarefa
-  <span>6.1</span> Registrar tarefa
-  <span>6.2</span> Deletar tarefa
-  <span>6.3</span> Alterar descrição da tarefa
-  <b><span>6.4</span> Arrastar Tarefa
-     <span>6.4.1.</span> Reordenar Tarefa
-     <span>6.4.2.</span> Ativar Pomodoro
-     <span>6.4.3.</span> Mover Tarefa de Projeto</b>
+    <span>6.1</span> Registrar tarefa
+    <span>6.2</span> Deletar tarefa
+    <span>6.3</span> Alterar descrição da tarefa
+    <b><span>6.4</span> Arrastar Tarefa
+        <span>6.4.1.</span> Reordenar Tarefa
+        <span>6.4.2.</span> Ativar Pomodoro
+        <span>6.4.3.</span> Mover Tarefa de Projeto</b>
 </pre>
 
 <SlideNumber/>
@@ -196,8 +197,11 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <pre>
 <span>7.</span> Ver Previsão de Temperatura
 <b><span>8.</span> Manter Projeto
-    <span>8.1</span> Arrastar Projeto
-    <span>8.1.1</span> Reordenar Projeto </b>
+    <span>8.1</span> Registrar Projeto
+    <span>8.2</span> Deletar Projeto
+    <span>8.3</span> Alterar descrição do Projeto
+    <span>8.4</span> Arrastar Projeto
+        <span>8.4.1</span> Reordenar Projeto </b>
 <span>9.</span> Usar Pomodoro
 <span>10.</span> Iniciar Modo Foco
 </pre>
@@ -564,6 +568,70 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Pós-condições       | N/A                                                                 |
 | Regras de negócio     | N/A                                                                 |
 
+<SlideNumber/>
+
+---
+
+## Casos de Uso <h3>8.1 - Registrar projeto</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Registrar projeto                                                                         |
+| Objetivo           | registrar um projeto na aplicação                                                          |
+| Atores             | Usuário                                                                                   |
+| Pré-condições      | O Ator precisa estar logado na aplicação                                                   |
+| Trigger            | ***precisa ser decidido***                                                                |
+| Fluxo Principal    | 1. O Sistema apresenta uma caixa de preenchimento                                        |
+|                    | 2. O Ator digita a descrição do projeto                                                  |
+|                    | 3. O Sitema salva o novo projeto                                                          |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                         |
+| Regras de negócio  | RN3, RN4, RN6                                                                           |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso <h3>8.2 - Deletar projeto</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Deletar projeto                                                                           |
+| Objetivo           | Deletar um projeto na aplicação                                                        |
+| Atores             | Usuário                                                                                 |
+| Pré-condições      | O Ator precisa estar logado na aplicação                                               |
+| Trigger            | ***precisa ser decidido***                                                              |
+| Fluxo Principal    | 1. O Sistema pede uma confirmação da ação [A1]                                       |
+|                    | 2. O Ator confirma a ação                                                              |
+|                    | 3. O Sistema deleta o projeto                                                             |
+| Fluxo Alternativo  | A1 Não confirmar a ação                                                               |
+|                    | A1.1 O Sistema não deleta o projeto                                                      |
+| Extensões         | N/A                                                                                      |
+| Pós-condições   | O ator continua na mesma página                                                         |
+| Regras de negócio | RN4, RN11                                                                                |
+
+<SlideNumber/>
+
+---
+    
+## Casos de Uso <h3>6.3 - Alterar a descrição do projeto</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Alterar a descrição do projeto                                                            |
+| Objetivo           | Alterar a descrição de um projeto na aplicação                                           |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação                                                 |
+| Trigger            | ***precisa ser decidido***                                                               |
+| Fluxo Principal    | 1. O Sistema libera o formulário para alteração                                          |
+|                    | 2. O Ator preenche o formulário                                                          |
+|                    | 3. O Sistema salva a alteração feita                                                     |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | RN4                                                                                      |
+ 
 <SlideNumber/>
 
 ---
