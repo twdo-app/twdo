@@ -178,12 +178,13 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 <span>4.</span> Mudar Tema da Aplicação
 <span>5.</span> Encerrar sessão
 <span>6.</span> Manter Tarefa
- <b> <span>6.1</span> Arrastar Tarefa
-     <span>6.1.1.</span> Reordenar Tarefa
-     <span>6.1.2.</span> Ativar Pomodoro
-     <span>6.1.3.</span> Mover Tarefa de Projeto </b>
-  <span>6.2</span> Registrar tarefa
-  <span>6.3</span> Deletar tarefa
+  <span>6.1</span> Registrar tarefa
+  <span>6.2</span> Deletar tarefa
+  <span>6.3</span> Alterar descrição da tarefa
+  <b><span>6.4</span> Arrastar Tarefa
+     <span>6.4.1.</span> Reordenar Tarefa
+     <span>6.4.2.</span> Ativar Pomodoro
+     <span>6.4.3.</span> Mover Tarefa de Projeto</b>
 </pre>
 
 <SlideNumber/>
@@ -522,6 +523,27 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Extensões         | N/A                                                                                      |
 | Pós-condições   | O ator continua na mesma página                                                         |
 | Regras de negócio | RN4                                                                                      |
+
+<SlideNumber/>
+
+---
+
+## Casos de Uso <h3>6.3 - Alterar a descrição da Tarefa</h3>
+
+| Propriedade        | Descrição                                                                              |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| Nome               | Alterar a descrição da tarefa                                                            |
+| Objetivo           | Alterar a descrição de uma tarefa na aplicação                                           |
+| Atores             | Usuário                                                                                  |
+| Pré-condições      | O Ator precisa estar logado na aplicação                                                 |
+| Trigger            | O Ator clica na tarefa                                                                   |
+| Fluxo Principal    | 1. O Sistema libera o formulário para alteração                                          |
+|                    | 2. O Ator preenche o formulário                                                          |
+|                    | 3. O Sistema salva a alteração feita                                                     |
+| Fluxo Alternativo  | N/A                                                                                      |
+| Extensões          | N/A                                                                                      |
+| Pós-condições      | O ator continua na mesma página                                                          |
+| Regras de negócio  | RN4                                                                                      |
  
 <SlideNumber/>
 
