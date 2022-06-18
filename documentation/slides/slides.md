@@ -202,7 +202,10 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
     <span>8.3</span> Alterar descrição do Projeto
     <span>8.4</span> Arrastar Projeto
         <span>8.4.1</span> Reordenar Projeto </b>
-<b><span>9.</span> Usar Pomodoro</b>
+<b><span>9.</span> Usar Pomodoro
+    <span>9.1</span> Iniciar pomodoro
+    <span>9.2</span> Pausar pomodoro
+    <span>9.3</span> Reiniciar pomodoro</b>
 <b><span>10.</span> Iniciar Modo Foco</b>
 </pre>
 
