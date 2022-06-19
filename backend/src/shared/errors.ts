@@ -16,6 +16,7 @@ const errors = {
   couldNotCreateTask:
     "Something went wrong when we tried to create your task. Please, contact our costumer support for details.",
   genericError: "Something went wrong in our servers :(",
+  couldNotFindTask: "Could not find a task with the given data",
 };
 
 export default errors;
