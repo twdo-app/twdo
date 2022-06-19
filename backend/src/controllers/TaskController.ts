@@ -30,6 +30,23 @@ class TaskController {
         });
     };
   }
+
+  getAll() {
+    return (req: Request, res: Response, next: NextFunction) => {
+      return taskDao
+        .getAll(req.user.id)
+        .then((tasks: object) => {
+          return res.status(200).send({
+            tasks,
+          });
+        })
+        .catch((e: any) => {
+          return res.status(500).send({
+            error: e.message,
+          });
+        });
+    };
+  }
 }
 
 export default new TaskController();

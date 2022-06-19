@@ -21,6 +21,18 @@ class TaskDao {
       throw new Error(errors.couldNotCreateTask);
     }
   }
+
+  async getAll(userId: number) {
+    try {
+      return await prisma.task.findMany({
+        where: {
+          userId,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+  }
 }
 
 export default new TaskDao();
