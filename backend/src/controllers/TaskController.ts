@@ -47,6 +47,27 @@ class TaskController {
         });
     };
   }
+
+  delete() {
+    return (req: Request, res: Response, next: NextFunction) => {
+      const data = {
+        id: parseInt(req.params.id),
+        userId: req.user.id,
+      };
+      return taskDao
+        .delete(data)
+        .then((deletedTask: object) => {
+          return res.status(200).send({
+            task: deletedTask,
+          });
+        })
+        .catch((e: any) => {
+          return res.status(500).send({
+            error: e.message,
+          });
+        });
+    };
+  }
 }
 
 export default new TaskController();

@@ -14,7 +14,6 @@ class TaskDao {
           userId,
           description,
           projectIndex,
-          isCompleted: false,
         },
       });
     } catch (e) {
@@ -26,6 +25,20 @@ class TaskDao {
     try {
       return await prisma.task.findMany({
         where: {
+          userId,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+  }
+
+  async delete(data: any) {
+    const { id, userId } = data;
+    try {
+      return await prisma.task.deleteMany({
+        where: {
+          id,
           userId,
         },
       });

@@ -5,7 +5,7 @@ import UserAuth from "../middlewares/UserAuth";
 const router = express.Router();
 
 /**
- * Create one Task to the logged user
+ * List Tasks of the logged user
  */
 router.get("/", UserAuth.verifyJWT(), taskController.getAll());
 
@@ -25,8 +25,6 @@ router.put("/:id", (req, res) =>
 /**
  * Delete one Task of the logged user
  */
-router.delete("/:id", (req, res) =>
-  res.status(200).send({ message: "deletado" })
-);
+router.delete("/:id", UserAuth.verifyJWT(), taskController.delete());
 
 export default router;
