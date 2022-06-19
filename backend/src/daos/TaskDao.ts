@@ -6,19 +6,15 @@ const prisma = new PrismaClient();
 
 class TaskDao {
   async create(data: ITaskCreation) {
-    const { userId, description, dueDate, date, dateIndex, projectIndex } =
-      data;
+    const { userId, description, projectIndex } = data;
 
     try {
-      return await prisma.task.upschrome;
-      ert({
+      return await prisma.task.create({
         data: {
           userId,
           description,
-          dueDate,
-          date,
-          dateIndex,
           projectIndex,
+          isCompleted: false,
         },
       });
     } catch (e) {
