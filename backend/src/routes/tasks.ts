@@ -4,11 +4,6 @@ import UserAuth from "../middlewares/UserAuth";
 const router = express.Router();
 
 /**
- * Get today tasks of the logged user
- */
-// router.get("/today", (req, res) => res.status(200).send({ message: "existe" }));
-
-/**
  * Create one Task to the logged user
  */
 router.get("/", UserAuth.verifyJWT(), (req, res) =>
