@@ -46,6 +46,39 @@ class TaskDao {
       throw new Error(errors.genericError);
     }
   }
+
+  async update(data: any) {
+    const { id, userId, description, projectIndex } = data;
+
+    const task = [];
+
+    try {
+      const foundTask = await prisma.task.findMany({
+        where: {
+          id,
+          userId,
+        },
+      });
+      if (foundTask.length !== 0) task.push(foundTask);
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+    if (task.length === 0) throw new Error(errors.couldNotFindTask);
+
+    try {
+      return await prisma.task.update({
+        where: {
+          id,
+        },
+        data: {
+          description,
+          projectIndex,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+  }
 }
 
 export default new TaskDao();

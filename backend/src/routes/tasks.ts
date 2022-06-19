@@ -17,10 +17,7 @@ router.post("/", UserAuth.verifyJWT(), taskController.create());
 /**
  * Update one Task of the logged user
  */
-router.put("/:id", (req, res) =>
-  //isCompleted: boolean;
-  res.status(200).send({ message: "mais um q existe" })
-);
+router.put("/:id", UserAuth.verifyJWT(), taskController.update());
 
 /**
  * Delete one Task of the logged user

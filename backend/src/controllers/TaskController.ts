@@ -68,6 +68,33 @@ class TaskController {
         });
     };
   }
+
+  update() {
+    return (req: Request, res: Response, next: NextFunction) => {
+      const data = {
+        ...req.body,
+        id: parseInt(req.params.id),
+        userId: req.user.id,
+      };
+      return taskDao
+        .update(data)
+        .then((updatedTask: object) => {
+          return res.status(200).send({
+            task: updatedTask,
+          });
+        })
+        .catch((e: any) => {
+          if (e.message == errors.couldNotFindTask) {
+            return res.status(404).send({
+              error: e.message,
+            });
+          }
+          return res.status(500).send({
+            error: e.message,
+          });
+        });
+    };
+  }
 }
 
 export default new TaskController();
