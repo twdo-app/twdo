@@ -30,7 +30,6 @@ model Task {
   userId    Int
   projectId Int?
 
-  isCompleted  Boolean
   description  String
   //listIndex Int?
   projectIndex Int?
