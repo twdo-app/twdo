@@ -7,9 +7,7 @@ const router = express.Router();
 /**
  * Create one Task to the logged user
  */
-router.get("/", UserAuth.verifyJWT(), (req, res) =>
-  res.status(200).send({ message: "tambem existe" })
-);
+router.get("/", UserAuth.verifyJWT(), taskController.getAll());
 
 /**
  * Create one Task to the logged user
