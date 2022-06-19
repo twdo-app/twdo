@@ -1,4 +1,5 @@
 import express from "express";
+import taskController from "../controllers/TaskController";
 import UserAuth from "../middlewares/UserAuth";
 
 const router = express.Router();
@@ -13,14 +14,13 @@ router.get("/", UserAuth.verifyJWT(), (req, res) =>
 /**
  * Create one Task to the logged user
  */
-router.post("/", UserAuth.verifyJWT(), (req, res) =>
-  res.status(200).send({ message: "tambem existe" })
-);
+router.post("/", UserAuth.verifyJWT(), taskController.create());
 
 /**
  * Update one Task of the logged user
  */
 router.put("/:id", (req, res) =>
+  //isCompleted: boolean;
   res.status(200).send({ message: "mais um q existe" })
 );
 

@@ -6,7 +6,10 @@ import taskDao from "../daos/TaskDao";
 class TaskController {
   create() {
     return (req: Request, res: Response, next: NextFunction) => {
-      const data = req.body;
+      const data = {
+        ...req.body,
+        userId: req.user.id,
+      };
 
       return taskDao
         .create(data)

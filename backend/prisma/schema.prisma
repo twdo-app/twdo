@@ -32,6 +32,7 @@ model Task {
 
   isCompleted  Boolean
   description  String
+  //listIndex Int?
   projectIndex Int?
 
   createdAt DateTime @default(now())
