@@ -13,12 +13,12 @@ type SignUpFormType = {
   passwordConfirmation: string;
 };
 
-export default function SignUp() {
+export default function SignUp({ code }: { code?: string }) {
   const { register, handleSubmit } = useForm();
 
-  const handleSignUp = (data: SignUpFormType | any) => {
+  const handleSignUp = async (data: SignUpFormType | any) => {
     if (data.password === data.passwordConfirmation) {
-      fetch("http://localhost:4001/users/register", {
+      await fetch("http://localhost:4001/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,12 +29,16 @@ export default function SignUp() {
           password: data.password,
         }),
       });
-      Router.push("/sign-in");
     }
   };
 
   return (
-    <AuthLayout onSubmit={handleSubmit(handleSignUp)}>
+    <AuthLayout
+      onSubmit={handleSubmit((data) => {
+        handleSignUp(data);
+        Router.push("/sign-in");
+      })}
+    >
       <Title className="mb-8">sign up</Title>
 
       <TextInput {...register("name")} className="mb-4" placeholder="name" />
@@ -65,4 +69,12 @@ export default function SignUp() {
       </p>
     </AuthLayout>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  return context.query["code"] === undefined
+    ? { props: {} }
+    : {
+        props: { code: context.query["code"] },
+      };
 }
