@@ -5,8 +5,6 @@ import Button from "../components/common/Button";
 import Hyperlink from "../components/common/Hyperlink";
 import { useForm } from "react-hook-form";
 import Router from "next/router";
-import { FiGithub } from "react-icons/fi";
-import { useAuth } from "../store/useAuth";
 
 type SignUpFormType = {
   name: string;
@@ -17,7 +15,6 @@ type SignUpFormType = {
 
 export default function SignUp({ code }: { code?: string }) {
   const { register, handleSubmit } = useForm();
-  const signIn = useAuth((state) => state.signIn);
 
   const handleSignUp = async (data: SignUpFormType | any) => {
     if (data.password === data.passwordConfirmation) {
@@ -34,28 +31,6 @@ export default function SignUp({ code }: { code?: string }) {
       });
     }
   };
-
-  const checkForGithubSignIn = async () => {
-    if (code !== undefined) {
-      const response = await fetch(
-        `http://localhost:4001/users/github-oauth-callback?code=${code}`
-      );
-
-      const data = await response.json();
-
-      console.log(data);
-
-      handleSignUp({
-        name: data.name,
-        email: data.email,
-        password: data.password,
-      }).then(() => {
-        signIn({ email: data.email, password: data.password });
-      });
-    }
-  };
-
-  checkForGithubSignIn();
 
   return (
     <AuthLayout
