@@ -4,14 +4,16 @@ import SideBar from "../SideBar";
 export default function AppLayout({
   title,
   children,
+  showTemperature,
 }: {
   title: string;
   children: React.ReactNode;
+  showTemperature?: boolean;
 }) {
   return (
     <main className="grid grid-cols-app-layout grid-rows-app-layout h-screen gap-4">
       <div className="col-start-2 row-start-1 w-full justify-self-center self-center">
-        <HeaderBar title={title} />
+        <HeaderBar title={title} showTemperature={showTemperature} />
       </div>
 
       <div className="max-w-sidebar row-start-2 col-start-1 w-full justify-self-end">
