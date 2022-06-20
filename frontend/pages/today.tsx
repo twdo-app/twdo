@@ -1,11 +1,13 @@
 import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
+import { useEffect, useState } from "react";
 import AppLayout from "../components/layouts/AppLayout";
 import TaskView from "../components/TaskView";
+import { api } from "../services/api";
 
 export default function Today() {
   return (
-    <AppLayout title="today">
+    <AppLayout title="today" showTemperature>
       <TaskView />
     </AppLayout>
   );
