@@ -5,6 +5,8 @@ import Button from "../components/common/Button";
 import Hyperlink from "../components/common/Hyperlink";
 import { useForm } from "react-hook-form";
 import Router from "next/router";
+import { FiGithub } from "react-icons/fi";
+import { useAuth } from "../store/useAuth";
 
 type SignUpFormType = {
   name: string;
@@ -13,12 +15,13 @@ type SignUpFormType = {
   passwordConfirmation: string;
 };
 
-export default function SignUp() {
+export default function SignUp({ code }: { code?: string }) {
   const { register, handleSubmit } = useForm();
+  const signIn = useAuth((state) => state.signIn);
 
-  const handleSignUp = (data: SignUpFormType | any) => {
+  const handleSignUp = async (data: SignUpFormType | any) => {
     if (data.password === data.passwordConfirmation) {
-      fetch("http://localhost:4001/users/register", {
+      await fetch("http://localhost:4001/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,12 +32,38 @@ export default function SignUp() {
           password: data.password,
         }),
       });
-      Router.push("/sign-in");
     }
   };
 
+  const checkForGithubSignIn = async () => {
+    if (code !== undefined) {
+      const response = await fetch(
+        `http://localhost:4001/users/github-oauth-callback?code=${code}`
+      );
+
+      const data = await response.json();
+
+      console.log(data);
+
+      handleSignUp({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      }).then(() => {
+        signIn({ email: data.email, password: data.password });
+      });
+    }
+  };
+
+  checkForGithubSignIn();
+
   return (
-    <AuthLayout onSubmit={handleSubmit(handleSignUp)}>
+    <AuthLayout
+      onSubmit={handleSubmit((data) => {
+        handleSignUp(data);
+        Router.push("/sign-in");
+      })}
+    >
       <Title className="mb-8">sign up</Title>
 
       <TextInput {...register("name")} className="mb-4" placeholder="name" />
@@ -65,4 +94,12 @@ export default function SignUp() {
       </p>
     </AuthLayout>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  return context.query["code"] === undefined
+    ? { props: {} }
+    : {
+        props: { code: context.query["code"] },
+      };
 }

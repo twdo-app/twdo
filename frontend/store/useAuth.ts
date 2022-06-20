@@ -36,11 +36,10 @@ export const useAuth = create<AuthState>((set) => ({
   },
   signOut: () => {
     set((state) => {
-      if (state.userIsAuthenticated) {
-        destroyCookie(null, "twdo.token");
-      }
+      destroyCookie(null, "twdo.token");
+
       return {
-        userIsAuthenticated: true,
+        userIsAuthenticated: false,
       };
     });
 
