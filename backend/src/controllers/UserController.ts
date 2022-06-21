@@ -137,7 +137,7 @@ class UserController {
     };
   }
 
-  changeEmail() {
+  updateInfo() {
     return (req: Request, res: Response, next: NextFunction) => {
       const { id: userId } = req.user;
       const { email, name } = req.body;

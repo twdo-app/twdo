@@ -53,7 +53,7 @@ router.patch(
   "/change-info",
   UserAuth.verifyJWT(),
   yupValidator(changeUserAccountInformation),
-  UserController.changeEmail()
+  UserController.updateInfo()
 );
 
 /**
