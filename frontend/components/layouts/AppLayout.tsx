@@ -1,4 +1,6 @@
+import { useStore } from "../../store/useStore";
 import HeaderBar from "../HeaderBar";
+import Pomodoro from "../Pomodoro";
 import SideBar from "../SideBar";
 
 export default function AppLayout({
@@ -10,6 +12,8 @@ export default function AppLayout({
   children: React.ReactNode;
   showTemperature?: boolean;
 }) {
+  const showPomodoro = useStore((state) => state.isDraggingTask);
+
   return (
     <main className="grid grid-cols-app-layout grid-rows-app-layout h-screen gap-4">
       <div className="col-start-2 row-start-1 w-full justify-self-center self-center">
@@ -22,6 +26,10 @@ export default function AppLayout({
 
       <div className="row-start-2 col-start-2 w-full justify-self-center">
         {children}
+      </div>
+
+      <div className="row-start-1 row-end-3 col-start-3 w-full justify-self-center">
+        {showPomodoro ? <Pomodoro /> : null}
       </div>
     </main>
   );

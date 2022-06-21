@@ -5,19 +5,24 @@ import Task from "./Task";
 
 export default function TaskView() {
   const [loadedContent, setLoadedContent] = useState(<></>);
+  const setIsDraggingTask = useStore((state) => state.setIsDraggingTask);
   const tasks = useStore((state) => state.tasks);
 
   const reorder = useStore((state) => state.reorderTasks);
 
   useEffect(() => {
     const onDragEnd = (result: any) => {
+      setIsDraggingTask(false);
       if (!result.destination) return;
       if (result.destination.index === result.source.index) return;
       reorder(result.source.index, result.destination.index);
     };
 
     setLoadedContent(
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContext
+        onDragEnd={onDragEnd}
+        onDragStart={() => setIsDraggingTask(true)}
+      >
         <Droppable droppableId="list">
           {(provided) => (
             <ul
