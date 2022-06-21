@@ -1,31 +1,27 @@
 import express from "express";
+import taskController from "../controllers/TaskController";
+import UserAuth from "../middlewares/UserAuth";
 
 const router = express.Router();
 
 /**
- * Get today tasks of the logged user
+ * List Tasks of the logged user
  */
-router.get("/today", (req, res) => res.status(200).send({ message: "existe" }));
+router.get("/", UserAuth.verifyJWT(), taskController.getAll());
 
 /**
  * Create one Task to the logged user
  */
-router.post("/", (req, res) =>
-    res.status(200).send({ message: "tambem existe" })
-);
+router.post("/", UserAuth.verifyJWT(), taskController.create());
 
 /**
  * Update one Task of the logged user
  */
-router.put("/:id", (req, res) =>
-    res.status(200).send({ message: "mais um q existe" })
-);
+router.put("/:id", UserAuth.verifyJWT(), taskController.update());
 
 /**
  * Delete one Task of the logged user
  */
-router.delete("/:id", (req, res) =>
-    res.status(200).send({ message: "deletado" })
-);
+router.delete("/:id", UserAuth.verifyJWT(), taskController.delete());
 
 export default router;
