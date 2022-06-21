@@ -31,7 +31,7 @@ export default function Checkbox({
       `}
       >
         <Icon
-          icon={<FiCheck size="0.75rem" />}
+          icon={<FiCheck size="0.75rem" stroke="#FFF" />}
           className={`${!checked && "hidden"}`}
         />
       </div>

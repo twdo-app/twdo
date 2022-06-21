@@ -79,7 +79,7 @@ router.get("/me", UserAuth.verifyJWT(), UserController.getLoggedUser());
 
 router.get("/auth/github", (req: Request, res) => {
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`
+    `https://github.com/login/oauth/authorize?scope=read:user&client_id=${process.env.GITHUB_CLIENT_ID}`
   );
 });
 

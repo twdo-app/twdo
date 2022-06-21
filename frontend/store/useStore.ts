@@ -5,9 +5,13 @@ import { task } from "../types";
 
 interface TasksState {
   tasks: task[];
+  isDraggingTask: boolean;
+  pomodoroTaskDescription: string;
+  setPomodoroTaskDescription: (description: string) => void;
   addTask: (description: string) => void;
   removeTask: (id: string) => void;
   reorderTasks: (startIndex: number, endIndex: number) => void;
+  setIsDraggingTask: (isDraggingTask: boolean) => void;
 }
 
 export const useStore = create<TasksState>((set) => ({
@@ -25,6 +29,13 @@ export const useStore = create<TasksState>((set) => ({
       description: "task2",
     },
   ],
+  pomodoroTaskDescription: "",
+  setPomodoroTaskDescription: (description) => {
+    set((state) => ({
+      pomodoroTaskDescription: description,
+    }));
+  },
+  isDraggingTask: false,
   addTask: (description: string) => {
     set((state) => ({
       tasks: [
@@ -51,5 +62,10 @@ export const useStore = create<TasksState>((set) => ({
         tasks: result,
       };
     });
+  },
+  setIsDraggingTask: (isDraggingTask) => {
+    set((state) => ({
+      isDraggingTask: isDraggingTask,
+    }));
   },
 }));
