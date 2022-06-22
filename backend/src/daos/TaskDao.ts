@@ -73,8 +73,8 @@ class TaskDao {
         },
         data: {
           description,
-          projectIndex: projectIndex || 0,
-          inboxIndex: inboxIndex || 0,
+          projectIndex: projectIndex || 1,
+          inboxIndex: inboxIndex || 1,
         },
       });
     } catch (e) {
