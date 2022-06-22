@@ -32,7 +32,19 @@ class ProjectDao {
     }
   }
 
-  async delete(data: any) {}
+  async delete(data: any) {
+    const { id, userId } = data;
+    try {
+      return await prisma.project.deleteMany({
+        where: {
+          id,
+          userId,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+  }
 
   async update(data: any) {}
 }

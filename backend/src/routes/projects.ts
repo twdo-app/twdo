@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.post("/", UserAuth.verifyJWT(), projectController.create());
 router.get("/", UserAuth.verifyJWT(), projectController.getAll());
-router.put("/projects/:id", UserAuth.verifyJWT(), () => "lala");
+router.put("/:id", UserAuth.verifyJWT(), () => "lala");
+router.delete("/:id", UserAuth.verifyJWT(), projectController.delete());
 
 export default router;

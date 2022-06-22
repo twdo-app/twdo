@@ -43,7 +43,26 @@ class TaskController {
     };
   }
 
-  async delete() {}
+  delete() {
+    return (req: Request, res: Response, next: NextFunction) => {
+      const data = {
+        id: parseInt(req.params.id),
+        userId: req.user.id,
+      };
+      return projectDao
+        .delete(data)
+        .then((deletedProject) => {
+          return res.status(200).send({
+            project: deletedProject,
+          });
+        })
+        .catch((e) => {
+          return res.status(500).send({
+            error: e.message,
+          });
+        });
+    };
+  }
 
   async update() {}
 }
