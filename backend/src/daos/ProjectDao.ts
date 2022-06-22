@@ -20,7 +20,17 @@ class ProjectDao {
     }
   }
 
-  async getAll(userId: number) {}
+  async getAll(userId: number) {
+    try {
+      return await prisma.project.findMany({
+        where: {
+          userId,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+  }
 
   async delete(data: any) {}
 

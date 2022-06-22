@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { send } from "process";
 
 import projectDao from "../daos/ProjectDao";
 
@@ -25,7 +26,22 @@ class TaskController {
     };
   }
 
-  async getAll() {}
+  getAll() {
+    return (req: Request, res: Response, next: NextFunction) => {
+      return projectDao
+        .getAll(req.user.id)
+        .then((projects) => {
+          return res.status(201).send({
+            projects: projects,
+          });
+        })
+        .catch((e) => {
+          return res.status(500).send({
+            error: e.message,
+          });
+        });
+    };
+  }
 
   async delete() {}
 
