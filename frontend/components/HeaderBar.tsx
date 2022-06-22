@@ -1,11 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FiPlus } from "react-icons/fi";
 import { api } from "../services/api";
-import { useStore } from "../store/useStore";
 
-import Clickable from "./common/Clickable";
-import Icon from "./common/Icon";
 import Title from "./common/Title";
 
 export default function HeaderBar({
@@ -17,8 +13,6 @@ export default function HeaderBar({
 }) {
   const [temperature, setTemperature] = useState(undefined);
   const [weatherIcon, setWeatherIcon] = useState(undefined);
-
-  const addTask = useStore((state) => state.addTask);
 
   useEffect(() => {
     function success(position: any) {

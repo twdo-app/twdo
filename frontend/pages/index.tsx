@@ -26,7 +26,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   } else {
     return {
-      props: {},
+      redirect: {
+        destination: "/today",
+        permanent: false,
+      },
     };
   }
 };
