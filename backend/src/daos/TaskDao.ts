@@ -48,7 +48,7 @@ class TaskDao {
   }
 
   async update(data: any) {
-    const { id, userId, description, projectIndex } = data;
+    const { id, userId, description, projectIndex, inboxIndex } = data;
 
     const task = [];
 
@@ -59,10 +59,11 @@ class TaskDao {
           userId,
         },
       });
-      if (foundTask.length !== 0) task.push(foundTask);
+      if (foundTask.length !== 0) task.push(foundTask[0]);
     } catch (e) {
       throw new Error(errors.genericError);
     }
+
     if (task.length === 0) throw new Error(errors.couldNotFindTask);
 
     try {
@@ -72,7 +73,8 @@ class TaskDao {
         },
         data: {
           description,
-          projectIndex,
+          projectIndex: projectIndex || 0,
+          inboxIndex: inboxIndex || 0,
         },
       });
     } catch (e) {
