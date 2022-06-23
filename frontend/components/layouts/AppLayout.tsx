@@ -1,4 +1,3 @@
-import { useTasks } from "../../store/useTasks";
 import DnD from "../DnD";
 import HeaderBar from "../HeaderBar";
 import Pomodoro from "../Pomodoro";
@@ -13,8 +12,6 @@ export default function AppLayout({
   children: React.ReactNode;
   showTemperature?: boolean;
 }) {
-  const showPomodoro = useTasks((state) => state.isDraggingTask);
-
   return (
     <DnD>
       <main className="grid grid-cols-app-layout grid-rows-app-layout h-screen gap-4">
@@ -31,7 +28,7 @@ export default function AppLayout({
         </div>
 
         <div className="row-start-1 row-end-3 col-start-3 w-full justify-self-center">
-          {showPomodoro ? <Pomodoro /> : null}
+          <Pomodoro />
         </div>
       </main>
     </DnD>

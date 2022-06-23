@@ -7,7 +7,7 @@ export default function TaskView() {
 
   return (
     <Droppable droppableId="todo-list">
-      {(provided) => (
+      {(provided, snapshot) => (
         <ul
           ref={provided.innerRef}
           {...provided.droppableProps}

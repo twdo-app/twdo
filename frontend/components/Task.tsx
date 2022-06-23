@@ -47,46 +47,59 @@ export default function Task(props: {
     }
   }, [editMode]);
 
+  function getStyle(style: any, snapshot: any) {
+    if (!snapshot.isDropAnimating) {
+      return style;
+    }
+    return {
+      ...style,
+      transitionDuration: `0.001s`,
+      opacity: 0,
+    };
+  }
+
   return (
     <Draggable draggableId={props.id} index={props.index}>
-      {(provided) => (
-        <li
-          className="hover:cursor-default"
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-        >
-          <Clickable
-            className={
-              editMode
-                ? `
+      {(provided, snapshot) => {
+        return (
+          <li
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            style={getStyle(provided.draggableProps.style, snapshot)}
+          >
+            <Clickable
+              className={
+                editMode
+                  ? `
               ${"relative flex-col h-14 z-20 border border-solid border-slate-300/50 items-stretch px-3 py-2 dark:border-slate-400/10 dark:shadow-slate-800/10 dark:bg-slate-800/20 dark:hover:bg-slate-800/20 dark:hover:outline-transparent"}
             `
-                : ""
-            }
-            hoverDisabled={editMode}
-            onClick={() => setEditMode(true)}
-          >
-            <Checkbox
-              hidden={editMode}
-              checked={isComplete}
-              onClick={(e) => toggleIsComplete(e)}
-            />
-            <input
-              disabled={!editMode}
-              value={description}
-              ref={inputElement}
-              className={`
+                  : ""
+              }
+              hoverDisabled={editMode}
+              onClick={() => setEditMode(true)}
+            >
+              <Checkbox
+                hidden={editMode}
+                checked={isComplete}
+                onClick={(e) => toggleIsComplete(e)}
+              />
+              <input
+                disabled={!editMode}
+                value={description}
+                ref={inputElement}
+                className={`
                 w-full bg-transparent z-[-10]
                 cursor-${editMode ? "text" : "default"}
               `}
-              onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </Clickable>
-          <DimScreen hidden={!editMode} onClick={() => setEditMode(false)} />
-        </li>
-      )}
+                onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </Clickable>
+            <DimScreen hidden={!editMode} onClick={() => setEditMode(false)} />
+          </li>
+        );
+      }}
     </Draggable>
   );
 }
