@@ -46,10 +46,9 @@ aspectRatio: "16/10"
 O twdo é um organizador pessoal de tarefas minimalista, pensado em ser um ambiente simples e livre de distrações, de maneira que o usuário possa focar no que realmente precisa ser feito. Ele faz isso através de uma interface limpa, fácil de entender e agradável de utilizar.
 <br>
 <br>
-Ele permite que o usuário crie uma conta (utilizando e-mail pessoal ou conta existente no GitHub) e já comece a criar suas tarefas. As tarefas podem ser agrupadas em projetos e arrastadas ao longo da tela para ordená-las. Dependendo da direção que o usuário arraste a tarefa, ela pode ser adicionada para um projeto ou iniciar um timer pomodoro para a realização da tarefa.
+Ele permite que o usuário crie uma conta (utilizando e-mail pessoal ou conta existente no GitHub) e já comece a criar suas tarefas. As tarefas podem ser agrupadas em projetos e arrastadas ao longo da tela para ordená-las. Dependendo da direção que o usuário arraste a tarefa, ela pode ser adicionada para um projeto ou iniciar um timer pomodoro para a realização da tarefa. <b> Além disso, no sistema, existirão informações relacionas à temperatura climática.  </b>
 <br>
 <br>
-A aplicação também conta com uma área reservada para as tarefas do dia atual (que possui também informações relacionadas à <b> temperatura climática </b>), de maneira que o usuário possa configurar um envio automático de e-mail para avisá-lo das tarefas que ele organizou para aquele dia. As tarefas também <b> podem </b> ser agendadas para serem realizadas em um determinado dia, com uma área dedicada do aplicativo para listar essas tarefas.
 
 <SlideNumber/>
 
@@ -69,7 +68,7 @@ A aplicação também conta com uma área reservada para as tarefas do dia atual
 | Tarefa           | Tarefa ligada à um único usuário que conterá uma descrição, data e data limite.                                                                                                                                                                                                                                                        |
 | Projeto          | Conjunto de Tarefas.                                                                                                                                                                                                                                                                                                                   |
 | Pomodoro         | Timer utilizado para que o usuário possa focar em realizar uma tarefa dentro de um determinado período de tempo.                                                                                                                                                                                                                       |
-| Modo Foco        | Amplia a tela do Pomodoro, deixando-o em tela cheia                                                                                                                                                                                                                                                                                    |
+| Modo Foco        | Tem a função de ampliar a tela do Pomodoro, deixando-o em tela cheia                                                                                                                                                                                                                                                                                    |
 
 <SlideNumber/>
 
