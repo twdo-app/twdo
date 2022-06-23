@@ -1,6 +1,13 @@
 import create from "zustand";
 
 interface PomodoroState {
+  timeRemaining: number;
+  isPlaying: boolean;
+  start: () => void;
+  stop: () => void;
+  isVisible: boolean;
+  hide: () => void;
+  show: () => void;
   showDropArea: boolean;
   setShowDropArea: (showDropArea: boolean) => void;
   pomodoroTaskDescription: string;

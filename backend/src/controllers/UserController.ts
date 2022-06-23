@@ -75,8 +75,6 @@ class UserController {
 
   signInWithGitHub() {
     return async (req: Request, res: Response) => {
-      let email: string;
-
       await axios
         .post(`https://github.com/login/oauth/access_token`, {
           client_id: process.env.GITHUB_CLIENT_ID,
@@ -87,35 +85,45 @@ class UserController {
           axios.defaults.headers.common = {
             Authorization: `Bearer ${res.data["access_token"]}`,
           };
+        })
+        .catch((e: any) => console.log(e));
+
+      const email = await axios
+        .get("https://api.github.com/user/emails")
+        .then((r: any) => r.data.find((email: any) => email.primary).email)
+        .catch((e: any) => console.log(e));
+
+      await axios
+        .get("https://api.github.com/user")
+        .then(async (r: any) => {
+          userDao
+            .create({
+              name: r.data["name"],
+              email: email,
+              password: "" + r.data["id"],
+            })
+            .catch((e) => {
+              if (e.message == errors.emailInUse)
+                console.log("Already registered");
+            });
+        })
+        .catch((e: any) => console.log(e));
+
+      const user = await userDao
+        .findByEmail(email)
+        .catch((e: any) => console.log(e));
+
+      if (user) {
+        const payload = {
+          id: user.id,
+        };
+
+        const token = jsonwebtoken.sign(payload, secret as string, {
+          expiresIn,
         });
 
-      axios.get("https://api.github.com/user").then(async (r: any) => {
-        userDao
-          .create({
-            name: r.data["name"],
-            email: r.data["email"],
-            password: "" + r.data["id"],
-          })
-          .catch((e) => {
-            if (e.message == errors.emailInUse)
-              console.log("Already registered");
-          });
-
-        const user = await userDao.findByEmail(r.data["email"]);
-
-        if (user) {
-          const payload = {
-            id: user.id,
-          };
-
-          const token = jsonwebtoken.sign(payload, secret as string, {
-            expiresIn,
-          });
-
-          res.cookie("twdo.token", token);
-          res.redirect("http://localhost:3000/inbox");
-        }
-      });
+        res.cookie("twdo.token", token).redirect("http://localhost:3000/inbox");
+      }
     };
   }
 

@@ -105,7 +105,8 @@ export default function Task({
                 value={task.description}
                 ref={inputElement}
                 className={`
-                w-full bg-transparent z-[-10] outline-none
+                w-full bg-transparent z-[-10] outline-none transition-all
+                ${isTaskBeingEdited ? "translate-x-[-1.5rem]" : ""}
               `}
                 onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
                 onChange={(e) => {

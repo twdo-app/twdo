@@ -12,13 +12,19 @@ export default function Checkbox({
   onClick: MouseEventHandler<any>;
 }) {
   return (
-    <div onClick={onClick} className={`${hidden && "hidden"} p-1 mr-1`}>
+    <div
+      onClick={onClick}
+      className={`${
+        hidden && "translate-x-[-2rem] translate-y-[0.25rem] opacity-0"
+      } p-1 mr-1 transition-all`}
+    >
       <div
         className={`
         w-3 h-3 flex relative items-center justify-center
         rounded-[0.25rem] border border-solid
         border-slate-400
         dark:border-slate-600
+        transition-all
         ${
           checked &&
           `
