@@ -5,21 +5,25 @@ import { Draggable } from "react-beautiful-dnd";
 import Clickable from "./common/Clickable";
 import Checkbox from "./common/Checkbox";
 import DimScreen from "./common/DimScreen";
+import { api } from "../services/api";
+import { useTasks } from "../store/useTasks";
 
 export default function Task(props: {
-  description: string;
   id: string;
+  description: string;
   index: number;
 }) {
   const [isComplete, setIsComplete] = useState(false);
   const [description, setDescription] = useState(props.description);
   const [editMode, setEditMode] = useState(false);
+  const removeTask = useTasks((state) => state.removeTask);
 
   const inputElement = useRef<HTMLInputElement>(null);
 
   const toggleIsComplete = (e: any) => {
     e.stopPropagation();
     setIsComplete(!isComplete);
+    removeTask(props.id);
   };
 
   const startFocusAtTheEndOfTheLine = (
@@ -33,13 +37,15 @@ export default function Task(props: {
 
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" || e.key === "Enter") setEditMode(false);
+      if (e.key === "Escape" || e.key === "Enter") {
+        setEditMode(false);
+      }
     });
 
     if (description === "") {
       setEditMode(true);
     }
-  }, [description]);
+  }, [description, props]);
 
   useEffect(() => {
     if (inputElement.current != null) {
@@ -93,10 +99,23 @@ export default function Task(props: {
                 cursor-${editMode ? "text" : "default"}
               `}
                 onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                  api.put(`/tasks/${props.id}`, {
+                    description: description,
+                    projectId: "0",
+                    inboxIndex: props.index.toString(),
+                    projectIndex: "0",
+                  });
+                }}
               />
             </Clickable>
-            <DimScreen hidden={!editMode} onClick={() => setEditMode(false)} />
+            <DimScreen
+              hidden={!editMode}
+              onClick={() => {
+                setEditMode(false);
+              }}
+            />
           </li>
         );
       }}

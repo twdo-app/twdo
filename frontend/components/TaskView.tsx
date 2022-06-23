@@ -7,7 +7,7 @@ export default function TaskView() {
 
   return (
     <Droppable droppableId="todo-list">
-      {(provided, snapshot) => (
+      {(provided) => (
         <ul
           ref={provided.innerRef}
           {...provided.droppableProps}
@@ -16,7 +16,7 @@ export default function TaskView() {
           {tasks?.map((task, i) => (
             <Task
               description={task.description}
-              id={task.id}
+              id={task.id.toString()}
               key={task.id}
               index={i}
             />

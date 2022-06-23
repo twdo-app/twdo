@@ -14,7 +14,7 @@ export default function Pomodoro() {
         >
           <h1 className="absolute">{pomoStore.pomodoroTaskDescription}</h1>
           <div
-            className={`transition-all w-full h-full bg-blue-200/60 border-2 border-dashed border-blue-300/60 rounded-md
+            className={`transition-all w-full h-full bg-blue-200/60 border-blue-300/60 dark:bg-pink-400/30 dark:border-pink-400/20 border-2 border-dashed rounded-md
             opacity-${snapshot.isUsingPlaceholder ? "1" : "0"}
             `}
           >

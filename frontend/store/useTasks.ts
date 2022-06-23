@@ -1,52 +1,50 @@
 import create from "zustand";
-import { v4 as uuid } from "uuid";
 
 import { task } from "../types";
+import { api } from "../services/api";
 
 interface TasksState {
   tasks: task[];
-  addTask: (description: string) => void;
+  updateTasks: () => Promise<void>;
+  addTask: (project?: string) => void;
   isDraggingTask: boolean;
   setIsDraggingTask: (isDraggingTask: boolean) => void;
-  removeTask: (id: string) => void;
+  removeTask: (id: string) => Promise<void>;
   reorderTasks: (startIndex: number, endIndex: number) => void;
 }
 
 export const useTasks = create<TasksState>((set) => ({
-  tasks: [
-    {
-      id: "1",
-      description: "task",
-    },
-    {
-      id: "2",
-      description: "task2",
-    },
-    {
-      id: "3",
-      description: "task3",
-    },
-  ],
+  tasks: [],
+  updateTasks: async () => {
+    set({ tasks: (await (await api.get("/tasks")).data.tasks) as task[] });
+  },
   isDraggingTask: false,
-  addTask: (description) => {
-    set((state) => ({
-      tasks: [
-        ...state.tasks,
-        {
-          id: uuid(),
-          description,
-        } as task,
-      ],
-    }));
+  addTask: async (project) => {
+    const tasks = (await (await api.get("/tasks")).data.tasks) as task[];
+
+    let index: number;
+    index = Math.max(
+      ...tasks.map((t) => parseInt(project ? t.projectIndex : t.inboxIndex))
+    );
+
+    await api.post("/tasks", {
+      projectId: project ? project : "",
+      description: "",
+      inboxIndex: project ? index.toString() : 0,
+      projectIndex: project ? index.toString() : 0,
+    });
+
+    set({ tasks: (await (await api.get("/tasks")).data.tasks) as task[] });
   },
   setIsDraggingTask: (isDraggingTask) => {
     set((state) => ({
       isDraggingTask: isDraggingTask,
     }));
   },
-  removeTask: (id) => {
+  removeTask: async (id) => {
+    await api.delete(`/tasks/${id}`);
     set((state) => ({
-      tasks: state.tasks.filter((todo) => todo.id !== id),
+      tasks: state.tasks.filter((todo: any) => todo.id !== id),
     }));
   },
   reorderTasks: (startIndex, endIndex) => {
