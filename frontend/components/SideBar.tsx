@@ -4,6 +4,7 @@ import {
   FiPackage,
   FiSettings,
   FiUser,
+  FiBox,
 } from "react-icons/fi";
 
 import SideBarGroup from "./SideBarGroup";
@@ -14,9 +15,9 @@ export default function SideBar() {
     <nav className="flex flex-col items-end h-full w-full max-w-sidebar row-start-2 col-start-1 justify-self-end">
       <SideBarGroup>
         <SideBarItem
-          label="today"
-          icon={<FiSun />}
-          route="/today"
+          label="inbox"
+          icon={<FiBox />}
+          route="/inbox"
         ></SideBarItem>
       </SideBarGroup>
       <SideBarGroup>

@@ -15,16 +15,13 @@ export default function DnD({ children }: { children: React.ReactNode }) {
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
-    console.log(result.destination.droppableId);
     if (
       result.destination.index === result.source.index &&
       result.destination.droppableId === result.source.droppableId
     )
       return;
     if (result.destination.droppableId === "pomodoro") {
-      pomodoroStore.setPomodoroTaskDescription(
-        taskStore.tasks[result.source.index].description
-      );
+      pomodoroStore.setPomodoroTaskDescription("");
     } else {
       taskStore.reorderTasks(result.source.index, result.destination.index);
     }

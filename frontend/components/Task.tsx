@@ -1,29 +1,29 @@
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Draggable } from "react-beautiful-dnd";
 
 import Clickable from "./common/Clickable";
 import Checkbox from "./common/Checkbox";
-import DimScreen from "./common/DimScreen";
-import { api } from "../services/api";
+import { task } from "../types";
 import { useTasks } from "../store/useTasks";
+import { useDimScreen } from "../store/useDimScreen";
 
-export default function Task(props: {
-  id: string;
-  description: string;
-  index: number;
+export default function Task({
+  task,
+  isTaskBeingEdited,
+}: {
+  task: task;
+  isTaskBeingEdited: boolean;
 }) {
+  const tasksStore = useTasks((state) => state);
+  const dimScreen = useDimScreen((state) => state);
   const [isComplete, setIsComplete] = useState(false);
-  const [description, setDescription] = useState(props.description);
-  const [editMode, setEditMode] = useState(false);
-  const removeTask = useTasks((state) => state.removeTask);
 
   const inputElement = useRef<HTMLInputElement>(null);
 
   const toggleIsComplete = (e: any) => {
-    e.stopPropagation();
     setIsComplete(!isComplete);
-    removeTask(props.id);
+    e.stopPropagation();
   };
 
   const startFocusAtTheEndOfTheLine = (
@@ -34,24 +34,6 @@ export default function Task(props: {
       e.currentTarget.value.length
     );
   };
-
-  useEffect(() => {
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" || e.key === "Enter") {
-        setEditMode(false);
-      }
-    });
-
-    if (description === "") {
-      setEditMode(true);
-    }
-  }, [description, props]);
-
-  useEffect(() => {
-    if (inputElement.current != null) {
-      editMode ? inputElement.current.focus() : inputElement.current.blur();
-    }
-  }, [editMode]);
 
   function getStyle(style: any, snapshot: any) {
     if (!snapshot.isDropAnimating) {
@@ -64,8 +46,34 @@ export default function Task(props: {
     };
   }
 
+  const startEditingTask = () => {
+    tasksStore.startEditingTask(task.id);
+    dimScreen.enableDimScreen();
+    inputElement.current?.focus();
+  };
+
+  const stopEditingTask = () => {
+    tasksStore.stopEditingTask();
+    dimScreen.disableDimScreen();
+    inputElement.current?.blur();
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.key === "Enter") stopEditingTask();
+    });
+
+    if (task.description === "") {
+      startEditingTask();
+    }
+  }, []);
+
   return (
-    <Draggable draggableId={props.id} index={props.index}>
+    <Draggable
+      draggableId={task.id.toString()}
+      index={task.inboxIndex ? parseInt(task.inboxIndex) : 0}
+      isDragDisabled={isTaskBeingEdited}
+    >
       {(provided, snapshot) => {
         return (
           <li
@@ -75,47 +83,36 @@ export default function Task(props: {
             style={getStyle(provided.draggableProps.style, snapshot)}
           >
             <Clickable
-              className={
-                editMode
-                  ? `
-              ${"relative flex-col h-14 z-20 border border-solid border-slate-300/50 items-stretch px-3 py-2 dark:border-slate-400/10 dark:shadow-slate-800/10 dark:bg-slate-800/20 dark:hover:bg-slate-800/20 dark:hover:outline-transparent"}
-            `
-                  : ""
-              }
-              hoverDisabled={editMode}
-              onClick={() => setEditMode(true)}
+              className={`relative flex flex-row rounded-md cursor-pointer transition-all border-transparent border active:bg-slate-100/20 ${
+                isTaskBeingEdited
+                  ? "z-30 border-2 h-16 border-solid bg-slate-50/80 border-slate-200 hover:cursor-text items-start px-3 py-2"
+                  : "items-center  p-1"
+              }`}
+              disabled={isTaskBeingEdited}
+              onClick={startEditingTask}
             >
               <Checkbox
-                hidden={editMode}
+                hidden={isTaskBeingEdited}
                 checked={isComplete}
-                onClick={(e) => toggleIsComplete(e)}
+                onClick={(e) => {
+                  toggleIsComplete(e);
+                  setTimeout(() => {
+                    tasksStore.removeTask(task.id);
+                  }, 1000);
+                }}
               />
               <input
-                disabled={!editMode}
-                value={description}
+                value={task.description}
                 ref={inputElement}
                 className={`
-                w-full bg-transparent z-[-10]
-                cursor-${editMode ? "text" : "default"}
+                w-full bg-transparent z-[-10] outline-none
               `}
                 onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
                 onChange={(e) => {
-                  setDescription(e.target.value);
-                  api.put(`/tasks/${props.id}`, {
-                    description: description,
-                    projectId: "0",
-                    inboxIndex: props.index.toString(),
-                    projectIndex: "0",
-                  });
+                  tasksStore.changeTaskDescription(task.id, e.target.value);
                 }}
               />
             </Clickable>
-            <DimScreen
-              hidden={!editMode}
-              onClick={() => {
-                setEditMode(false);
-              }}
-            />
           </li>
         );
       }}

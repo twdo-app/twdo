@@ -4,17 +4,16 @@ import AppLayout from "../components/layouts/AppLayout";
 import TaskView from "../components/TaskView";
 import { useTasks } from "../store/useTasks";
 
-export default function Today() {
+export default function Inbox() {
   const taskStore = useTasks((state) => state);
 
   return (
     <AppLayout
-      title="today"
+      title="inbox"
       showTemperature
       showAddButton
       onAddButtonClick={async () => {
         await taskStore.addTask();
-        console.log(taskStore.tasks);
       }}
     >
       <TaskView />
@@ -24,8 +23,6 @@ export default function Today() {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { ["twdo.token"]: token } = parseCookies(ctx);
-
-  useTasks.getState().updateTasks();
 
   if (!token) {
     return {

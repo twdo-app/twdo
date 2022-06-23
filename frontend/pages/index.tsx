@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   } else {
     return {
       redirect: {
-        destination: "/today",
+        destination: "/inbox",
         permanent: false,
       },
     };

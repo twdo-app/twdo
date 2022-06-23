@@ -113,7 +113,7 @@ class UserController {
           });
 
           res.cookie("twdo.token", token);
-          res.redirect("http://localhost:3000/today");
+          res.redirect("http://localhost:3000/inbox");
         }
       });
     };

@@ -12,7 +12,7 @@ export default function Checkbox({
   onClick: MouseEventHandler<any>;
 }) {
   return (
-    <div onClick={onClick} className={`${hidden && "hidden"} p-1 mr-2`}>
+    <div onClick={onClick} className={`${hidden && "hidden"} p-1 mr-1`}>
       <div
         className={`
         w-3 h-3 flex relative items-center justify-center
