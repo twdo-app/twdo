@@ -27,6 +27,7 @@ class UserDao {
           email,
           password: hashedPassword,
           name,
+          wasCreatedWithOAuth,
         },
       });
     } catch (e) {

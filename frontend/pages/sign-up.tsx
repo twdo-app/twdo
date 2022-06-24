@@ -32,6 +32,7 @@ export default function SignUp({ code }: { code?: string }) {
           name: data.name,
           email: data.email,
           password: data.password,
+          wasCreatedWithOAuth: false,
         }),
       });
     }

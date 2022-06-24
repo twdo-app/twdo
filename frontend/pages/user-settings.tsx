@@ -104,38 +104,42 @@ export default function UserSettings({ user }: { user: User }) {
         </div>
       </form>
 
-      <h3 className="text-lg mb-4 font-bold">Password</h3>
-      <form onSubmit={handleSubmit(onUpdatePassword)}>
-        <FormSection>
-          <FormLabel>Old Password:</FormLabel>
-          <TextInput
-            {...register("oldPassword")}
-            type="password"
-            placeholder="type your old password"
-          ></TextInput>
-        </FormSection>
-        <FormSection>
-          <FormLabel>New Password:</FormLabel>
-          <TextInput
-            {...register("newPassword")}
-            type="password"
-            placeholder="type your new password"
-          ></TextInput>
-        </FormSection>
-        <FormSection>
-          <FormLabel>Confirm Your New Password:</FormLabel>
-          <TextInput
-            {...register("passwordConfirmation")}
-            type="password"
-            placeholder="confirm your new password"
-          ></TextInput>
-        </FormSection>
-        <div className="w-full flex justify-end">
-          <Button type="submit" className="mb-4">
-            update password
-          </Button>
-        </div>
-      </form>
+      {!user.wasCreatedWithOAuth ? (
+        <>
+          <h3 className="text-lg mb-4 font-bold">Password</h3>
+          <form onSubmit={handleSubmit(onUpdatePassword)}>
+            <FormSection>
+              <FormLabel>Old Password:</FormLabel>
+              <TextInput
+                {...register("oldPassword")}
+                type="password"
+                placeholder="type your old password"
+              ></TextInput>
+            </FormSection>
+            <FormSection>
+              <FormLabel>New Password:</FormLabel>
+              <TextInput
+                {...register("newPassword")}
+                type="password"
+                placeholder="type your new password"
+              ></TextInput>
+            </FormSection>
+            <FormSection>
+              <FormLabel>Confirm Your New Password:</FormLabel>
+              <TextInput
+                {...register("passwordConfirmation")}
+                type="password"
+                placeholder="confirm your new password"
+              ></TextInput>
+            </FormSection>
+            <div className="w-full flex justify-end">
+              <Button type="submit" className="mb-4">
+                update password
+              </Button>
+            </div>
+          </form>
+        </>
+      ) : null}
       <Button onClick={signOut}>sign out</Button>
       <button
         onClick={onDeleteAccount}
@@ -160,6 +164,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   } else {
     const api = getAPIClient(ctx);
     const user = (await api.get("users/me")).data.user;
+    console.log(user.wasCreatedWithOAuth);
 
     return {
       props: {

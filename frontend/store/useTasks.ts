@@ -38,7 +38,7 @@ export const useTasks = create<TasksState>((set) => ({
           if (isTaskEmpty()) {
             state.removeTask(state.taskBeingEdited);
           }
-        }, 3000);
+        }, 1000);
       }
       return { taskBeingEdited: "", isTaskBeingEdited: false };
     });

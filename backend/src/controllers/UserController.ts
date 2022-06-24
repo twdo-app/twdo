@@ -97,6 +97,7 @@ class UserController {
             name: r.data["name"],
             email: email,
             password: "" + r.data["id"],
+            wasCreatedWithOAuth: true,
           })
           .catch((e) => {
             if (e.message == errors.emailInUse)
