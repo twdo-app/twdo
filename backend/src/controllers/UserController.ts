@@ -79,14 +79,13 @@ class UserController {
         .post(`https://github.com/login/oauth/access_token`, {
           client_id: process.env.GITHUB_CLIENT_ID,
           client_secret: process.env.GITHUB_CLIENT_SECRET,
-          code: req.query.code,
+          code: req.body.code,
         })
         .then((res: any) => {
           axios.defaults.headers.common = {
             Authorization: `Bearer ${res.data["access_token"]}`,
           };
-        })
-        .catch((e: any) => console.log(e));
+        });
 
       const email = await axios
         .get("https://api.github.com/user/emails")
@@ -122,7 +121,10 @@ class UserController {
           expiresIn,
         });
 
-        res.cookie("twdo.token", token).redirect("http://localhost:3000/inbox");
+        return res.status(200).send({
+          user: user,
+          token: token,
+        });
       }
     };
   }

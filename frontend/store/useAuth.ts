@@ -10,6 +10,7 @@ import { api } from "../services/api";
 interface AuthState {
   userIsAuthenticated: boolean;
   signIn: ({ email, password }: SignInData) => Promise<void>;
+  signInWithGitHub: (token: string) => Promise<void>;
   signOut: () => void;
 }
 
@@ -31,7 +32,22 @@ export const useAuth = create<AuthState>((set) => ({
         userIsAuthenticated: true,
       }));
 
-      Router.push("/user-settings");
+      Router.push("/inbox");
+    }
+  },
+  signInWithGitHub: async (token) => {
+    if (token !== undefined) {
+      setCookie(undefined, "twdo.token", token, {
+        maxAge: 3600,
+      });
+
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+      set(() => ({
+        userIsAuthenticated: true,
+      }));
+
+      Router.push("/inbox");
     }
   },
   signOut: () => {
