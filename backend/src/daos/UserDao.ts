@@ -8,118 +8,120 @@ import errors from "../shared/errors";
 
 const prisma = new PrismaClient();
 class UserDao {
-    async create(data: IUserCreation) {
-        const { name, email, password } = data;
+  async create(data: IUserCreation) {
+    const { name, email, password } = data;
 
-        if (await this.findByEmail(email)) {
-            throw new Error(errors.emailInUse);
-        }
+    const { wasCreatedWithOAuth } = data || false;
 
-        const salt = bcrypt.genSaltSync(10);
-
-        const hashedPassword = bcrypt.hashSync(password, salt);
-
-        try {
-            return await prisma.user.create({
-                data: {
-                    email,
-                    password: hashedPassword,
-                    name,
-                },
-            });
-        } catch (e) {
-            throw new Error(errors.couldNotCreateUser);
-        }
+    if (await this.findByEmail(email)) {
+      throw new Error(errors.emailInUse);
     }
 
-    async findByEmail(email: string) {
-        try {
-            return await prisma.user.findUnique({
-                where: {
-                    email,
-                },
-            });
-        } catch (e) {
-            throw new Error(errors.couldNotFindUserByEmail);
-        }
-    }
+    const salt = bcrypt.genSaltSync(10);
 
-    async findById(id: number) {
-        try {
-            return await prisma.user.findUnique({
-                where: {
-                    id,
-                },
-            });
-        } catch (e) {
-            throw new Error(errors.genericError);
-        }
-    }
+    const hashedPassword = bcrypt.hashSync(password, salt);
 
-    async delete(id: number) {
-        try {
-            await prisma.task.deleteMany({
-                where: { userId: id },
-            });
-            await prisma.task.deleteMany({
-                where: { userId: id },
-            });
-            await prisma.user.delete({
-                where: { id },
-            });
-            return true;
-        } catch (e) {
-            throw new Error(errors.couldNotDeleteAccount);
-        }
+    try {
+      return await prisma.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          name,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.couldNotCreateUser);
     }
+  }
 
-    async updateInfo(id: number, email: string, name: string) {
-        try {
-            return await prisma.user.update({
-                where: {
-                    id,
-                },
-                data: {
-                    email,
-                    name,
-                },
-            });
-        } catch (e) {
-            throw new Error(errors.couldNotUpdateEmail);
-        }
+  async findByEmail(email: string) {
+    try {
+      return await prisma.user.findUnique({
+        where: {
+          email,
+        },
+      });
+    } catch (e) {
+      return false;
     }
-    async updatePassword(id: number, password: string) {
-        const salt = bcrypt.genSaltSync(10);
+  }
 
-        const hashedPassword = bcrypt.hashSync(password, salt);
+  async findById(id: number) {
+    try {
+      return await prisma.user.findUnique({
+        where: {
+          id,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.genericError);
+    }
+  }
 
-        try {
-            return await prisma.user.update({
-                where: {
-                    id,
-                },
-                data: {
-                    password: hashedPassword,
-                },
-            });
-        } catch (e) {
-            throw new Error(errors.couldNotUpdateEmail);
-        }
+  async delete(id: number) {
+    try {
+      await prisma.task.deleteMany({
+        where: { userId: id },
+      });
+      await prisma.task.deleteMany({
+        where: { userId: id },
+      });
+      await prisma.user.delete({
+        where: { id },
+      });
+      return true;
+    } catch (e) {
+      throw new Error(errors.couldNotDeleteAccount);
     }
-    async updateName(id: number, name: string) {
-        try {
-            return await prisma.user.update({
-                where: {
-                    id,
-                },
-                data: {
-                    name,
-                },
-            });
-        } catch (e) {
-            throw new Error(errors.couldNotUpdateName);
-        }
+  }
+
+  async updateInfo(id: number, email: string, name: string) {
+    try {
+      return await prisma.user.update({
+        where: {
+          id,
+        },
+        data: {
+          email,
+          name,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.couldNotUpdateEmail);
     }
+  }
+  async updatePassword(id: number, password: string) {
+    const salt = bcrypt.genSaltSync(10);
+
+    const hashedPassword = bcrypt.hashSync(password, salt);
+
+    try {
+      return await prisma.user.update({
+        where: {
+          id,
+        },
+        data: {
+          password: hashedPassword,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.couldNotUpdateEmail);
+    }
+  }
+  async updateName(id: number, name: string) {
+    try {
+      return await prisma.user.update({
+        where: {
+          id,
+        },
+        data: {
+          name,
+        },
+      });
+    } catch (e) {
+      throw new Error(errors.couldNotUpdateName);
+    }
+  }
 }
 
 export default new UserDao();

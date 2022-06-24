@@ -14,10 +14,13 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+
+  wasCreatedWithOAuth Boolean @default(false)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -30,13 +33,10 @@ model Task {
   userId    Int
   projectId Int?
 
-  description  String
-  dueDate      DateTime?
-  date         DateTime?
-  projectIndex Int?
-  dateIndex    Int?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  description String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   user    User     @relation(fields: [userId], references: [id])
   project Project? @relation(fields: [projectId], references: [id])
@@ -46,7 +46,9 @@ model Project {
   id     Int @id @default(autoincrement())
   userId Int
 
-  name      String
+  name  String
+  emoji String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

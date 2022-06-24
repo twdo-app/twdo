@@ -2,10 +2,20 @@ import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 import AppLayout from "../components/layouts/AppLayout";
 import TaskView from "../components/TaskView";
+import { useTasks } from "../store/useTasks";
 
-export default function Today() {
+export default function Inbox() {
+  const taskStore = useTasks((state) => state);
+
   return (
-    <AppLayout title="today">
+    <AppLayout
+      title="inbox"
+      showTemperature
+      showAddButton
+      onAddButtonClick={async () => {
+        await taskStore.addTask();
+      }}
+    >
       <TaskView />
     </AppLayout>
   );

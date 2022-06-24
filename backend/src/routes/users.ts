@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request } from "express";
 import UserController from "../controllers/UserController";
 import UserAuth from "../middlewares/UserAuth";
 
@@ -8,7 +8,6 @@ import login from "../validations/user/login";
 import changeUserAccountInformation from "../validations/user/changeAccountInfo";
 import deleteAccount from "../validations/user/deleteAccount";
 import changePasswordRequest from "../validations/user/changePassword";
-import changeUserNameRequest from "../validations/user/changeName";
 
 const router = express.Router();
 
@@ -38,10 +37,10 @@ router.post("/signIn", yupValidator(login), UserController.signIn());
  * /users/delete
  */
 router.delete(
-    "/delete",
-    UserAuth.verifyJWT(),
-    yupValidator(deleteAccount),
-    UserController.delete()
+  "/delete",
+  UserAuth.verifyJWT(),
+  yupValidator(deleteAccount),
+  UserController.delete()
 );
 
 /**
@@ -51,10 +50,10 @@ router.delete(
  */
 
 router.patch(
-    "/change-info",
-    UserAuth.verifyJWT(),
-    yupValidator(changeUserAccountInformation),
-    UserController.changeEmail()
+  "/change-info",
+  UserAuth.verifyJWT(),
+  yupValidator(changeUserAccountInformation),
+  UserController.updateInfo()
 );
 
 /**
@@ -64,10 +63,10 @@ router.patch(
  */
 
 router.patch(
-    "/change-password",
-    UserAuth.verifyJWT(),
-    yupValidator(changePasswordRequest),
-    UserController.changePassword()
+  "/change-password",
+  UserAuth.verifyJWT(),
+  yupValidator(changePasswordRequest),
+  UserController.changePassword()
 );
 
 /**
@@ -77,5 +76,7 @@ router.patch(
  */
 
 router.get("/me", UserAuth.verifyJWT(), UserController.getLoggedUser());
+
+router.post("/auth/github", UserController.signInWithGitHub());
 
 export default router;
