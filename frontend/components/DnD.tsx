@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  DragDropContext,
-  DragUpdate,
-  DropResult,
-  ResponderProvided,
-} from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { usePomodoro } from "../store/usePomodoro";
 import { useTasks } from "../store/useTasks";
 
@@ -29,6 +24,7 @@ export default function DnD({ children }: { children: React.ReactNode }) {
     }
   };
 
+  // This prevents content being loaded without an ID (makes react-beautiful-dnd work with Next.js)
   const [winReady, setWinReady] = useState(false);
 
   useEffect(() => {
