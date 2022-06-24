@@ -6,14 +6,13 @@ const prisma = new PrismaClient();
 
 class TaskDao {
   async create(data: ITaskCreation) {
-    const { userId, description, projectIndex } = data;
+    const { userId, description } = data;
 
     try {
       return await prisma.task.create({
         data: {
           userId,
           description,
-          projectIndex,
         },
       });
     } catch (e) {
@@ -73,13 +72,34 @@ class TaskDao {
         },
         data: {
           description,
-          projectIndex: projectIndex || 1,
-          inboxIndex: inboxIndex || 1,
         },
       });
     } catch (e) {
       throw new Error(errors.genericError);
     }
+  }
+
+  async reorderTasks(userId: number, tasks: Array<any>) {
+    await prisma.task.deleteMany({
+      where: {
+        userId,
+      },
+    });
+
+    const createdTasks = [];
+
+    for (let i = 0; i < tasks.length; i++) {
+      const { description, projectId } = tasks[i];
+      const createdTask = await prisma.task.create({
+        data: {
+          userId,
+          description,
+          projectId,
+        },
+      });
+      createdTasks.push(createdTask);
+    }
+    return createdTasks;
   }
 }
 

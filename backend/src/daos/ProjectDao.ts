@@ -12,7 +12,6 @@ class ProjectDao {
           userId,
           name,
           emoji,
-          index: index || 1,
         },
       });
     } catch (e) {
@@ -47,7 +46,7 @@ class ProjectDao {
   }
 
   async update(data: any) {
-    const { id, userId, name, emoji, index } = data;
+    const { id, userId, name, emoji } = data;
 
     const project = [];
 
@@ -72,8 +71,7 @@ class ProjectDao {
         },
         data: {
           name,
-          emoji: emoji,
-          index: index || 1,
+          emoji,
         },
       });
     } catch (e) {

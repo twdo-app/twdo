@@ -19,6 +19,8 @@ router.post("/", UserAuth.verifyJWT(), taskController.create());
  */
 router.put("/:id", UserAuth.verifyJWT(), taskController.update());
 
+router.post("/reorder", UserAuth.verifyJWT(), taskController.reorder());
+
 /**
  * Delete one Task of the logged user
  */
