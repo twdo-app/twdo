@@ -5,6 +5,10 @@ import Button from "../components/common/Button";
 import Hyperlink from "../components/common/Hyperlink";
 import { useForm } from "react-hook-form";
 import Router from "next/router";
+import { FiGithub } from "react-icons/fi";
+import { useAuth } from "../store/useAuth";
+import { useEffect } from "react";
+import { api } from "../services/api";
 
 type SignUpFormType = {
   name: string;
@@ -15,6 +19,7 @@ type SignUpFormType = {
 
 export default function SignUp({ code }: { code?: string }) {
   const { register, handleSubmit } = useForm();
+  const signInWithGitHub = useAuth((state) => state.signInWithGitHub);
 
   const handleSignUp = async (data: SignUpFormType | any) => {
     if (data.password === data.passwordConfirmation) {
@@ -31,6 +36,18 @@ export default function SignUp({ code }: { code?: string }) {
       });
     }
   };
+
+  useEffect(() => {
+    if (code) {
+      api
+        .post("users/auth/github", {
+          code: code,
+        })
+        .then((res: any) => {
+          signInWithGitHub(res.data.token);
+        });
+    }
+  }, [code, signInWithGitHub]);
 
   return (
     <AuthLayout
@@ -60,9 +77,22 @@ export default function SignUp({ code }: { code?: string }) {
         type="password"
       />
 
-      <Button type="submit" className="w-full mb-8">
+      <Button type="submit" className="w-full mb-4">
         sign up
       </Button>
+
+      <a
+        className="w-full mb-8"
+        href="https://github.com/login/oauth/authorize?scope=user:email&client_id=cfb74e83d2e2529dfd4f"
+      >
+        <Button
+          type="button"
+          icon={<FiGithub />}
+          className="w-full bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-900"
+        >
+          sign up with github
+        </Button>
+      </a>
 
       <p>
         already have an account? <Hyperlink href="/sign-in">sign in</Hyperlink>
