@@ -11,10 +11,13 @@ import Hyperlink from "../components/common/Hyperlink";
 import { useModal } from "../store/useModal";
 import { useAuth } from "../store/useAuth";
 import { FiGithub } from "react-icons/fi";
+import { useEffect } from "react";
+import { api } from "../services/api";
 
-export default function SignIn() {
+export default function SignIn({ code }: { code?: string }) {
   const showErrorMessage = useModal((state) => state.showErrorMessage);
   const signIn = useAuth((state) => state.signIn);
+  const signInWithGitHub = useAuth((state) => state.signInWithGitHub);
   const { register, handleSubmit } = useForm();
 
   const onSignIn = async (data: SignInData | any) => {
@@ -22,6 +25,20 @@ export default function SignIn() {
     const { "twdo.token": token } = parseCookies();
     if (!token) showErrorMessage("Invalid Credentials");
   };
+
+  useEffect(() => {
+    console.log(code);
+    if (code) {
+      api
+        .post("users/auth/github", {
+          code: code,
+        })
+        .then((res: any) => {
+          console.log(res.data);
+          signInWithGitHub(res.data.token);
+        });
+    }
+  }, [code, signInWithGitHub]);
 
   return (
     <AuthLayout onSubmit={handleSubmit(onSignIn)}>
@@ -43,7 +60,10 @@ export default function SignIn() {
         login
       </Button>
 
-      <a className="w-full mb-8" href="http://localhost:4001/users/auth/github">
+      <a
+        className="w-full mb-8"
+        href="https://github.com/login/oauth/authorize?scope=user:email&client_id=cfb74e83d2e2529dfd4f"
+      >
         <Button
           type="button"
           icon={<FiGithub />}
@@ -58,4 +78,12 @@ export default function SignIn() {
       </p>
     </AuthLayout>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  return context.query["code"] === undefined
+    ? { props: {} }
+    : {
+        props: { code: context.query["code"] },
+      };
 }
