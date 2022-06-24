@@ -1,12 +1,39 @@
+import { useEffect } from "react";
 import { Droppable } from "react-beautiful-dnd";
-import { FiPlay, FiSkipBack, FiSkipForward, FiX } from "react-icons/fi";
+import {
+  FiPause,
+  FiPlay,
+  FiSkipBack,
+  FiSkipForward,
+  FiX,
+} from "react-icons/fi";
 import { usePomodoro } from "../store/usePomodoro";
 import Button from "./common/Button";
-import Clickable from "./common/Clickable";
 import Icon from "./common/Icon";
+
+function msToTime(ms: number) {
+  let minutes = Math.floor(ms / 60000);
+  let seconds = parseInt(((ms % 60000) / 1000).toFixed(0));
+  return seconds == 60
+    ? minutes + 1 + ":00"
+    : minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+}
 
 export default function Pomodoro() {
   const pomoStore = usePomodoro((state) => state);
+
+  useEffect(() => {
+    if (!pomoStore.isPlaying) {
+      return;
+    } else if (pomoStore.timeRemaining === 0) {
+      pomoStore.skipFoward();
+      pomoStore.start();
+    } else {
+      setTimeout(() => {
+        pomoStore.setTimeRemaining(pomoStore.timeRemaining - 1000);
+      }, 1000);
+    }
+  }, [pomoStore]);
 
   return (
     <Droppable droppableId="pomodoro">
@@ -14,27 +41,60 @@ export default function Pomodoro() {
         <div
           ref={provided.innerRef}
           {...provided.droppableProps}
-          className={`flex flex-col overflow-hidden items-center justify-center h-full w-full p-24`}
+          className={`flex flex-col items-center justify-center h-full w-full p-16 transition-all`}
         >
-          <h1>{pomoStore.pomodoroTaskDescription}</h1>
           <div
-            className={`relative flex flex-col justify-center items-center transition-all overflow-hidden bg-blue-200/60 border-blue-300/60 dark:bg-pink-400/30 dark:border-pink-400/20 border-2 border-dashed rounded-md
+            className={`relative flex flex-col justify-center items-center transition-all border-2 border-dashed rounded-md
             ${
               snapshot.isUsingPlaceholder
-                ? "opacity-1 h-full w-full"
-                : "opacity-0 h-3/4 w-3/4"
+                ? "bg-blue-200/60 border-blue-300/60 dark:bg-pink-400/30 dark:border-pink-400/20"
+                : "bg-transparent dark:bg-transparent border-transparent"
             }
-            `}
+            ${
+              pomoStore.isVisible || snapshot.isUsingPlaceholder
+                ? "h-full w-full"
+                : "h-3/4 w-3/4"
+            }
+              `}
           >
-            <Clickable className="absolute right-8 top-8">
-              <Icon icon={<FiX />} />
-            </Clickable>
-            <div className="flex gap-4 items-center justify-center">
-              <Button icon={<Icon icon={<FiSkipBack />} />}></Button>
-              <Button icon={<Icon icon={<FiPlay />} />}></Button>
-              <Button icon={<Icon icon={<FiSkipForward />} />}></Button>
+            <div
+              className={`flex flex-col items-center justify-center w-full h-full rounded-md transition-all gap-16
+            opacity-${pomoStore.isVisible ? "1" : "0"}`}
+            >
+              <p className="text-lg">{pomoStore.pomodoroTaskDescription}</p>
+              <p className="text-8xl">🍅</p>
+              <p className="text-6xl">{msToTime(pomoStore.timeRemaining)}</p>
+              <Button
+                className="absolute right-8 top-8"
+                onClick={() => {
+                  pomoStore.hide();
+                  setTimeout(() => {
+                    pomoStore.reset();
+                  }, 300);
+                }}
+                icon={<Icon icon={<FiX />} />}
+              />
+              <div className="flex gap-4 items-center justify-center">
+                <Button
+                  onClick={pomoStore.skipBack}
+                  icon={<Icon icon={<FiSkipBack />} />}
+                ></Button>
+                <Button
+                  onClick={
+                    pomoStore.isPlaying ? pomoStore.stop : pomoStore.start
+                  }
+                  icon={
+                    <Icon
+                      icon={pomoStore.isPlaying ? <FiPause /> : <FiPlay />}
+                    />
+                  }
+                ></Button>
+                <Button
+                  onClick={pomoStore.skipFoward}
+                  icon={<Icon icon={<FiSkipForward />} />}
+                ></Button>
+              </div>
             </div>
-            {provided.placeholder}
           </div>
         </div>
       )}

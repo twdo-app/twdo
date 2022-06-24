@@ -19,6 +19,7 @@ export default function DnD({ children }: { children: React.ReactNode }) {
       pomodoroStore.setPomodoroTaskDescription(
         taskStore.tasks[result.source.index].description
       );
+      pomodoroStore.show();
     } else {
       taskStore.reorderTasks(result.source.index, result.destination.index);
     }
