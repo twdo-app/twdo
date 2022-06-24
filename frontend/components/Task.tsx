@@ -80,7 +80,6 @@ export default function Task({
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            style={getStyle(provided.draggableProps.style, snapshot)}
           >
             <Clickable
               className={`relative flex flex-row rounded-md cursor-pointer transition-all border-transparent border active:bg-slate-100/20 ${
