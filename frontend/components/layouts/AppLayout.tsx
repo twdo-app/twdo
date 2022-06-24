@@ -33,7 +33,7 @@ export default function AppLayout({
           <SideBar />
         </div>
 
-        <div className="row-start-2 col-start-2 w-full justify-self-center overflow-hidden">
+        <div className="row-start-2 col-start-2 w-full justify-self-center">
           {children}
         </div>
 
