@@ -18,6 +18,8 @@ interface PomodoroState {
   setShowDropArea: (showDropArea: boolean) => void;
   pomodoroTaskDescription: string;
   setPomodoroTaskDescription: (description: string) => void;
+  focusMode: boolean;
+  setFocusMode: (focusMode: boolean) => void;
 }
 
 export const usePomodoro = create<PomodoroState>((set) => ({
@@ -28,6 +30,7 @@ export const usePomodoro = create<PomodoroState>((set) => ({
       isPlaying: false,
       isVisible: false,
       pomodoroTaskDescription: "",
+      focusMode: false,
     });
   },
   updateTimeRemaining: (phase: 1 | 2 | 3 | 4) => {
@@ -121,5 +124,11 @@ export const usePomodoro = create<PomodoroState>((set) => ({
   },
   hide: () => {
     set({ isVisible: false });
+  },
+  focusMode: false,
+  setFocusMode: (focusMode) => {
+    set({
+      focusMode: focusMode,
+    });
   },
 }));
