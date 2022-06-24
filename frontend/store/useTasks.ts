@@ -48,17 +48,9 @@ export const useTasks = create<TasksState>((set) => ({
   },
   isDraggingTask: false,
   addTask: async (project) => {
-    const tasks = (await (await api.get("/tasks")).data.tasks) as task[];
-
-    const index = Math.max(
-      ...tasks.map((t) => parseInt(project ? t.projectIndex : t.inboxIndex))
-    ).toString();
-
     await api.post("/tasks", {
       projectId: project ? project : "",
       description: "",
-      inboxIndex: project ? index.toString() : 0,
-      projectIndex: project ? index.toString() : 0,
     });
 
     const updatedTasks = (await (await api.get("/tasks")).data.tasks) as task[];
@@ -96,11 +88,15 @@ export const useTasks = create<TasksState>((set) => ({
       tasks: state.tasks.filter((todo: any) => todo.id !== id),
     }));
   },
-  reorderTasks: (startIndex, endIndex) => {
+  reorderTasks: async (startIndex, endIndex) => {
     set((state) => {
       const result = [...state.tasks];
       const [removed] = result.splice(startIndex, 1);
       result.splice(endIndex, 0, removed);
+
+      api.post("/tasks/reorder", {
+        tasks: result,
+      });
 
       return {
         tasks: result,

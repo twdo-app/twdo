@@ -11,9 +11,11 @@ import { useDimScreen } from "../store/useDimScreen";
 export default function Task({
   task,
   isTaskBeingEdited,
+  index,
 }: {
   task: task;
   isTaskBeingEdited: boolean;
+  index: number;
 }) {
   const tasksStore = useTasks((state) => state);
   const dimScreen = useDimScreen((state) => state);
@@ -71,7 +73,7 @@ export default function Task({
   return (
     <Draggable
       draggableId={task.id.toString()}
-      index={task.inboxIndex ? parseInt(task.inboxIndex) : 0}
+      index={index}
       isDragDisabled={isTaskBeingEdited}
     >
       {(provided, snapshot) => {

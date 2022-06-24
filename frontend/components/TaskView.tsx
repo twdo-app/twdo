@@ -19,10 +19,11 @@ export default function TaskView() {
           className="shrink w-full"
         >
           {tasksStore.tasks
-            ? tasksStore.tasks.map((task) => (
+            ? tasksStore.tasks.map((task, i) => (
                 <Task
                   task={task}
                   key={task.id}
+                  index={i}
                   isTaskBeingEdited={task.id === tasksStore.taskBeingEdited}
                 />
               ))

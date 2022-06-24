@@ -21,7 +21,9 @@ export default function DnD({ children }: { children: React.ReactNode }) {
     )
       return;
     if (result.destination.droppableId === "pomodoro") {
-      pomodoroStore.setPomodoroTaskDescription("");
+      pomodoroStore.setPomodoroTaskDescription(
+        taskStore.tasks[result.source.index].description
+      );
     } else {
       taskStore.reorderTasks(result.source.index, result.destination.index);
     }

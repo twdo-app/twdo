@@ -89,28 +89,22 @@ class UserController {
 
       const email = await axios
         .get("https://api.github.com/user/emails")
-        .then((r: any) => r.data.find((email: any) => email.primary).email)
-        .catch((e: any) => console.log(e));
+        .then((r: any) => r.data.find((email: any) => email.primary).email);
 
-      await axios
-        .get("https://api.github.com/user")
-        .then(async (r: any) => {
-          userDao
-            .create({
-              name: r.data["name"],
-              email: email,
-              password: "" + r.data["id"],
-            })
-            .catch((e) => {
-              if (e.message == errors.emailInUse)
-                console.log("Already registered");
-            });
-        })
-        .catch((e: any) => console.log(e));
+      await axios.get("https://api.github.com/user").then(async (r: any) => {
+        userDao
+          .create({
+            name: r.data["name"],
+            email: email,
+            password: "" + r.data["id"],
+          })
+          .catch((e) => {
+            if (e.message == errors.emailInUse)
+              console.log("Already registered");
+          });
+      });
 
-      const user = await userDao
-        .findByEmail(email)
-        .catch((e: any) => console.log(e));
+      const user = await userDao.findByEmail(email);
 
       if (user) {
         const payload = {
