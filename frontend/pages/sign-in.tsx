@@ -27,14 +27,12 @@ export default function SignIn({ code }: { code?: string }) {
   };
 
   useEffect(() => {
-    console.log(code);
     if (code) {
       api
         .post("users/auth/github", {
           code: code,
         })
         .then((res: any) => {
-          console.log(res.data);
           signInWithGitHub(res.data.token);
         });
     }
