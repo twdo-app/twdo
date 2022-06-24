@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Droppable } from "react-beautiful-dnd";
 import {
+  FiMaximize,
+  FiMinimize,
   FiPause,
   FiPlay,
   FiSkipBack,
@@ -41,13 +43,18 @@ export default function Pomodoro() {
         <div
           ref={provided.innerRef}
           {...provided.droppableProps}
-          className={`flex flex-col items-center justify-center h-full w-full p-16 transition-all`}
+          className={`flex flex-col items-center justify-center transition-all
+          ${
+            pomoStore.focusMode
+              ? "absolute h-screen w-screen top-0 left-0 bg-slate-100 dark:bg-slate-900"
+              : "h-full w-full p-16"
+          }`}
         >
           <div
             className={`relative flex flex-col justify-center items-center transition-all border-2 border-dashed rounded-md
             ${
               snapshot.isUsingPlaceholder
-                ? "bg-blue-200/60 border-blue-300/60 dark:bg-pink-400/30 dark:border-pink-400/20"
+                ? "bg-blue-200/60 border-blue-300/60 dark:bg-pink-400/10 dark:border-pink-400/20"
                 : "bg-transparent dark:bg-transparent border-transparent"
             }
             ${
@@ -65,6 +72,17 @@ export default function Pomodoro() {
               <p className="text-8xl">🍅</p>
               <p className="text-6xl">{msToTime(pomoStore.timeRemaining)}</p>
               <Button
+                className="absolute left-8 top-8"
+                onClick={() => {
+                  pomoStore.setFocusMode(!pomoStore.focusMode);
+                }}
+                icon={
+                  <Icon
+                    icon={pomoStore.focusMode ? <FiMinimize /> : <FiMaximize />}
+                  />
+                }
+              />
+              <Button
                 className="absolute right-8 top-8"
                 onClick={() => {
                   pomoStore.hide();
@@ -74,7 +92,7 @@ export default function Pomodoro() {
                 }}
                 icon={<Icon icon={<FiX />} />}
               />
-              <div className="flex gap-4 items-center justify-center">
+              <div className="flex gap-4 items-center justify-center transition-all">
                 <Button
                   onClick={pomoStore.skipBack}
                   icon={<Icon icon={<FiSkipBack />} />}

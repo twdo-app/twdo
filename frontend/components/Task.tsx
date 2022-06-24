@@ -7,6 +7,9 @@ import Checkbox from "./common/Checkbox";
 import { task } from "../types";
 import { useTasks } from "../store/useTasks";
 import { useDimScreen } from "../store/useDimScreen";
+import Button from "./common/Button";
+import { FiTrash } from "react-icons/fi";
+import Icon from "./common/Icon";
 
 export default function Task({
   task,
@@ -84,9 +87,9 @@ export default function Task({
             {...provided.dragHandleProps}
           >
             <Clickable
-              className={`relative flex flex-row rounded-md cursor-pointer transition-all border-transparent border active:bg-slate-100/20 ${
+              className={`relative flex flex-row rounded-md cursor-pointer transition-all border-transparent border active:bg-slate-100/20 dark:active:bg-slate-700/20 ${
                 isTaskBeingEdited
-                  ? "z-30 border-2 h-16 border-solid bg-slate-50/80 border-slate-200 hover:cursor-text items-start px-3 py-2"
+                  ? "z-30 border-2 h-16 border-solid bg-slate-50/80 border-slate-200 dark:bg-slate-800/50 dark:border-slate-800 hover:cursor-text items-start px-3 py-2"
                   : "items-center  p-1"
               }`}
               disabled={isTaskBeingEdited}
