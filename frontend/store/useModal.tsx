@@ -64,7 +64,7 @@ export const useModal = create<ModalState>((set) => ({
               <Button
                 onClick={() => {
                   confirmationAction();
-                  state.hideModal;
+                  state.hideModal();
                 }}
               >
                 Confirm

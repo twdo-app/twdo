@@ -77,12 +77,6 @@ router.patch(
 
 router.get("/me", UserAuth.verifyJWT(), UserController.getLoggedUser());
 
-router.get("/auth/github", (req: Request, res) => {
-  res.redirect(
-    `https://github.com/login/oauth/authorize?scope=read:user&client_id=${process.env.GITHUB_CLIENT_ID}`
-  );
-});
-
-router.get("/auth/github/callback", UserController.signInWithGitHub());
+router.post("/auth/github", UserController.signInWithGitHub());
 
 export default router;

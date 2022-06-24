@@ -1,50 +1,35 @@
-import { useEffect, useState } from "react";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { useStore } from "../store/useStore";
+import { useEffect } from "react";
+import { Droppable } from "react-beautiful-dnd";
+import { useTasks } from "../store/useTasks";
 import Task from "./Task";
 
 export default function TaskView() {
-  const [loadedContent, setLoadedContent] = useState(<></>);
-  const setIsDraggingTask = useStore((state) => state.setIsDraggingTask);
-  const tasks = useStore((state) => state.tasks);
-
-  const reorder = useStore((state) => state.reorderTasks);
+  const tasksStore = useTasks((state) => state);
 
   useEffect(() => {
-    const onDragEnd = (result: any) => {
-      setIsDraggingTask(false);
-      if (!result.destination) return;
-      if (result.destination.index === result.source.index) return;
-      reorder(result.source.index, result.destination.index);
-    };
+    tasksStore.updateTasks();
+  }, []);
 
-    setLoadedContent(
-      <DragDropContext
-        onDragEnd={onDragEnd}
-        onDragStart={() => setIsDraggingTask(true)}
-      >
-        <Droppable droppableId="list">
-          {(provided) => (
-            <ul
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              className="shrink h-full w-full"
-            >
-              {tasks?.map((task, i) => (
+  return (
+    <Droppable droppableId="todo-list">
+      {(provided) => (
+        <ul
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+          className="shrink w-full"
+        >
+          {tasksStore.tasks
+            ? tasksStore.tasks.map((task) => (
                 <Task
-                  description={task.description}
-                  id={task.id}
+                  task={task}
                   key={task.id}
-                  index={i}
+                  isTaskBeingEdited={task.id === tasksStore.taskBeingEdited}
                 />
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
-    );
-  }, [tasks, reorder]);
-
-  return loadedContent;
+              ))
+            : null}
+          {provided.placeholder}
+        </ul>
+      )}
+    </Droppable>
+  );
 }

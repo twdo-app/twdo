@@ -27,7 +27,6 @@ class UserDao {
           email,
           password: hashedPassword,
           name,
-          wasCreatedWithOAuth,
         },
       });
     } catch (e) {
@@ -43,7 +42,7 @@ class UserDao {
         },
       });
     } catch (e) {
-      throw new Error(errors.couldNotFindUserByEmail);
+      return false;
     }
   }
 

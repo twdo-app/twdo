@@ -10,7 +10,7 @@ export default function Button({
   className?: string;
   onClick?: MouseEventHandler<any>;
   icon?: React.ReactNode;
-  children: string;
+  children?: string;
   type?: "button" | "submit" | "reset";
 }) {
   return (
@@ -28,10 +28,11 @@ export default function Button({
       dark:bg-pink-400/10 dark:outline-pink-400/30 dark:active:bg-pink-400/30
       gap-4
       ${className}
+      ${icon && !children ? "h-8 w-8" : ""}
       `}
     >
       {icon ? icon : ""}
-      {children.toUpperCase()}
+      {children?.toUpperCase()}
     </button>
   );
 }

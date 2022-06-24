@@ -33,9 +33,7 @@ model Task {
   userId    Int
   projectId Int?
 
-  description  String
-  inboxIndex   Int?
-  projectIndex Int?
+  description String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -48,9 +46,9 @@ model Project {
   id     Int @id @default(autoincrement())
   userId Int
 
-  name      String
-  emoji     String?
-  index     Int?
+  name  String
+  emoji String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

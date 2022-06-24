@@ -19,11 +19,6 @@ class TaskController {
           });
         })
         .catch((e: any) => {
-          if (e.message == errors.emailInUse) {
-            return res.status(409).send({
-              error: e.message,
-            });
-          }
           return res.status(500).send({
             error: e.message,
           });
@@ -89,6 +84,26 @@ class TaskController {
               error: e.message,
             });
           }
+          return res.status(500).send({
+            error: e.message,
+          });
+        });
+    };
+  }
+
+  reorder() {
+    return (req: Request, res: Response, next: NextFunction) => {
+      const userId = req.user.id;
+      const tasks = req.body.tasks;
+
+      return taskDao
+        .reorderTasks(userId, tasks)
+        .then((createdTasks: Array<any>) => {
+          return res.status(201).send({
+            tasks: createdTasks,
+          });
+        })
+        .catch((e: any) => {
           return res.status(500).send({
             error: e.message,
           });

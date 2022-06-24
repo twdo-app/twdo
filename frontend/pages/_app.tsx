@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 
 import Modal from "../components/common/Modal";
+import DimScreen from "../components/common/DimScreen";
 
 export default function MyApp({
   Component,
@@ -13,6 +14,7 @@ export default function MyApp({
     <ThemeProvider attribute="class">
       <Component {...pageProps} />
       <Modal />
+      <DimScreen />
     </ThemeProvider>
   );
 }

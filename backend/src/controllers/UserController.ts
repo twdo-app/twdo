@@ -75,13 +75,11 @@ class UserController {
 
   signInWithGitHub() {
     return async (req: Request, res: Response) => {
-      let email: string;
-
       await axios
         .post(`https://github.com/login/oauth/access_token`, {
           client_id: process.env.GITHUB_CLIENT_ID,
           client_secret: process.env.GITHUB_CLIENT_SECRET,
-          code: req.query.code,
+          code: req.body.code,
         })
         .then((res: any) => {
           axios.defaults.headers.common = {
@@ -89,33 +87,45 @@ class UserController {
           };
         });
 
-      axios.get("https://api.github.com/user").then(async (r: any) => {
-        userDao
-          .create({
-            name: r.data["name"],
-            email: r.data["email"],
-            password: "" + r.data["id"],
-          })
-          .catch((e) => {
-            if (e.message == errors.emailInUse)
-              console.log("Already registered");
-          });
+      const email = await axios
+        .get("https://api.github.com/user/emails")
+        .then((r: any) => r.data.find((email: any) => email.primary).email)
+        .catch((e: any) => console.log(e));
 
-        const user = await userDao.findByEmail(r.data["email"]);
+      await axios
+        .get("https://api.github.com/user")
+        .then(async (r: any) => {
+          userDao
+            .create({
+              name: r.data["name"],
+              email: email,
+              password: "" + r.data["id"],
+            })
+            .catch((e) => {
+              if (e.message == errors.emailInUse)
+                console.log("Already registered");
+            });
+        })
+        .catch((e: any) => console.log(e));
 
-        if (user) {
-          const payload = {
-            id: user.id,
-          };
+      const user = await userDao
+        .findByEmail(email)
+        .catch((e: any) => console.log(e));
 
-          const token = jsonwebtoken.sign(payload, secret as string, {
-            expiresIn,
-          });
+      if (user) {
+        const payload = {
+          id: user.id,
+        };
 
-          res.cookie("twdo.token", token);
-          res.redirect("http://localhost:3000/today");
-        }
-      });
+        const token = jsonwebtoken.sign(payload, secret as string, {
+          expiresIn,
+        });
+
+        return res.status(200).send({
+          user: user,
+          token: token,
+        });
+      }
     };
   }
 
