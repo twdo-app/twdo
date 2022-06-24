@@ -164,7 +164,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   } else {
     const api = getAPIClient(ctx);
     const user = (await api.get("users/me")).data.user;
-    console.log(user.wasCreatedWithOAuth);
 
     return {
       props: {
