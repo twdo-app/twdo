@@ -78,6 +78,29 @@ class ProjectDao {
       throw new Error(errors.genericError);
     }
   }
+
+  async reorder(userId: number, projects: Array<any>) {
+    await prisma.project.deleteMany({
+      where: {
+        userId,
+      },
+    });
+
+    const createdProjects = [];
+
+    for (let i = 0; i < projects.length; i++) {
+      const { name, emoji } = projects[i];
+      const createdProject = await prisma.project.create({
+        data: {
+          name,
+          userId,
+          emoji,
+        },
+      });
+      createdProjects.push(createdProject);
+    }
+    return createdProjects;
+  }
 }
 
 export default new ProjectDao();
