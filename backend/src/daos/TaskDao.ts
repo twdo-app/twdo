@@ -47,7 +47,7 @@ class TaskDao {
   }
 
   async update(data: any) {
-    const { id, userId, description, projectIndex, inboxIndex } = data;
+    const { id, userId, description } = data;
 
     const task = [];
 
