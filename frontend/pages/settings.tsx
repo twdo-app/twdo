@@ -4,6 +4,7 @@ import { parseCookies } from "nookies";
 import Dropdown from "../components/common/Dropdown";
 import FormLabel from "../components/common/FormLabel";
 import FormSection from "../components/common/FormSection";
+import Hyperlink from "../components/common/Hyperlink";
 import AppLayout from "../components/layouts/AppLayout";
 
 export default function Settings() {
@@ -24,6 +25,7 @@ export default function Settings() {
           <option value="system">System</option>
         </Dropdown>
       </FormSection>
+      <Hyperlink href="/feedback">Send FeedBack</Hyperlink>
     </AppLayout>
   );
 }

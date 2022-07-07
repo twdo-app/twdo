@@ -13,7 +13,7 @@ export default function Button({
   icon?: React.ReactNode;
   children?: string;
   type?: "button" | "submit" | "reset";
-  theme?: "default" | "text";
+  theme?: "default" | "text" | "hyperlink";
 }) {
   return (
     <button
@@ -25,11 +25,12 @@ export default function Button({
       ${children ? "px-5 py-2" : "p-3"}
       ${
         theme === "text"
-          ? "hover:bg-primary-subtle cursor-default transition-colors"
-          : "text-fgb bg-primary cursor-pointer"
+          ? "hover:bg-primary-subtle cursor-default transition-colors font-bold"
+          : theme === "hyperlink"
+          ? "hover:underline cursor-pointer text-link underline-offset-1 decoration-2"
+          : "text-fgb bg-primary cursor-pointer font-bold"
       }
       gap-4
-      font-bold
       active:shadow-[0_0_0_#00333d]
       ${className}
       ${icon && !children ? "h-8 w-8" : ""}
