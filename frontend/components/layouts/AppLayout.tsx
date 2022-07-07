@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+import { useModal } from "../../store/useModal";
 import DnD from "../DnD";
 import HeaderBar from "../HeaderBar";
 import Pomodoro from "../Pomodoro";
@@ -19,7 +20,7 @@ export default function AppLayout({
 }) {
   return (
     <DnD>
-      <main className="grid grid-cols-app-layout grid-rows-app-layout h-screen gap-4 overflow-hidden">
+      <main className="grid grid-cols-app-layout grid-rows-app-layout h-screen gap-4 overflow-x-hidden">
         <div className="col-start-2 row-start-1 w-full justify-self-center self-center">
           <HeaderBar
             title={title}
@@ -29,7 +30,7 @@ export default function AppLayout({
           />
         </div>
 
-        <div className="max-w-sidebar row-start-2 col-start-1 w-full justify-self-end overflow-hidden">
+        <div className="max-w-sidebar row-start-2 col-start-1 w-full justify-self-end">
           <SideBar />
         </div>
 
@@ -37,7 +38,7 @@ export default function AppLayout({
           {children}
         </div>
 
-        <div className="row-start-1 row-end-3 col-start-3 w-full justify-self-center overflow-hidden">
+        <div className="row-start-1 row-end-3 col-start-3 w-full justify-self-center flex flex-col items-center justify-center h-screen">
           <Pomodoro />
         </div>
       </main>

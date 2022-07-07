@@ -14,6 +14,10 @@ export default function MyDocument() {
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=Patrick+Hand&family=Inter:wght@300;400;500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

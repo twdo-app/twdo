@@ -22,22 +22,18 @@ export default function Checkbox({
         className={`
         w-3 h-3 flex relative items-center justify-center
         rounded-[0.25rem] border border-solid
-        border-slate-400
-        dark:border-slate-600
+        border-fg
         transition-all
         ${
           checked &&
           `
-            dark:bg-pink-400 dark:border-pink-400
-            child-icon:dark:stroke-slate-900
-            bg-blue-400 border-blue-400
-            child-icon:stroke-slate-100
+            bg-primary border-primary-fg
           `
         }
       `}
       >
         <Icon
-          icon={<FiCheck size="0.75rem" stroke="#FFF" />}
+          icon={<FiCheck size="0.75rem" className="stroke-fgb" />}
           className={`${!checked && "hidden"}`}
         />
       </div>

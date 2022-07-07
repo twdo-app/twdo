@@ -46,29 +46,33 @@ export default function Pomodoro() {
           className={`flex flex-col items-center justify-center transition-all
           ${
             pomoStore.focusMode
-              ? "absolute h-screen w-screen top-0 left-0 bg-slate-100 dark:bg-slate-900"
-              : "h-full w-full p-16"
+              ? "absolute h-screen w-screen top-0 left-0 bg-card z-30"
+              : "h-[95vh] w-full p-16"
           }`}
         >
           <div
-            className={`relative flex flex-col justify-center items-center transition-all border-2 border-dashed rounded-md
+            className={`relative flex flex-col justify-center items-center transition-all rounded-xl
             ${
               snapshot.isUsingPlaceholder
-                ? "bg-blue-200/60 border-blue-300/60 dark:bg-pink-400/10 dark:border-pink-400/20"
-                : "bg-transparent dark:bg-transparent border-transparent"
+                ? "bg-primary-subtle border-primary-border border-2 border-dashed"
+                : ""
             }
             ${
               pomoStore.isVisible || snapshot.isUsingPlaceholder
                 ? "h-full w-full"
-                : "h-3/4 w-3/4"
+                : "h-3/4 w-3/4 border-transparent"
             }
+            ${pomoStore.isVisible ? "bg-card border-card-border border-1" : ""}
+            ${pomoStore.focusMode ? "border-none rounded-none" : ""}
               `}
           >
             <div
-              className={`flex flex-col items-center justify-center w-full h-full rounded-md transition-all gap-16
+              className={`flex flex-col items-center justify-center w-full h-full rounded-xl transition-all gap-16
             opacity-${pomoStore.isVisible ? "1" : "0"}`}
             >
-              <p className="text-lg">{pomoStore.pomodoroTaskDescription}</p>
+              <p className="text-lg font-bold">
+                {pomoStore.pomodoroTaskDescription}
+              </p>
               <p className="text-8xl">🍅</p>
               <p className="text-6xl">{msToTime(pomoStore.timeRemaining)}</p>
               <Button
@@ -81,6 +85,7 @@ export default function Pomodoro() {
                     icon={pomoStore.focusMode ? <FiMinimize /> : <FiMaximize />}
                   />
                 }
+                theme="text"
               />
               <Button
                 className="absolute right-8 top-8"
@@ -91,6 +96,7 @@ export default function Pomodoro() {
                   }, 300);
                 }}
                 icon={<Icon icon={<FiX />} />}
+                theme="text"
               />
               <div className="flex gap-4 items-center justify-center transition-all">
                 <Button

@@ -16,7 +16,7 @@ export default function TaskView() {
         <ul
           ref={provided.innerRef}
           {...provided.droppableProps}
-          className="shrink w-full"
+          className={`shrink w-full bg-card overflow-hidden`}
         >
           {tasksStore.tasks
             ? tasksStore.tasks.map((task, i) => (

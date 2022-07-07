@@ -17,9 +17,9 @@ export default function SideBarItem({
   return (
     <li>
       <Link href={route}>
-        <Clickable className="w-full mb-1 flex flex-row rounded-md cursor-default items-center px-2 py-1 border border-transparent transition-clickable h-8">
+        <Clickable className="w-full mb-1 last-of-type:mb-0 cursor-default flex flex-row rounded-xl items-center px-3 py-5 border border-transparent h-8">
           <Icon icon={icon} className={"mr-2"} />
-          <p className="font-bold">{label.toLowerCase()}</p>
+          <p>{label}</p>
         </Clickable>
       </Link>
     </li>

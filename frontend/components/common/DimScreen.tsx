@@ -11,7 +11,7 @@ export default function DimScreen() {
         dimScreenStore.disableDimScreen();
         tasksStore.stopEditingTask();
       }}
-      className="absolute z-10 top-0 left-0 h-screen w-screen"
+      className="absolute top-0 left-0 h-screen w-screen"
     />
   ) : null;
 }

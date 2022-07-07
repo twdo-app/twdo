@@ -20,7 +20,7 @@ export default function HeaderBar({
     <header className="flex items-center justify-between w-full row-span-1 col-span-3 place-self-center">
       <div className="w-full flex flex-col">
         <Title>{title}</Title>
-        <p className="text-slate-600 flex gap-1 h-5 text-sm">
+        <p className="text-fg flex gap-1 h-5 text-sm">
           {showTemperature ? <Weather /> : null}
         </p>
       </div>
@@ -28,6 +28,7 @@ export default function HeaderBar({
         <Button
           onClick={onAddButtonClick}
           icon={<Icon icon={<FiPlus />} />}
+          theme="text"
         ></Button>
       ) : null}
     </header>

@@ -9,7 +9,7 @@ export default function Inbox() {
 
   return (
     <AppLayout
-      title="inbox"
+      title="Inbox"
       showTemperature
       showAddButton
       onAddButtonClick={async () => {
