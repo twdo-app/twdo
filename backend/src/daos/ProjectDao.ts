@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 class ProjectDao {
   async create(data: any) {
     try {
-      const { name, userId, emoji, index } = data;
+      const { name, userId, emoji } = data;
       return await prisma.project.create({
         data: {
           userId,
