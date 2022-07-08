@@ -31,7 +31,7 @@ export default function Modal() {
 
   return shouldRender ? (
     <div
-      className={`z-10 fixed bottom-0 left-0 w-full h-full flex items-center justify-center bg-slate-300/60 dark:bg-slate-900/80 transition-all
+      className={`z-10 fixed bottom-0 left-0 w-full h-full flex items-center justify-center bg-bg/60 transition-all
       ${
         fade
           ? "backdrop-blur-lg opacity-100  translate-x-0"
@@ -40,7 +40,7 @@ export default function Modal() {
       onClick={handleModalBgClick}
     >
       <div
-        className="z-20 flex justify-center items-center p-5 bg-slate-200 dark:bg-slate-800 rounded-md outline outline-1 outline-slate-300 dark:outline-slate-600"
+        className="z-20 flex justify-center items-center p-5 bg-card rounded-md outline outline-1 outline-primary-border"
         onClick={(e) => handleModalClick(e)}
       >
         {modalContent}

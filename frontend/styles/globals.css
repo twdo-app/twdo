@@ -5,27 +5,61 @@
 :root {
   --transition-props-slow: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   --transition-props-fast: 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
-  font-size: 16px;
+  font-size: 18px;
+}
+
+:root.light {
+  --bg: #fff;
+  --subtle: #00000010;
+  --fg: #000;
+  --fgb: #fff;
+  --input-bg: #eee;
+  --input-border: #ccc;
+  --primary: #000;
+  --primary-subtle: #00000020;
+  --primary-border: #000;
+  --card: #fff;
+  --card-odd: #fff;
+  --card-border: #000;
+  --link: #30f;
+}
+
+:root.dark {
+  --bg: #111;
+  --subtle: #ffffff10;
+  --fg: #fff;
+  --fgb: rgb(255, 255, 255);
+  --input-bg: #222;
+  --input-border: #222;
+  --primary: #333;
+  --primary-subtle: #ffffff20;
+  --primary-border: #fff;
+  --card: #111;
+  --card-odd: #111;
+  --card-border: #fff;
+  --link: rgb(68, 227, 255);
+}
+
+:root.light-blue {
+  --primary: #30f;
+  --primary-subtle: #3300ff20;
+  --primary-border: #30f;
+  --link: #30f;
 }
 
 @layer base {
-  input {
-    @apply focus-visible:outline-none;
-  }
 }
 
 * {
-  @apply dark:text-slate-200;
   font-family: "Nunito", sans-serif;
   list-style: none;
-  outline: none;
   border: none;
   box-sizing: border-box;
 }
 
 body {
-  @apply bg-slate-100 dark:bg-slate-900;
   height: 100vh;
+  background-color: var(--bg);
 }
 
 #root {

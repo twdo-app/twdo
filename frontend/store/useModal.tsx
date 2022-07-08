@@ -1,7 +1,9 @@
-import React from "react";
-import { FiCheck, FiX } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiCheck, FiPlus, FiX } from "react-icons/fi";
 import create from "zustand";
+import AddProjectModal from "../components/AddProjectModal";
 import Button from "../components/common/Button";
+import EditProjectModal from "../components/EditProjectModal";
 
 interface ModalState {
   modalState: boolean;
@@ -13,6 +15,8 @@ interface ModalState {
     message: string,
     confirmationAction: () => void
   ) => void;
+  showAddProjectModal: (confirmationAction: () => void) => void;
+  showEditProjectModal: (projectId: number) => void;
 }
 
 export const useModal = create<ModalState>((set) => ({
@@ -25,7 +29,7 @@ export const useModal = create<ModalState>((set) => ({
         modalState: true,
         modalContent: (
           <p className="flex items-center">
-            <FiCheck stroke="#4ade80" className="stroke-green-400 mr-2" />
+            <FiCheck className="mr-2" />
             {message}
           </p>
         ),
@@ -38,7 +42,7 @@ export const useModal = create<ModalState>((set) => ({
         modalState: true,
         modalContent: (
           <p className="flex items-center">
-            <FiX stroke="#f472b6" className="stroke-pink-400 mr-2" />
+            <FiX className="mr-2" />
             {message}
           </p>
         ),
@@ -60,7 +64,9 @@ export const useModal = create<ModalState>((set) => ({
           <div className="flex flex-col item-center justify-around">
             <p className="mb-4">{message}</p>
             <div className="flex items-center justify-between">
-              <Button onClick={state.hideModal}>Cancel</Button>
+              <Button onClick={state.hideModal} theme="text">
+                Cancel
+              </Button>
               <Button
                 onClick={() => {
                   confirmationAction();
@@ -72,6 +78,22 @@ export const useModal = create<ModalState>((set) => ({
             </div>
           </div>
         ),
+      };
+    });
+  },
+  showAddProjectModal: () => {
+    set((state) => {
+      return {
+        modalState: true,
+        modalContent: <AddProjectModal />,
+      };
+    });
+  },
+  showEditProjectModal: (projectId) => {
+    set((state) => {
+      return {
+        modalState: true,
+        modalContent: <EditProjectModal projectId={projectId} />,
       };
     });
   },

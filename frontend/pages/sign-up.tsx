@@ -57,17 +57,17 @@ export default function SignUp({ code }: { code?: string }) {
         Router.push("/sign-in");
       })}
     >
-      <Title className="mb-8">sign up</Title>
+      <Title className="mb-8">Sign Up</Title>
 
-      <TextInput {...register("name")} className="mb-4" placeholder="name" />
+      <TextInput {...register("name")} className="mb-2" placeholder="name" />
       <TextInput
         {...register("email")}
-        className="mb-4"
+        className="mb-2"
         placeholder="email address"
       />
       <TextInput
         {...register("password")}
-        className="mb-4"
+        className="mb-2"
         placeholder="password"
         type="password"
       />
@@ -78,12 +78,12 @@ export default function SignUp({ code }: { code?: string }) {
         type="password"
       />
 
-      <Button type="submit" className="w-full mb-4">
-        sign up
+      <Button type="submit" className="w-full mb-2">
+        Sign Up
       </Button>
 
       <a
-        className="w-full mb-8"
+        className="w-full mb-6"
         href="https://github.com/login/oauth/authorize?scope=user:email&client_id=cfb74e83d2e2529dfd4f"
       >
         <Button
@@ -91,12 +91,12 @@ export default function SignUp({ code }: { code?: string }) {
           icon={<FiGithub />}
           className="w-full bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-900"
         >
-          sign up with github
+          Sign Up With GitHub
         </Button>
       </a>
 
-      <p>
-        already have an account? <Hyperlink href="/sign-in">sign in</Hyperlink>
+      <p className="flex flex-col items-center">
+        Already Have An Account? <Hyperlink href="/sign-in">Sign In</Hyperlink>
       </p>
     </AuthLayout>
   );

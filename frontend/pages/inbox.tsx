@@ -9,9 +9,10 @@ export default function Inbox() {
 
   return (
     <AppLayout
-      title="inbox"
+      title="Inbox"
       showTemperature
       showAddButton
+      showEditButton={false}
       onAddButtonClick={async () => {
         await taskStore.addTask();
       }}

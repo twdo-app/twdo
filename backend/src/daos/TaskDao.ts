@@ -5,14 +5,15 @@ import errors from "../shared/errors";
 const prisma = new PrismaClient();
 
 class TaskDao {
-  async create(data: ITaskCreation) {
-    const { userId, description } = data;
+  async create(data: any) {
+    const { userId, description, projectId } = data;
 
     try {
       return await prisma.task.create({
         data: {
           userId,
           description,
+          projectId,
         },
       });
     } catch (e) {
@@ -47,7 +48,7 @@ class TaskDao {
   }
 
   async update(data: any) {
-    const { id, userId, description, projectIndex, inboxIndex } = data;
+    const { id, userId, description } = data;
 
     const task = [];
 

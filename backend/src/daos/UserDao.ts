@@ -64,7 +64,7 @@ class UserDao {
       await prisma.task.deleteMany({
         where: { userId: id },
       });
-      await prisma.task.deleteMany({
+      await prisma.project.deleteMany({
         where: { userId: id },
       });
       await prisma.user.delete({

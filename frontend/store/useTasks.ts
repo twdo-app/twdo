@@ -10,8 +10,12 @@ interface TasksState {
   startEditingTask: (taskID: string) => void;
   stopEditingTask: () => void;
   updateTasks: () => Promise<void>;
-  addTask: (project?: string) => Promise<void>;
-  changeTaskDescription: (taskID: string, description: string) => void;
+  addTask: (project?: number) => Promise<void>;
+  changeTaskDescription: (
+    taskID: string,
+    description: string,
+    projectId: number | null
+  ) => void;
   isDraggingTask: boolean;
   setIsDraggingTask: (isDraggingTask: boolean) => void;
   removeTask: (id: string) => Promise<void>;
@@ -26,20 +30,7 @@ export const useTasks = create<TasksState>((set) => ({
     set({ taskBeingEdited: taskID, isTaskBeingEdited: true });
   },
   stopEditingTask: () => {
-    set((state) => {
-      const isTaskEmpty = () => {
-        return state.tasks.find(
-          (t) => t.id === state.taskBeingEdited && t.description === ""
-        );
-      };
-
-      if (isTaskEmpty()) {
-        setTimeout(() => {
-          if (isTaskEmpty()) {
-            state.removeTask(state.taskBeingEdited);
-          }
-        }, 1000);
-      }
+    set(() => {
       return { taskBeingEdited: "", isTaskBeingEdited: false };
     });
   },
@@ -49,7 +40,7 @@ export const useTasks = create<TasksState>((set) => ({
   isDraggingTask: false,
   addTask: async (project) => {
     await api.post("/tasks", {
-      projectId: project ? project : "",
+      projectId: project ? project : null,
       description: "",
     });
 

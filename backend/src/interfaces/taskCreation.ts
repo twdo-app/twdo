@@ -1,6 +1,6 @@
 interface ITaskCreation {
   userId: number;
   description: string;
-  projectIndex?: number;
+  projectId?: number | null;
 }
 export default ITaskCreation;
