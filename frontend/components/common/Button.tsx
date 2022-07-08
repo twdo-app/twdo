@@ -20,9 +20,8 @@ export default function Button({
       onClick={onClick}
       type={type}
       className={`
-      text-sm
       flex justify-center items-center
-      ${children ? "px-5 py-2 rounded-xl" : "p-3 rounded-full"}
+      ${children ? "px-4 py-2 rounded-md" : "p-3 rounded-full"}
       ${
         theme === "text"
           ? "hover:bg-primary-subtle cursor-default transition-colors font-bold"
@@ -31,7 +30,6 @@ export default function Button({
           : "text-fgb bg-primary cursor-pointer font-bold"
       }
       gap-4
-      active:shadow-[0_0_0_#00333d]
       ${className}
       ${icon && !children ? "h-8 w-8" : ""}
       `}

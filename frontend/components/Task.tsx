@@ -81,12 +81,8 @@ export default function Task({
           <li
             className={`
             relative z-10 even:bg-card-odd odd:bg-card transition-colors
-            rounded-xl
-            ${
-              isTaskBeingEdited
-                ? "border border-solid border-primary-border"
-                : "hover:bg-subtle"
-            }
+            rounded-md
+            ${isTaskBeingEdited ? "" : "hover:bg-subtle"}
             `}
             ref={provided.innerRef}
             {...provided.draggableProps}

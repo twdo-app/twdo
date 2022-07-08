@@ -14,7 +14,7 @@
   --fg: #000;
   --fgb: #fff;
   --input-bg: #eee;
-  --input-border: #aaa;
+  --input-border: #ccc;
   --primary: #000;
   --primary-subtle: #00000020;
   --primary-border: #000;
@@ -44,7 +44,7 @@
 }
 
 * {
-  font-family: "Inter", "Nunito", sans-serif;
+  font-family: "Nunito", sans-serif;
   list-style: none;
   border: none;
   box-sizing: border-box;
