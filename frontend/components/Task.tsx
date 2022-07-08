@@ -20,6 +20,8 @@ export default function Task({
   const dimScreen = useDimScreen((state) => state);
   const [isComplete, setIsComplete] = useState(false);
 
+  const [description, setDescription] = useState(task.description);
+
   const inputElement = useRef<HTMLInputElement>(null);
 
   const toggleIsComplete = (e: any) => {
@@ -114,7 +116,7 @@ export default function Task({
                 }}
               />
               <input
-                value={task.description}
+                value={description}
                 ref={inputElement}
                 className={`
                 w-full bg-transparent outline-none transition-all
@@ -125,8 +127,9 @@ export default function Task({
                 }
               `}
                 onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
-                onChange={(e) => {
-                  tasksStore.changeTaskDescription(task.id, e.target.value);
+                onChange={(e) => setDescription(e.target.value)}
+                onBlur={() => {
+                  tasksStore.changeTaskDescription(task.id, description);
                 }}
               />
             </div>

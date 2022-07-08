@@ -19,11 +19,13 @@ const TextInput = React.forwardRef(
         placeholder={placeholder}
         className={`
       ${className}
-      w-full rounded-full px-4 py-2 border border-solid text-fg
+      w-full rounded-xl px-4 py-2 text-fg
       placeholder:text-input-border
       bg-input-bg
-      border-input-border
-      focus:border-primary
+      outline-solid
+      outline-0
+      outline-primary
+      focus:outline-1
       transition-colors
       `}
       />

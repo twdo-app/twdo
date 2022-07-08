@@ -44,7 +44,7 @@ export default function SignIn({ code }: { code?: string }) {
 
       <TextInput
         {...register("email")}
-        className="mb-4"
+        className="mb-2"
         placeholder="Email Address"
       />
       <TextInput
@@ -54,12 +54,12 @@ export default function SignIn({ code }: { code?: string }) {
         type="password"
       />
 
-      <Button type="submit" className="w-full mb-4">
+      <Button type="submit" className="w-full mb-2">
         Sign In
       </Button>
 
       <a
-        className="w-full mb-8"
+        className="w-full mb-6"
         href="https://github.com/login/oauth/authorize?scope=user:email&client_id=cfb74e83d2e2529dfd4f"
       >
         <Button type="button" icon={<FiGithub />} className="w-full">
@@ -67,7 +67,7 @@ export default function SignIn({ code }: { code?: string }) {
         </Button>
       </a>
 
-      <p>
+      <p className="flex flex-col items-center">
         No Account? <Hyperlink href="/sign-up">Create One!</Hyperlink>
       </p>
     </AuthLayout>

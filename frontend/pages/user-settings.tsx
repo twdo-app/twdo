@@ -150,7 +150,7 @@ export default function UserSettings({ user }: { user: User }) {
       <Button
         onClick={onDeleteAccount}
         icon={<FiTrash2 />}
-        className="mb-4 bg-red-600"
+        className="mb-4 !bg-red-600"
       >
         Delete your Account
       </Button>

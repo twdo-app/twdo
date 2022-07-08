@@ -17,9 +17,9 @@ const Clickable = React.forwardRef(
         className={`${
           props.className
             ? props.className
-            : "flex flex-row first-of-type:rounded-t-xl last-of-type:rounded-b-xl items-center px-2 py-1 transition-clickable h-8 active:bg-blue-400/20 dark:active:bg-pink-400/20"
+            : "flex flex-row rounded-xl items-center px-2 py-1 transition-clickable h-8 active:bg-blue-400/20 dark:active:bg-pink-400/20"
         }
-        ${!props.disabled ? "hover:bg-black/5" : ""}
+        ${!props.disabled ? "hover:bg-subtle transition-colors" : ""}
       `}
       >
         {props.children}

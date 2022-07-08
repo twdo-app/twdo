@@ -13,7 +13,7 @@
   --subtle: #00000010;
   --fg: #000;
   --fgb: #fff;
-  --input-bg: #fff;
+  --input-bg: #eee;
   --input-border: #aaa;
   --primary: #000;
   --primary-subtle: #00000020;
@@ -28,16 +28,16 @@
   --bg: #111;
   --subtle: #ffffff10;
   --fg: #fff;
-  --fgb: #111;
-  --input-bg: #111;
+  --fgb: rgb(255, 255, 255);
+  --input-bg: #222;
   --input-border: #444;
-  --primary: #fff;
+  --primary: rgb(44, 44, 44);
   --primary-subtle: #ffffff20;
   --primary-border: #fff;
   --card: #111;
   --card-odd: #111;
   --card-border: #fff;
-  --link: #30f;
+  --link: rgb(68, 227, 255);
 }
 
 @layer base {
@@ -46,7 +46,6 @@
 * {
   font-family: "Inter", "Nunito", sans-serif;
   list-style: none;
-  outline: none;
   border: none;
   box-sizing: border-box;
 }

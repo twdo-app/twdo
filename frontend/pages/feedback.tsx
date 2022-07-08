@@ -1,16 +1,27 @@
+import Router from "next/router";
 import { useState } from "react";
 import { FiArrowLeft, FiSend } from "react-icons/fi";
 import Button from "../components/common/Button";
 import Hyperlink from "../components/common/Hyperlink";
 import { api } from "../services/api";
+import { useModal } from "../store/useModal";
 
 export default function Feedback() {
   const [message, setMessage] = useState("");
+  const modal = useModal((state) => state);
 
   const handleSubmit = () => {
-    api.post("/utils/send-feedback", {
-      message: message,
-    });
+    api
+      .post("/utils/send-feedback", {
+        message: message,
+      })
+      .then((res) => {
+        if (res.status === 200) modal.showSuccessMessage("Feedback sent!");
+        else modal.showErrorMessage("Failed to send feedback");
+        setTimeout(() => {
+          Router.push("inbox");
+        }, 1000);
+      });
   };
 
   return (

@@ -21,8 +21,8 @@ export default function Button({
       type={type}
       className={`
       text-sm
-      flex justify-center items-center rounded-full
-      ${children ? "px-5 py-2" : "p-3"}
+      flex justify-center items-center
+      ${children ? "px-5 py-2 rounded-xl" : "p-3 rounded-full"}
       ${
         theme === "text"
           ? "hover:bg-primary-subtle cursor-default transition-colors font-bold"
