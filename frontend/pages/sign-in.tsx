@@ -40,39 +40,35 @@ export default function SignIn({ code }: { code?: string }) {
 
   return (
     <AuthLayout onSubmit={handleSubmit(onSignIn)}>
-      <Title className="mb-8">login</Title>
+      <Title className="mb-8 font-normal">Sign In</Title>
 
       <TextInput
         {...register("email")}
-        className="mb-4"
-        placeholder="email address"
+        className="mb-2"
+        placeholder="Email Address"
       />
       <TextInput
         {...register("password")}
         className="mb-4"
-        placeholder="password"
+        placeholder="Password"
         type="password"
       />
 
-      <Button type="submit" className="w-full mb-4">
-        login
+      <Button type="submit" className="w-full mb-2">
+        Sign In
       </Button>
 
       <a
-        className="w-full mb-8"
+        className="w-full mb-6"
         href="https://github.com/login/oauth/authorize?scope=user:email&client_id=cfb74e83d2e2529dfd4f"
       >
-        <Button
-          type="button"
-          icon={<FiGithub />}
-          className="w-full bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-900"
-        >
-          login with github
+        <Button type="button" icon={<FiGithub />} className="w-full">
+          Sign In With GitHub
         </Button>
       </a>
 
-      <p>
-        no account? <Hyperlink href="/sign-up">create one</Hyperlink>
+      <p className="flex flex-col items-center">
+        No Account? <Hyperlink href="/sign-up">Create One!</Hyperlink>
       </p>
     </AuthLayout>
   );

@@ -95,7 +95,7 @@ export default function SignUp({ code }: { code?: string }) {
         </Button>
       </a>
 
-      <p>
+      <p className="flex flex-col items-center">
         already have an account? <Hyperlink href="/sign-in">sign in</Hyperlink>
       </p>
     </AuthLayout>

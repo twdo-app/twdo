@@ -2,14 +2,10 @@ import { useEffect, useRef, useState } from "react";
 
 import { Draggable } from "react-beautiful-dnd";
 
-import Clickable from "./common/Clickable";
 import Checkbox from "./common/Checkbox";
 import { task } from "../types";
 import { useTasks } from "../store/useTasks";
 import { useDimScreen } from "../store/useDimScreen";
-import Button from "./common/Button";
-import { FiTrash } from "react-icons/fi";
-import Icon from "./common/Icon";
 
 export default function Task({
   task,
@@ -23,6 +19,8 @@ export default function Task({
   const tasksStore = useTasks((state) => state);
   const dimScreen = useDimScreen((state) => state);
   const [isComplete, setIsComplete] = useState(false);
+
+  const [description, setDescription] = useState(task.description);
 
   const inputElement = useRef<HTMLInputElement>(null);
 
@@ -46,7 +44,6 @@ export default function Task({
     }
     return {
       ...style,
-      transitionDuration: `0.001s`,
       opacity: 0,
     };
   }
@@ -82,18 +79,31 @@ export default function Task({
       {(provided, snapshot) => {
         return (
           <li
+            className={`
+            relative z-10 even:bg-card-odd odd:bg-card transition-colors
+            rounded-xl
+            ${
+              isTaskBeingEdited
+                ? "border border-solid border-primary-border"
+                : "hover:bg-subtle"
+            }
+            `}
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
           >
-            <Clickable
-              className={`relative flex flex-row rounded-md cursor-pointer transition-all border-transparent border active:bg-slate-100/20 dark:active:bg-slate-700/20 ${
-                isTaskBeingEdited
-                  ? "z-30 border-2 h-16 border-solid bg-slate-50/80 border-slate-200 dark:bg-slate-800/50 dark:border-slate-800 hover:cursor-text items-start px-3 py-2"
-                  : "items-center  p-1"
-              }`}
-              disabled={isTaskBeingEdited}
-              onClick={startEditingTask}
+            <div
+              className={`
+                flex flex-row
+                border border-solid border-transparent
+                ${
+                  isTaskBeingEdited
+                    ? "border-2 items-start px-3 py-2"
+                    : "items-center p-2 cursor-default"
+                }`}
+              onClick={() => {
+                startEditingTask();
+              }}
             >
               <Checkbox
                 hidden={isTaskBeingEdited}
@@ -106,18 +116,23 @@ export default function Task({
                 }}
               />
               <input
-                value={task.description}
+                value={description}
                 ref={inputElement}
                 className={`
-                w-full bg-transparent z-[-10] outline-none transition-all
-                ${isTaskBeingEdited ? "translate-x-[-1.5rem]" : ""}
+                w-full bg-transparent outline-none transition-all
+                ${
+                  isTaskBeingEdited
+                    ? "translate-x-[-1.5rem] cursor-text"
+                    : "cursor-pointer pointer-events-none"
+                }
               `}
                 onFocus={(e) => startFocusAtTheEndOfTheLine(e)}
-                onChange={(e) => {
-                  tasksStore.changeTaskDescription(task.id, e.target.value);
+                onChange={(e) => setDescription(e.target.value)}
+                onBlur={() => {
+                  tasksStore.changeTaskDescription(task.id, description);
                 }}
               />
-            </Clickable>
+            </div>
           </li>
         );
       }}

@@ -3,7 +3,14 @@ import Router from "next/router";
 import { GetServerSideProps } from "next";
 import { useForm } from "react-hook-form";
 import { destroyCookie, parseCookies } from "nookies";
-import { FiCheck, FiX } from "react-icons/fi";
+import {
+  FiCheck,
+  FiDelete,
+  FiLogOut,
+  FiSave,
+  FiTrash2,
+  FiX,
+} from "react-icons/fi";
 
 import { getAPIClient } from "../services/axios";
 import { User } from "../types/user";
@@ -98,7 +105,7 @@ export default function UserSettings({ user }: { user: User }) {
           ></TextInput>
         </FormSection>
         <div className="w-full flex justify-end">
-          <Button type="submit" className="mb-4">
+          <Button icon={<FiSave />} type="submit" className="mb-4">
             Update Account Details
           </Button>
         </div>
@@ -133,20 +140,23 @@ export default function UserSettings({ user }: { user: User }) {
               ></TextInput>
             </FormSection>
             <div className="w-full flex justify-end">
-              <Button type="submit" className="mb-4">
+              <Button icon={<FiSave />} type="submit" className="mb-4">
                 update password
               </Button>
             </div>
           </form>
         </>
       ) : null}
-      <Button onClick={signOut}>sign out</Button>
-      <button
+      <Button
         onClick={onDeleteAccount}
-        className="mt-4 underline dark:text-pink-400 text-blue-400"
+        icon={<FiTrash2 />}
+        className="mb-4 !bg-red-600"
       >
         Delete your Account
-      </button>
+      </Button>
+      <Button icon={<FiLogOut />} onClick={signOut} theme="hyperlink">
+        Sign Out
+      </Button>
     </AppLayout>
   );
 }
