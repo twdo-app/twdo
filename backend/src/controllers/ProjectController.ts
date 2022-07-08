@@ -90,18 +90,6 @@ class TaskController {
         });
     };
   }
-
-  reorder() {
-    return async (req: Request, res: Response, next: NextFunction) => {
-      const userId = req.user.id;
-      const projects = req.body.projects;
-      return projectDao.reorder(userId, projects).then((projects: any) => {
-        return res.status(200).send({
-          projects,
-        });
-      });
-    };
-  }
 }
 
 export default new TaskController();
