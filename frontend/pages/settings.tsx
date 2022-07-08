@@ -25,27 +25,6 @@ export default function Settings() {
           <option value="system">System</option>
         </Dropdown>
       </FormSection>
-      <FormSection>
-        <FormLabel>Highlight Color:</FormLabel>
-        <Dropdown
-          onChange={(e) => {
-            const html = document.querySelector("html");
-            if (html) {
-              html.classList.remove(html.classList[0]);
-              html.classList.add(e.target.value);
-            }
-          }}
-          value={theme as string}
-          id="theme"
-          name="theme"
-        >
-          <option value="default">Default</option>
-          <option value="blue">Blue</option>
-          <option value="pink">Pink</option>
-          <option value="green">Green</option>
-          <option value="orange">Orange</option>
-        </Dropdown>
-      </FormSection>
       <Hyperlink href="/feedback">Send FeedBack</Hyperlink>
     </AppLayout>
   );
