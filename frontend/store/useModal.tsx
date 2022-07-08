@@ -3,6 +3,7 @@ import { FiCheck, FiPlus, FiX } from "react-icons/fi";
 import create from "zustand";
 import AddProjectModal from "../components/AddProjectModal";
 import Button from "../components/common/Button";
+import EditProjectModal from "../components/EditProjectModal";
 
 interface ModalState {
   modalState: boolean;
@@ -15,6 +16,7 @@ interface ModalState {
     confirmationAction: () => void
   ) => void;
   showAddProjectModal: (confirmationAction: () => void) => void;
+  showEditProjectModal: (projectId: number) => void;
 }
 
 export const useModal = create<ModalState>((set) => ({
@@ -84,6 +86,14 @@ export const useModal = create<ModalState>((set) => ({
       return {
         modalState: true,
         modalContent: <AddProjectModal />,
+      };
+    });
+  },
+  showEditProjectModal: (projectId) => {
+    set((state) => {
+      return {
+        modalState: true,
+        modalContent: <EditProjectModal projectId={projectId} />,
       };
     });
   },

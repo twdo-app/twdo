@@ -1,5 +1,7 @@
-import { MouseEventHandler } from "react";
-import { useModal } from "../../store/useModal";
+import { MouseEventHandler, useState } from "react";
+import { FiMusic, FiPlay } from "react-icons/fi";
+import Button from "../common/Button";
+import Icon from "../common/Icon";
 import DnD from "../DnD";
 import HeaderBar from "../HeaderBar";
 import Pomodoro from "../Pomodoro";
@@ -9,14 +11,18 @@ export default function AppLayout({
   title,
   children,
   showTemperature,
+  showEditButton,
   showAddButton,
   onAddButtonClick,
+  onEditButtonClick,
 }: {
   title: string;
   children: React.ReactNode;
   showTemperature?: boolean;
+  showEditButton?: boolean;
   showAddButton?: boolean;
   onAddButtonClick?: MouseEventHandler<any>;
+  onEditButtonClick?: MouseEventHandler<any>;
 }) {
   return (
     <DnD>
@@ -26,7 +32,9 @@ export default function AppLayout({
             title={title}
             showTemperature={showTemperature}
             showAddButton={showAddButton}
+            showEditButton={showEditButton}
             onAddButtonClick={onAddButtonClick}
+            onEditButtonClick={onEditButtonClick}
           />
         </div>
 

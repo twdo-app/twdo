@@ -12,6 +12,7 @@ export default function Inbox() {
       title="Inbox"
       showTemperature
       showAddButton
+      showEditButton={false}
       onAddButtonClick={async () => {
         await taskStore.addTask();
       }}

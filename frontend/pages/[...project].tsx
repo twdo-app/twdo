@@ -2,20 +2,26 @@ import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 import AppLayout from "../components/layouts/AppLayout";
 import TaskView from "../components/TaskView";
+import { useModal } from "../store/useModal";
 import { useProjects } from "../store/useProjects";
 import { useTasks } from "../store/useTasks";
 
 export default function Project({ projectId }: { projectId: number }) {
   const taskStore = useTasks((state) => state);
   const projectStore = useProjects((state) => state);
+  const modal = useModal((state) => state);
 
   return (
     <AppLayout
       title={projectStore.projects.find((p) => p.id === projectId)?.name!}
       showTemperature
       showAddButton
+      showEditButton
       onAddButtonClick={async () => {
         await taskStore.addTask(projectId);
+      }}
+      onEditButtonClick={async () => {
+        modal.showEditProjectModal(projectId);
       }}
     >
       <TaskView />

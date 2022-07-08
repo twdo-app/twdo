@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import { FiPlus } from "react-icons/fi";
+import { FiEdit, FiPenTool, FiPlus } from "react-icons/fi";
 import Button from "./common/Button";
 import Icon from "./common/Icon";
 import Title from "./common/Title";
@@ -9,12 +9,16 @@ export default function HeaderBar({
   title,
   showTemperature,
   showAddButton,
+  showEditButton,
   onAddButtonClick,
+  onEditButtonClick,
 }: {
   title: string;
   showTemperature?: boolean;
   showAddButton?: boolean;
+  showEditButton?: boolean;
   onAddButtonClick?: MouseEventHandler<any>;
+  onEditButtonClick?: MouseEventHandler<any>;
 }) {
   return (
     <header className="flex items-center justify-between w-full row-span-1 col-span-3 place-self-center">
@@ -24,6 +28,14 @@ export default function HeaderBar({
           {showTemperature ? <Weather /> : null}
         </p>
       </div>
+      {showEditButton ? (
+        <Button
+          className="mr-2"
+          onClick={onEditButtonClick}
+          icon={<Icon icon={<FiEdit />} />}
+          theme="text"
+        ></Button>
+      ) : null}
       {showAddButton ? (
         <Button
           onClick={onAddButtonClick}

@@ -40,6 +40,13 @@
   --link: rgb(68, 227, 255);
 }
 
+:root.light-blue {
+  --primary: #30f;
+  --primary-subtle: #3300ff20;
+  --primary-border: #30f;
+  --link: #30f;
+}
+
 @layer base {
 }
 
