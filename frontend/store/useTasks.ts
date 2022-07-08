@@ -11,7 +11,11 @@ interface TasksState {
   stopEditingTask: () => void;
   updateTasks: () => Promise<void>;
   addTask: (project?: string) => Promise<void>;
-  changeTaskDescription: (taskID: string, description: string) => void;
+  changeTaskDescription: (
+    taskID: string,
+    description: string,
+    projectId: number | null
+  ) => void;
   isDraggingTask: boolean;
   setIsDraggingTask: (isDraggingTask: boolean) => void;
   removeTask: (id: string) => Promise<void>;
@@ -49,7 +53,7 @@ export const useTasks = create<TasksState>((set) => ({
   isDraggingTask: false,
   addTask: async (project) => {
     await api.post("/tasks", {
-      projectId: project ? project : "",
+      projectId: project ? project : null,
       description: "",
     });
 
