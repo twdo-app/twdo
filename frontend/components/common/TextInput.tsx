@@ -26,6 +26,7 @@ const TextInput = React.forwardRef(
       border-input-border
       outline-none
       focus:border-primary
+      bg-bg
       transition-colors
       `}
       />

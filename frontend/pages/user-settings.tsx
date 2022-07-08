@@ -147,10 +147,12 @@ export default function UserSettings({ user }: { user: User }) {
           </form>
         </>
       ) : null}
+
       <Button
         onClick={onDeleteAccount}
         icon={<FiTrash2 />}
-        className="mb-4 !bg-red-600"
+        theme="hyperlink"
+        className="!text-red-600"
       >
         Delete your Account
       </Button>

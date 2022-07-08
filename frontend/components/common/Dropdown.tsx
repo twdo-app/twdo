@@ -40,8 +40,9 @@ const Dropdown = React.forwardRef(
           className={`
       ${className}
       flex items-center justify-between appearance-none
-      w-full rounded-xl px-4 py-2 outline-transparent bg-input-bg
-      focus:outline-1 focus:outline-primary-border
+      w-full rounded-md px-4 py-2 bg-input-bg
+      border-none
+      outline-0 outline outline-primary-border focus:outline-1
       `}
         >
           {children}
